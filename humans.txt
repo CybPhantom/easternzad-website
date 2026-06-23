@@ -1,0 +1,7 @@
+/* TEAM */
+Company: Eastern Zad Trading Co. / زاد الشرقية للتجارة
+Site: https://easternzad.com
+Contact: info@easternzad.com
+
+/* THANKS */
+Built with care for cold chain excellence in Saudi Arabia.

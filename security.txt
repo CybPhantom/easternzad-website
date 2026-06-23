@@ -1,0 +1,5 @@
+Contact: mailto:info@easternzad.com
+Contact: https://easternzad.com/#contact
+Preferred-Languages: ar, en
+Canonical: https://easternzad.com/
+Policy: https://easternzad.com/

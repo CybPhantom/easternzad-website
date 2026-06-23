@@ -1,0 +1,80 @@
+═══════════════════════════════════════════════════════
+  دليل رفع موقع زاد الشرقية على GoDaddy
+═══════════════════════════════════════════════════════
+
+📁 المجلد الذي ترفعه كاملاً:
+   uploads/easternzad-website/
+
+───────────────────────────────────────────────────────
+الخطوات (cPanel File Manager)
+───────────────────────────────────────────────────────
+
+1. ادخل على GoDaddy → My Products → Web Hosting → Manage
+2. افتح cPanel → File Manager
+3. ادخل مجلد public_html (أو المجلد الرئيسي للدومين)
+4. ارفع كل محتويات مجلد easternzad-website:
+
+   الصفحات:
+   - index.html (الرئيسية)
+   - about.html
+   - services.html
+   - regions.html
+   - contact.html
+   - مجلد geo/ (9 صفحات GEO + index.html)
+   - geo.json
+   - geo.txt
+
+   SEO ومحركات البحث:
+   - sitemap.xml
+   - robots.txt
+   - llms.txt
+   - ai.txt
+   - security.txt
+   - humans.txt
+
+   التطبيق والأمان:
+   - manifest.webmanifest
+   - sw.js
+   - .htaccess
+   - _headers
+
+   المجلدات:
+   - assets/ (كاملاً مع logos/)
+
+   ⚠ لا ترفع: security-check.js (للاختبار المحلي فقط)
+
+5. تأكد أن index.html في الجذر مباشرة (public_html/index.html)
+
+6. فعّل SSL من cPanel → SSL/TLS → Let's Encrypt (مجاني)
+
+7. افتح الموقع: https://easternzad.com
+
+───────────────────────────────────────────────────────────────────
+بعد الرفع مباشرة (مهم للظهور في Google)
+───────────────────────────────────────────────────────────────────
+
+اقرأ ملف: SEARCH-ENGINE-SETUP.txt
+واتبع خطوات Google Search Console + Google Business Profile
+
+───────────────────────────────────────────────────────
+اختبار الجاهزية (40 فحص)
+───────────────────────────────────────────────────────
+
+على جهازك قبل الرفع شغّل:
+   node security-check.js
+
+يجب أن تظهر: 50/50 نجح
+
+   (لإعادة توليد صفحات GEO بعد تعديل: node build-geo-pages.js)
+
+───────────────────────────────────────────────────────
+ملاحظات
+───────────────────────────────────────────────────────
+
+• لا ترفع ملفات .env أو كلمات مرور
+• ملف .htaccess يفعّل HTTPS والحماية تلقائياً
+• للتثبيت كتطبيق: من Chrome → Install App
+• رابط المنصة: https://ops.easternzad.com
+• النسخة الإنجليزية: https://easternzad.com/?lang=en
+
+═══════════════════════════════════════════════════════

@@ -1,0 +1,23 @@
+{
+  "name": "زاد الشرقية للتجارة | Eastern Zad Trading",
+  "short_name": "زاد الشرقية",
+  "description": "توزيع مبرّد ومجمّد في السعودية — 9 مناطق، معتمد SFDA و ISO 22000",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#042C53",
+  "theme_color": "#042C53",
+  "lang": "ar",
+  "dir": "rtl",
+  "categories": ["business", "food", "logistics"],
+  "icons": [
+    {"src": "assets/logos/easternzad logo.png", "sizes": "192x192", "type": "image/png", "purpose": "any"},
+    {"src": "assets/logos/easternzad logo.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable"}
+  ],
+  "shortcuts": [
+    {"name": "عرض سعر", "short_name": "عرض سعر", "url": "./index.html#quote", "icons": [{"src": "assets/logos/easternzad logo.png", "sizes": "96x96"}]},
+    {"name": "تواصل", "short_name": "تواصل", "url": "./contact.html", "icons": [{"src": "assets/logos/easternzad logo.png", "sizes": "96x96"}]},
+    {"name": "الخدمات", "short_name": "خدمات", "url": "./services.html", "icons": [{"src": "assets/logos/easternzad logo.png", "sizes": "96x96"}]}
+  ]
+}

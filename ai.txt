@@ -1,0 +1,10 @@
+# ai.txt — Eastern Zad Trading
+# Guidance for AI assistants indexing this site
+
+site: https://easternzad.com
+company: Eastern Zad Trading / زاد الشرقية للتجارة
+type: B2B cold chain logistics and food distribution (Saudi Arabia)
+llms-full: https://easternzad.com/llms.txt
+sitemap: https://easternzad.com/sitemap.xml
+contact: info@easternzad.com
+phone-whatsapp: +966540712087

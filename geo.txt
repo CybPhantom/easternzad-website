@@ -1,0 +1,22 @@
+# geo.txt — Geographic coverage for Eastern Zad Trading
+# Machine-readable location index: https://easternzad.com/geo.json
+
+headquarters: Umm Al Sahk, Qatif, Eastern Province, Saudi Arabia
+coordinates: 26.5644, 49.9983
+country: SA
+phone: +966540712087
+email: info@easternzad.com
+
+## GEO landing pages (local SEO)
+- Eastern Province (HQ): https://easternzad.com/geo/eastern-province.html
+- Riyadh: https://easternzad.com/geo/riyadh.html
+- Jeddah: https://easternzad.com/geo/jeddah.html
+- Madinah: https://easternzad.com/geo/madinah.html
+- Yanbu: https://easternzad.com/geo/yanbu.html
+- Hail: https://easternzad.com/geo/hail.html
+- Qassim: https://easternzad.com/geo/qassim.html
+- Jazan: https://easternzad.com/geo/jazan.html
+- Asir: https://easternzad.com/geo/asir.html
+
+## Local search keywords (AR)
+توزيع مبرّد الدمام | نقل مجمد الرياض | توزيع غذائي جدة | سلسلة تبريد القطيف | شركة توزيع الخبر

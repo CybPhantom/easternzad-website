@@ -1,0 +1,66 @@
+# Eastern Zad Trading — زاد الشرقية للتجارة
+# Official website: https://easternzad.com
+# Operations platform (partners only): https://ops.easternzad.com
+
+## Company
+- Name (AR): زاد الشرقية للتجارة
+- Name (EN): Eastern Zad Trading Co.
+- Industry: Cold chain logistics, refrigerated food distribution, exclusive food agencies
+- Country: Saudi Arabia
+- Headquarters: Umm Al Sahk, Qatif, Eastern Province, Saudi Arabia
+- Coordinates: 26.5644, 49.9983
+- Email: info@easternzad.com
+- WhatsApp: +966 54 071 2087
+- Phone: tel:+966540712087
+
+## Services
+- Refrigerated and frozen product distribution across Saudi Arabia
+- Cold storage warehouses (ISO 22000, HACCP standards)
+- Exclusive food brand agencies
+- Inter-regional refrigerated transport (-25°C to -40°C)
+- B2B partnership programs for producers and distributors
+- Restaurant and hospitality chilled supply
+
+## Coverage (9 regions)
+Eastern Province HQ (Dammam, Khobar, Qatif), Riyadh, Jeddah, Madinah, Yanbu, Hail, Qassim, Jazan, Asir
+
+## Scale
+- 5,500+ client outlets
+- 50+ refrigerated trucks
+- 24/7 operations support
+- 15+ years distribution experience
+
+## Certifications
+ISO 22000, SFDA licensed, HACCP, GDP, ISO 9001
+
+## Languages
+Arabic (primary), English — toggle on website or ?lang=en
+
+## Pages
+- Home: https://easternzad.com/
+- About: https://easternzad.com/about.html
+- Services: https://easternzad.com/services.html
+- Regions: https://easternzad.com/regions.html
+- Contact: https://easternzad.com/contact.html
+- Geo index: https://easternzad.com/geo/
+- Geo JSON: https://easternzad.com/geo.json
+- geo.txt: https://easternzad.com/geo.txt
+
+## GEO pages (local search — one per region)
+- Eastern Province / Dammam / Qatif: https://easternzad.com/geo/eastern-province.html
+- Riyadh: https://easternzad.com/geo/riyadh.html
+- Jeddah: https://easternzad.com/geo/jeddah.html
+- Madinah: https://easternzad.com/geo/madinah.html
+- Yanbu: https://easternzad.com/geo/yanbu.html
+- Hail: https://easternzad.com/geo/hail.html
+- Qassim / Buraidah: https://easternzad.com/geo/qassim.html
+- Jazan: https://easternzad.com/geo/jazan.html
+- Asir / Abha: https://easternzad.com/geo/asir.html
+- Sitemap: https://easternzad.com/sitemap.xml
+- Operations (employees): https://ops.easternzad.com
+
+## Keywords (search)
+توزيع مبرّد، نقل مجمد، سلسلة التبريد، مستودعات مبردة، توزيع غذائي السعودية، شركة توزيع القطيف، cold chain Saudi Arabia, refrigerated distribution KSA
+
+## Contact for quotes
+Website quote form, WhatsApp +966540712087, or email info@easternzad.com
