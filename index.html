@@ -439,7 +439,9 @@ html[dir="ltr"] .wa-msg .wa-time { float: right; margin-left: 8px; margin-right:
 .partners-top h3 { font-size: 22px; color: var(--text); font-weight: 700; margin-bottom: 8px; }
 .partners-top p { font-size: 15px; color: var(--text-light); }
 .partners-marquee-wrap { width: 100%; max-width: 100%; overflow: hidden; position: relative; }
-.partners-marquee-track { display: flex; flex-wrap: nowrap; align-items: center; width: max-content; direction: ltr; gap: 24px; will-change: transform; transform: translate3d(0,0,0); }
+.partners-marquee-track { display: flex; flex-wrap: nowrap; align-items: center; width: max-content; direction: ltr; gap: 24px; will-change: transform; animation: partnersScroll 30s linear infinite; }
+.partners-marquee-track:hover { animation-play-state: paused; }
+@keyframes partnersScroll { 0% { transform: translateX(0); } 100% { transform: translateX(-25%); } }
 [data-theme="dark"] .partners-bar { background: var(--gray-100); border-bottom-color: rgba(255,255,255,0.08); }
 .partner-logo-card { flex-shrink: 0; display: flex; align-items: center; justify-content: center; height: 128px; width: 220px; padding: 18px 24px; background: var(--white); border: 1px solid var(--gray-200); border-radius: 18px; box-shadow: 0 6px 24px rgba(12,68,124,0.07); transition: border-color 0.35s, box-shadow 0.35s; }
 @media (hover: hover) {
@@ -976,7 +978,28 @@ html[dir="ltr"] .sf-arr { transform: scaleX(-1); }
     </div>
   </div>
   <div class="partners-marquee-wrap" aria-hidden="false">
-    <div class="partners-marquee-track" id="marqueeTrack" aria-label="شعارات عملائنا"></div>
+    <div class="partners-marquee-track" aria-label="شعارات عملائنا">
+      <div class="partner-logo-card"><img src="assets/logos/ninja%20logo.png" alt="Ninja" width="200" height="100" draggable="false"></div>
+      <div class="partner-logo-card"><img src="assets/logos/Al%20Baik%20logo.png" alt="AlBaik" width="200" height="100" draggable="false"></div>
+      <div class="partner-logo-card"><img src="assets/logos/Ice%20Queen%20logo.png" alt="Ice Queen" width="200" height="100" draggable="false"></div>
+      <div class="partner-logo-card"><img src="assets/logos/Fadeco%20logo.png" alt="FADECO" width="200" height="100" draggable="false"></div>
+      <div class="partner-logo-card"><img src="assets/logos/Jazan%20mango%20logo.jpeg" alt="Mango Jazan" width="200" height="100" draggable="false"></div>
+      <div class="partner-logo-card"><img src="assets/logos/ninja%20logo.png" alt="Ninja" width="200" height="100" draggable="false"></div>
+      <div class="partner-logo-card"><img src="assets/logos/Al%20Baik%20logo.png" alt="AlBaik" width="200" height="100" draggable="false"></div>
+      <div class="partner-logo-card"><img src="assets/logos/Ice%20Queen%20logo.png" alt="Ice Queen" width="200" height="100" draggable="false"></div>
+      <div class="partner-logo-card"><img src="assets/logos/Fadeco%20logo.png" alt="FADECO" width="200" height="100" draggable="false"></div>
+      <div class="partner-logo-card"><img src="assets/logos/Jazan%20mango%20logo.jpeg" alt="Mango Jazan" width="200" height="100" draggable="false"></div>
+      <div class="partner-logo-card"><img src="assets/logos/ninja%20logo.png" alt="Ninja" width="200" height="100" draggable="false"></div>
+      <div class="partner-logo-card"><img src="assets/logos/Al%20Baik%20logo.png" alt="AlBaik" width="200" height="100" draggable="false"></div>
+      <div class="partner-logo-card"><img src="assets/logos/Ice%20Queen%20logo.png" alt="Ice Queen" width="200" height="100" draggable="false"></div>
+      <div class="partner-logo-card"><img src="assets/logos/Fadeco%20logo.png" alt="FADECO" width="200" height="100" draggable="false"></div>
+      <div class="partner-logo-card"><img src="assets/logos/Jazan%20mango%20logo.jpeg" alt="Mango Jazan" width="200" height="100" draggable="false"></div>
+      <div class="partner-logo-card"><img src="assets/logos/ninja%20logo.png" alt="Ninja" width="200" height="100" draggable="false"></div>
+      <div class="partner-logo-card"><img src="assets/logos/Al%20Baik%20logo.png" alt="AlBaik" width="200" height="100" draggable="false"></div>
+      <div class="partner-logo-card"><img src="assets/logos/Ice%20Queen%20logo.png" alt="Ice Queen" width="200" height="100" draggable="false"></div>
+      <div class="partner-logo-card"><img src="assets/logos/Fadeco%20logo.png" alt="FADECO" width="200" height="100" draggable="false"></div>
+      <div class="partner-logo-card"><img src="assets/logos/Jazan%20mango%20logo.jpeg" alt="Mango Jazan" width="200" height="100" draggable="false"></div>
+    </div>
   </div>
 </div>
 
@@ -1950,125 +1973,7 @@ function buildTestimonialMarquee() {
   track.innerHTML = html + html;
 }
 
-var PARTNER_LOGOS = [
-  { src: 'assets/logos/ninja%20logo.png', alt: 'Ninja' },
-  { src: 'assets/logos/Al%20Baik%20logo.png', alt: 'AlBaik' },
-  { src: 'assets/logos/Ice%20Queen%20logo.png', alt: 'Ice Queen' },
-  { src: 'assets/logos/Fadeco%20logo.png', alt: 'FADECO' },
-  { src: 'assets/logos/Jazan%20mango%20logo.jpeg', alt: 'Mango Jazan' }
-];
-
-var PartnersMarquee = (function() {
-  var st = { pos: 0, shift: 0, speed: 52, raf: 0, last: 0, paused: false, track: null, wrap: null, bound: false, started: false, resizeTimer: 0 };
-
-  function cardHtml(logo) {
-    return '<div class="partner-logo-card"><img src="' + logo.src + '" alt="' + logo.alt + '" width="200" height="100" decoding="async" loading="eager" draggable="false"></div>';
-  }
-
-  function measure() {
-    if (!st.track) return;
-    st.shift = st.halfWidth || (st.track.scrollWidth / 2);
-    if (!st.shift || st.shift < 1) st.shift = 1;
-  }
-
-  function build() {
-    var track = document.getElementById('marqueeTrack');
-    var wrap = track && track.closest('.partners-marquee-wrap');
-    if (!track || !wrap) return;
-
-    st.track = track;
-    st.wrap = wrap;
-    st.pos = 0;
-    track.style.transform = 'translate3d(0,0,0)';
-
-    var strip = PARTNER_LOGOS.map(cardHtml).join('');
-    track.innerHTML = strip;
-
-    var viewW = wrap.clientWidth || window.innerWidth;
-    var guard = 0;
-    while (track.scrollWidth < viewW * 2.5 && guard < 30) {
-      track.insertAdjacentHTML('beforeend', strip);
-      guard++;
-    }
-
-    st.halfWidth = track.scrollWidth;
-    track.innerHTML = track.innerHTML + track.innerHTML;
-    measure();
-  }
-
-  function frame(ts) {
-    if (!st.last) st.last = ts;
-    var dt = Math.min(ts - st.last, 40);
-    st.last = ts;
-    if (!st.paused && st.track && st.shift > 0) {
-      st.pos -= (st.speed * dt) / 1000;
-      if (Math.abs(st.pos) >= st.shift) st.pos += st.shift;
-      st.track.style.transform = 'translate3d(' + st.pos.toFixed(2) + 'px,0,0)';
-    }
-    st.raf = requestAnimationFrame(frame);
-  }
-
-  function start() {
-    if (st.raf) cancelAnimationFrame(st.raf);
-    st.last = 0;
-    st.raf = requestAnimationFrame(frame);
-  }
-
-  function bind() {
-    if (st.bound || !st.wrap) return;
-    st.bound = true;
-    st.wrap.addEventListener('mouseenter', function() { st.paused = true; });
-    st.wrap.addEventListener('mouseleave', function() { st.paused = false; st.last = 0; });
-    st.wrap.addEventListener('touchstart', function() { st.paused = true; }, { passive: true });
-    st.wrap.addEventListener('touchend', function() { st.paused = false; st.last = 0; }, { passive: true });
-    if (typeof ResizeObserver !== 'undefined') {
-      new ResizeObserver(function() {
-        clearTimeout(st.resizeTimer);
-        st.resizeTimer = setTimeout(build, 120);
-      }).observe(st.wrap);
-    } else {
-      window.addEventListener('resize', function() {
-        clearTimeout(st.resizeTimer);
-        st.resizeTimer = setTimeout(build, 120);
-      });
-    }
-  }
-
-  function waitImages(cb) {
-    if (!st.track) { cb(); return; }
-    var imgs = st.track.querySelectorAll('img');
-    var pending = 0;
-    imgs.forEach(function(img) {
-      if (!img.complete) {
-        pending++;
-        img.addEventListener('load', function() { if (--pending <= 0) cb(); }, { once: true });
-        img.addEventListener('error', function() { if (--pending <= 0) cb(); }, { once: true });
-      }
-    });
-    if (pending === 0) cb();
-  }
-
-  return {
-    init: function() {
-      build();
-      bind();
-      waitImages(build);
-      if (!st.started) {
-        st.started = true;
-        start();
-      }
-    },
-    rebuild: build
-  };
-})();
-
-function buildPartnersMarquee() {
-  PartnersMarquee.rebuild();
-}
-
-function initPartnersMarqueeWhenReady() {
-  PartnersMarquee.init();
-}
+function buildPartnersMarquee() {}
 
 function updateSectionLabels(data) {
   Object.keys(SECTION_LABELS).forEach(function(id) {
@@ -2229,7 +2134,6 @@ setTimeout(function() { if (!waOpen) { document.getElementById('waPopup').classL
 
 // Testimonials + partners marquee
 buildTestimonialMarquee();
-initPartnersMarqueeWhenReady();
 buildHeroRotator();
 startHeroRotator();
 
