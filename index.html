@@ -1235,11 +1235,11 @@ html[dir="ltr"] .sf-arr { transform: scaleX(-1); }
       <p id="q-desc">أرسل لنا تفاصيل طلبك وسنعود إليك خلال 24 ساعة</p>
     </div>
     <form class="quote-form fade-up" onsubmit="return handleQuote(event)">
-      <input class="quote-input" type="text" placeholder="الاسم الكامل" id="qf-name" required>
-      <input class="quote-input" type="text" placeholder="اسم الشركة" id="qf-company">
-      <input class="quote-input" type="email" placeholder="البريد الإلكتروني" id="qf-email" required>
-      <input class="quote-input" type="tel" placeholder="رقم الجوال" id="qf-phone" required>
-      <select class="quote-input full" id="qf-service">
+      <input class="quote-input" type="text" placeholder="الاسم الكامل" id="qf-name" required aria-label="الاسم الكامل" autocomplete="name">
+      <input class="quote-input" type="text" placeholder="اسم الشركة" id="qf-company" aria-label="اسم الشركة" autocomplete="organization">
+      <input class="quote-input" type="email" placeholder="البريد الإلكتروني" id="qf-email" required aria-label="البريد الإلكتروني" autocomplete="email">
+      <input class="quote-input" type="tel" placeholder="رقم الجوال" id="qf-phone" required aria-label="رقم الجوال" autocomplete="tel">
+      <select class="quote-input full" id="qf-service" aria-label="الخدمة المطلوبة">
         <option value="" id="qf-opt0">اختر الخدمة المطلوبة</option>
         <option value="distribution" id="qf-opt1">توزيع مبرّد</option>
         <option value="storage" id="qf-opt2">تخزين مبرّد</option>
@@ -1573,8 +1573,13 @@ function toggleTheme() {
 })();
 
 // Quote form
+var _qRL = { count: 0, last: 0 };
 function handleQuote(e) {
   e.preventDefault();
+  var now = Date.now();
+  if (now - _qRL.last < 30000) { _qRL.count++; } else { _qRL.count = 1; }
+  _qRL.last = now;
+  if (_qRL.count > 3) { alert(currentLang === 'ar' ? 'تم إرسال عدة طلبات. يرجى الانتظار.' : 'Too many requests. Please wait.'); return false; }
   var name = document.getElementById('qf-name').value;
   var company = document.getElementById('qf-company').value;
   var email = document.getElementById('qf-email').value;
@@ -1594,7 +1599,9 @@ function handleQuote(e) {
     '━━━━━━━━━━━━━━━━━━\n' +
     'تم الإرسال من موقع easternzad.com'
   );
-  window.location.href = 'mailto:diaaelkordeye@easternzad.com?subject=' + subject + '&body=' + body;
+  var _r = [100,105,97,97,101,108,107,111,114,100,101,121,101,64,101,97,115,116,101,114,110,122,97,100,46,99,111,109];
+  var _e = _r.map(function(c){return String.fromCharCode(c);}).join('');
+  window.location.href = 'mailto:' + _e + '?subject=' + subject + '&body=' + body;
   return false;
 }
 
@@ -1960,7 +1967,7 @@ var PartnersMarquee = (function() {
 
   function measure() {
     if (!st.track) return;
-    st.shift = st.track.scrollWidth / 2;
+    st.shift = st.halfWidth || (st.track.scrollWidth / 2);
     if (!st.shift || st.shift < 1) st.shift = 1;
   }
 
@@ -1979,13 +1986,13 @@ var PartnersMarquee = (function() {
 
     var viewW = wrap.clientWidth || window.innerWidth;
     var guard = 0;
-    while (track.scrollWidth < viewW * 2.2 && guard < 24) {
+    while (track.scrollWidth < viewW * 2.5 && guard < 30) {
       track.insertAdjacentHTML('beforeend', strip);
       guard++;
     }
 
-    var snapshot = track.innerHTML;
-    track.innerHTML = snapshot + snapshot;
+    st.halfWidth = track.scrollWidth;
+    track.innerHTML = track.innerHTML + track.innerHTML;
     measure();
   }
 
@@ -1995,7 +2002,7 @@ var PartnersMarquee = (function() {
     st.last = ts;
     if (!st.paused && st.track && st.shift > 0) {
       st.pos -= (st.speed * dt) / 1000;
-      if (st.pos <= -st.shift) st.pos += st.shift;
+      if (Math.abs(st.pos) >= st.shift) st.pos += st.shift;
       st.track.style.transform = 'translate3d(' + st.pos.toFixed(2) + 'px,0,0)';
     }
     st.raf = requestAnimationFrame(frame);
