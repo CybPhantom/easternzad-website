@@ -1,7 +1,8 @@
-# ai.txt — Eastern Zad Trading
-# Guidance for AI assistants indexing this site
+# ai.txt — Eastern Zad Trading (company info for search assistants)
+# This file describes the business — NOT that the site was built by AI.
 
 site: https://easternzad.com
+developer: CybPhantom — https://cybphantom.github.io/business-solutions/
 company: Eastern Zad Trading / زاد الشرقية للتجارة
 type: B2B cold chain logistics and food distribution (Saudi Arabia)
 llms-full: https://easternzad.com/llms.txt

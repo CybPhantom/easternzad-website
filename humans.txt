@@ -3,5 +3,10 @@ Company: Eastern Zad Trading Co. / زاد الشرقية للتجارة
 Site: https://easternzad.com
 Contact: info@easternzad.com
 
+/* DEVELOPER */
+Developer: CybPhantom
+URL: https://cybphantom.github.io/business-solutions/
+GitHub: https://github.com/CybPhantom
+
 /* THANKS */
-Built with care for cold chain excellence in Saudi Arabia.
+Professional web design and development for cold chain excellence in Saudi Arabia.
