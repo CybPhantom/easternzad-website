@@ -2,11 +2,25 @@
 Company: Eastern Zad Trading Co. / زاد الشرقية للتجارة
 Site: https://easternzad.com
 Contact: info@easternzad.com
+Location: Umm Al Sahk, Qatif, Eastern Province, Saudi Arabia
 
-/* DEVELOPER */
-Developer: CybPhantom
+/* DEVELOPER & DESIGNER */
+Developer: CybPhantom Digital Solutions
+Role: Full design, development, SEO, security & deployment
 URL: https://cybphantom.github.io/business-solutions/
 GitHub: https://github.com/CybPhantom
+Contact: doomyksa@gmail.com
+Project ID: EZ-2026
+Year: 2026
 
-/* THANKS */
-Professional web design and development for cold chain excellence in Saudi Arabia.
+/* TECHNOLOGY */
+Stack: HTML5, CSS3, Vanilla JavaScript
+Hosting: GitHub Pages
+Domain: easternzad.com
+Features: Bilingual AR/EN, RTL/LTR, Dark Mode, PWA, SEO/GEO optimized
+Security: CSP, Rate Limiting, Email Obfuscation, Right-click Protection
+Standards: WCAG 2.1 AA, Schema.org JSON-LD, Open Graph
+
+/* CREDITS */
+All website design, UI/UX, code architecture, SEO optimization,
+security hardening, and deployment by CybPhantom Digital Solutions.
