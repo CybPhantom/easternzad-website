@@ -1,6 +1,5 @@
 # Eastern Zad Company — شركة زاد الشرقية
 # Official website: https://easternzad.com
-# Operations platform (partners only): https://ops.easternzad.com
 
 ## Company
 - Name (AR): شركة زاد الشرقية
@@ -42,6 +41,8 @@ Arabic (primary), English — toggle on website or ?lang=en
 - Services: https://easternzad.com/services.html
 - Regions: https://easternzad.com/regions.html
 - Contact: https://easternzad.com/contact.html
+- FAQ (Arabic): https://easternzad.com/faq.html
+- FAQ (English): https://easternzad.com/faq-en.html
 - Geo index: https://easternzad.com/geo/
 - Geo JSON: https://easternzad.com/geo.json
 - geo.txt: https://easternzad.com/geo.txt
@@ -57,7 +58,6 @@ Arabic (primary), English — toggle on website or ?lang=en
 - Jazan: https://easternzad.com/geo/jazan.html
 - Asir / Abha: https://easternzad.com/geo/asir.html
 - Sitemap: https://easternzad.com/sitemap.xml
-- Operations (employees): https://ops.easternzad.com
 
 ## Keywords (search)
 توزيع مبرّد، نقل مجمد، سلسلة التبريد، مستودعات مبردة، توزيع غذائي السعودية، شركة توزيع القطيف، cold chain Saudi Arabia, refrigerated distribution KSA

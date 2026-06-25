@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https:; connect-src 'self'; frame-src https://maps.google.com https://www.google.com; object-src 'none'; base-uri 'self'; form-action 'self' https://wa.me;">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-BAM16yZ+RXUglG3ao7bd+iVdyouGIfT81Lx2cjCVz3k=' 'sha256-eHaAV3ApuTZCWGRm530xZJfBXhzeZeyz8v/1TQZi6wE='; script-src-attr 'none'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' data: https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data:; connect-src 'self'; frame-src 'none'; media-src 'none'; worker-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self' https://wa.me; manifest-src 'self'; upgrade-insecure-requests;">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <title>تغطية المناطق | توزيع مبرّد في 9 مناطق — زاد الشرقية</title>
 <meta name="description" content="زاد الشرقية تغطي 9 مناطق في السعودية: الشرقية، الرياض، جدة، المدينة، ينبع، حائل، القصيم، جازان، عسير. توزيع مبرّد ومجمّد من القطيف.">
@@ -63,7 +63,7 @@ html[dir="ltr"] body{font-family:'Inter',sans-serif}a{color:var(--pl);text-decor
 <nav class="nav"><div class="inner">
   <a href="index.html"><img src="assets/logos/easternzad%20logo.png" alt="زاد الشرقية" width="40" height="40"><span id="brand">زاد الشرقية</span></a>
   <div><a href="index.html" id="l-home">الرئيسية</a><a href="services.html" id="l-svc">الخدمات</a><a href="contact.html" id="l-contact">تواصل</a>
-  <button class="lang-btn" onclick="toggleLang()" id="langBtn">English</button></div>
+  <button class="lang-btn" id="langBtn">English</button></div>
 </div></nav>
 <section class="hero"><h1 id="h1">تغطية 9 مناطق في المملكة</h1><p id="hero-desc">شبكة توزيع مبرّد ومجمّد تصل منتجاتكم إلى آلاف نقاط البيع — من مقرنا في القطيف إلى كل أنحاء السعودية</p></section>
 <article class="content">
@@ -89,6 +89,8 @@ var lang='ar';
 function apply(d){Object.keys(d).forEach(function(k){var el=document.getElementById(k);if(el)el.textContent=d[k];});document.documentElement.lang=lang;document.documentElement.dir=lang==='ar'?'rtl':'ltr';document.getElementById('langBtn').textContent=lang==='ar'?'English':'العربية';}
 function toggleLang(){lang=lang==='ar'?'en':'ar';apply(lang==='ar'?AR:EN);}
 if(new URLSearchParams(location.search).get('lang')==='en')toggleLang();
+
+document.getElementById('langBtn').addEventListener('click', toggleLang);
 </script>
 </body>
 <!-- CP-DS:EZ26 -->
