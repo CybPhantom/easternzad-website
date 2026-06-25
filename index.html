@@ -18,7 +18,7 @@
 <meta property="og:locale:alternate" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data:; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self' https://wa.me;">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data:; connect-src 'self'; base-uri 'self'; form-action 'self' https://wa.me;">
 <meta http-equiv="X-Content-Type-Options" content="nosniff">
 <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=()">
 <meta name="referrer" content="strict-origin-when-cross-origin">
@@ -26,6 +26,7 @@
 <link rel="alternate" hreflang="ar" href="https://easternzad.com">
 <link rel="alternate" hreflang="en" href="https://easternzad.com?lang=en">
 <link rel="alternate" hreflang="x-default" href="https://easternzad.com">
+<link rel="preload" as="image" href="assets/hero-bg-ar-v3.webp" type="image/webp" fetchpriority="high">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌾</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -113,62 +114,68 @@ a { transition: all 0.2s; }
 .nav-mobile { display: none; background: none; border: none; color: #fff; font-size: 24px; cursor: pointer; }
 
 /* HERO */
-.hero { position: relative; overflow: hidden; background: var(--primary-dark); height: 92vh; min-height: 600px; max-height: 900px; }
-.hero-bg-layer { position: absolute; inset: 0; z-index: 1; }
-.hero-bg-layer img { width: 100%; height: 100%; object-fit: cover; object-position: 65% center; }
-.hero-overlay { position: absolute; inset: 0; z-index: 2; pointer-events: none; background: linear-gradient(to bottom, rgba(4,44,83,0.4) 0%, transparent 12%, transparent 82%, rgba(4,44,83,0.9) 100%); }
-.hero-content-wrap { position: absolute; inset: 0; z-index: 5; display: flex; padding-top: 70px; }
-.hero-content-grid { display: flex; width: 100%; height: 100%; }
-.hero-col-glass { width: 36%; background: linear-gradient(180deg, rgba(4,44,83,0.92) 0%, rgba(4,44,83,0.82) 50%, rgba(4,44,83,0.7) 100%); display: flex; flex-direction: column; justify-content: center; padding: 24px; gap: 12px; }
-html[lang="en"] .hero-col-glass { order: 2; }
-.hero-col-truck { flex: 1; position: relative; }
-html[lang="en"] .hero-col-truck { order: 1; }
+.hero { position: relative; min-height: 680px; height: min(820px, 86svh); overflow: hidden; isolation: isolate; background: #03172d; color: #fff; }
+.hero-bg-layer { position: absolute; inset: 0; z-index: -3; background: #03172d; }
+.hero-bg-layer::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(1,14,29,0.2) 0%, transparent 55%, rgba(1,14,29,0.68) 100%); }
+.hero-img { width: 100%; height: 100%; object-fit: cover; object-position: center; transition: opacity 0.22s ease; }
+.hero-img.is-changing { opacity: 0.28; }
+.hero-overlay { position: absolute; inset: 0; z-index: -2; pointer-events: none; background: linear-gradient(90deg, rgba(2,20,42,0.96) 0%, rgba(2,20,42,0.84) 28%, rgba(2,20,42,0.38) 49%, rgba(2,20,42,0.04) 72%); }
+html[lang="en"] .hero-overlay { background: linear-gradient(270deg, rgba(2,20,42,0.96) 0%, rgba(2,20,42,0.84) 28%, rgba(2,20,42,0.38) 49%, rgba(2,20,42,0.04) 72%); }
+.hero-content-wrap { position: absolute; inset: 0; z-index: 2; padding-top: 74px; }
+.hero-container { max-width: 1480px; height: 100%; display: flex; align-items: center; }
+.hero-dashboard { width: min(640px, 46vw); margin-right: auto; margin-left: 0; display: flex; flex-direction: column; gap: 12px; text-align: right; }
+html[lang="en"] .hero-dashboard { margin-right: 0; margin-left: auto; text-align: left; direction: ltr; }
+.hero-heading { padding-inline: 8px; text-shadow: 0 3px 24px rgba(0,0,0,0.55); }
+.hero-kicker { display: inline-flex; align-items: center; gap: 8px; color: #9de9d1; font-size: 13px; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 7px; }
+.hero-kicker i { font-size: 12px; }
+.hero-heading h1 { margin: 0; font-size: clamp(32px, 3vw, 46px); line-height: 1.12; font-weight: 800; color: #fff; }
+.hero-heading h1 span { display: block; }
+.hero-heading h1 #hero-accent { color: var(--accent-light); font-size: 0.68em; margin-top: 5px; }
+.hero-heading p { margin: 9px 0 0; max-width: 560px; color: rgba(255,255,255,0.76); font-size: 15px; line-height: 1.7; }
 
 /* GLASS CARD BASE */
-.glass-card { background: linear-gradient(135deg, rgba(8,35,65,0.58), rgba(6,82,92,0.28)); border: 1px solid rgba(105,220,210,0.28); box-shadow: 0 18px 60px rgba(0,0,0,0.28), inset 0 1px 0 rgba(255,255,255,0.12); backdrop-filter: blur(14px) saturate(130%); -webkit-backdrop-filter: blur(14px) saturate(130%); border-radius: 24px; position: relative; overflow: hidden; }
-.glass-card::after { content: ''; position: absolute; top: 0; left: -100%; width: 60%; height: 100%; background: linear-gradient(105deg, transparent, rgba(255,255,255,0.04), transparent); animation: iceShine 6s ease-in-out infinite; pointer-events: none; }
-@keyframes iceShine { 0%,100% { left: -100%; } 50% { left: 150%; } }
+.hero .glass-card { background: linear-gradient(135deg, rgba(5,31,59,0.82), rgba(5,65,85,0.53)); border: 1px solid rgba(126,226,216,0.27); box-shadow: 0 18px 55px rgba(0,0,0,0.27), inset 0 1px 0 rgba(255,255,255,0.1); backdrop-filter: blur(15px) saturate(125%); -webkit-backdrop-filter: blur(15px) saturate(125%); border-radius: 18px; position: relative; overflow: hidden; }
+.hero .glass-card::after { content: ''; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(120deg, rgba(255,255,255,0.06), transparent 32%); }
 
-/* TEMPERATURE GAUGE */
-.hero-temp-card { padding: 22px; max-width: 400px; }
-.temp-title { font-size: 20px; font-weight: 700; color: #fff; margin-bottom: 4px; }
-.temp-range { font-size: 14px; color: var(--accent-light); margin-bottom: 16px; font-weight: 600; }
-.gauge-track { position: relative; height: 8px; border-radius: 4px; background: linear-gradient(to right, #001a33, #003366, #0066aa, #00aadd, #00e5ff); margin-bottom: 8px; overflow: visible; }
-.gauge-glow { position: absolute; inset: -4px; border-radius: 8px; background: linear-gradient(to right, rgba(0,26,51,0.3), rgba(0,102,170,0.3), rgba(0,229,255,0.3)); filter: blur(8px); z-index: -1; }
-.gauge-thumb { position: absolute; top: 50%; width: 16px; height: 16px; background: #fff; border-radius: 50%; transform: translate(-50%, -50%); transition: left 1.2s cubic-bezier(0.4,0,0.2,1); box-shadow: 0 0 12px rgba(0,170,221,0.8), 0 0 24px rgba(0,229,255,0.5); z-index: 2; }
-.gauge-labels { display: flex; justify-content: space-between; font-size: 12px; color: rgba(255,255,255,0.5); margin-bottom: 12px; }
-.gauge-mode { text-align: center; font-size: 14px; font-weight: 600; color: #fff; padding: 8px 16px; background: rgba(255,255,255,0.06); border-radius: 12px; border: 1px solid rgba(105,220,210,0.15); min-height: 38px; display: flex; align-items: center; justify-content: center; transition: opacity 0.4s; }
-.gauge-note { text-align: center; font-size: 12px; color: rgba(255,255,255,0.45); margin-top: 8px; }
+/* TEMPERATURE RANGE */
+.hero-temp-card { padding: 16px 18px 15px; }
+.temp-card-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 18px; margin-bottom: 11px; position: relative; z-index: 1; }
+.temp-title { font-size: 18px; line-height: 1.45; font-weight: 800; color: #fff; }
+.temp-range { flex: 0 0 auto; direction: ltr; font-family: 'Inter', sans-serif; font-size: 13px; color: var(--accent-light); font-weight: 700; padding-top: 4px; }
+.temp-scale { position: relative; z-index: 1; }
+.temp-scale-labels { direction: ltr; display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 12px; margin-bottom: 7px; }
+.temp-scale-labels strong { font-family: 'Inter', sans-serif; font-size: clamp(23px, 2.3vw, 32px); line-height: 1; }
+.temp-scale-labels .warm { color: #ffad32; }
+.temp-scale-labels .cold { color: #4e98ff; }
+.temp-scale-labels span { text-align: center; color: rgba(255,255,255,0.82); font-weight: 700; font-size: 13px; }
+.temp-track { height: 8px; border-radius: 99px; background: linear-gradient(90deg, #ffad32 0%, #f6c16e 28%, #dce9f5 52%, #45a1ff 76%, #2474ef 100%); position: relative; box-shadow: 0 0 18px rgba(40,126,242,0.3); }
+.temp-track::before, .temp-track::after { content: ''; position: absolute; top: 50%; width: 13px; height: 13px; border: 3px solid #fff; border-radius: 50%; transform: translateY(-50%); box-shadow: 0 0 12px currentColor; }
+.temp-track::before { left: 0; color: #ffad32; background: #ffad32; }
+.temp-track::after { right: 0; color: #2474ef; background: #2474ef; }
+.gauge-note { text-align: center; font-size: 11px; color: rgba(255,255,255,0.58); margin-top: 9px; }
+
+/* TEMPERATURE MODES */
+.temp-modes { display: grid; grid-template-columns: repeat(4, 1fr); padding: 11px 8px; position: relative; z-index: 1; }
+.temp-mode { min-width: 0; text-align: center; padding: 3px 8px; border-inline-end: 1px solid rgba(255,255,255,0.14); }
+.temp-mode:last-child { border-inline-end: 0; }
+.temp-mode i { display: block; color: #d9f6ff; font-size: 19px; margin-bottom: 4px; }
+.temp-mode strong { display: block; font-size: 12px; color: #fff; line-height: 1.35; }
+.temp-mode span { display: block; direction: ltr; font-family: 'Inter', sans-serif; font-size: 10px; color: rgba(255,255,255,0.6); margin-top: 2px; white-space: nowrap; }
 
 /* SERVICE FLOW CARDS */
-.hero-flows { display: flex; flex-direction: column; gap: 14px; }
-.flow-card { padding: 14px 18px; }
-.flow-card-title { font-size: 14px; font-weight: 700; color: var(--accent-light); margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
-.flow-card-title i { font-size: 16px; }
-.flow-steps { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
-.flow-step { display: flex; flex-direction: column; align-items: center; gap: 4px; }
-.flow-step-icon { width: 40px; height: 40px; border-radius: 12px; background: rgba(93,202,165,0.12); border: 1px solid rgba(93,202,165,0.25); display: flex; align-items: center; justify-content: center; font-size: 16px; color: var(--accent-light); }
-.flow-step-label { font-size: 11px; color: rgba(255,255,255,0.75); font-weight: 500; white-space: nowrap; }
-.flow-arrow { color: var(--accent-light); font-size: 14px; opacity: 0.6; }
+.hero-flows { display: grid; grid-template-columns: 1fr 1.14fr; gap: 10px; }
+.flow-card { padding: 12px 13px; }
+.flow-card-title { position: relative; z-index: 1; font-size: 12px; font-weight: 700; color: var(--accent-light); margin-bottom: 9px; display: flex; align-items: center; gap: 6px; }
+.flow-card-title i { font-size: 13px; }
+.flow-steps { position: relative; z-index: 1; display: flex; align-items: center; justify-content: space-between; gap: 5px; }
+.flow-step { min-width: 0; display: flex; flex-direction: column; align-items: center; gap: 3px; }
+.flow-step-icon { width: 34px; height: 34px; border-radius: 10px; background: rgba(93,202,165,0.12); border: 1px solid rgba(93,202,165,0.23); display: flex; align-items: center; justify-content: center; font-size: 14px; color: #e7ffff; }
+.flow-step-label { max-width: 72px; overflow: hidden; text-overflow: ellipsis; font-size: 9px; color: rgba(255,255,255,0.76); font-weight: 600; white-space: nowrap; }
+.flow-arrow { flex: 0 0 auto; color: var(--accent-light); font-size: 10px; opacity: 0.72; }
 html[lang="en"] .flow-arrow { transform: scaleX(-1); }
-
-/* HERO STATS FLOATING */
-.hero-stats-float { position: absolute; bottom: 20px; right: 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; z-index: 6; }
-html[lang="en"] .hero-stats-float { right: auto; left: 20px; }
-.hero-stats-float .hero-stat { background: rgba(4,44,83,0.7); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid rgba(93,202,165,0.2); border-radius: 14px; padding: 14px 18px; text-align: center; }
-.hero-stat .num { font-size: 28px; font-weight: 800; color: var(--accent-light); display: block; font-family: 'Inter', sans-serif; }
-.hero-stat .label { font-size: 11px; color: rgba(255,255,255,0.65); }
-
-/* FROST PARTICLES */
-.frost-particle { position: absolute; width: 3px; height: 3px; background: rgba(200,230,255,0.5); border-radius: 50%; z-index: 3; pointer-events: none; animation: frostDrift var(--dur, 12s) linear infinite; opacity: 0; }
-@keyframes frostDrift { 0% { opacity: 0; transform: translate(0, 0); } 10% { opacity: 0.6; } 90% { opacity: 0.4; } 100% { opacity: 0; transform: translate(var(--dx, -30px), var(--dy, -60px)); } }
-
-/* HERO FLOATS */
-.hero-float { position: absolute; left: 5%; top: 10%; width: 120px; height: 120px; border-radius: 50%; background: rgba(93,202,165,0.06); animation: float1 8s ease-in-out infinite; z-index: 3; }
-.hero-float2 { position: absolute; right: 10%; bottom: 25%; width: 200px; height: 200px; border-radius: 50%; background: rgba(181,212,244,0.06); animation: float2 10s ease-in-out infinite; z-index: 3; }
-.hero-float3 { position: absolute; left: 40%; top: 5%; width: 80px; height: 80px; border-radius: 50%; background: rgba(255,255,255,0.04); animation: float1 6s ease-in-out infinite reverse; z-index: 3; }
-@keyframes float1 { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
-@keyframes float2 { 0%,100% { transform: translateY(0) translateX(0); } 50% { transform: translateY(-15px) translateX(10px); } }
+.hero-actions { display: flex; gap: 10px; padding-inline: 3px; margin-top: 1px; }
+.hero-actions .btn { min-height: 42px; padding: 9px 21px; font-size: 13px; justify-content: center; }
+.hero-actions .btn-outline { background: rgba(3,24,48,0.5); }
 
 img { -webkit-user-drag: none; user-select: none; pointer-events: auto; }
 .partner-card img, .nav-logo-img, .ceo-photo img, .footer-brand img { pointer-events: none; }
@@ -178,31 +185,43 @@ img { -webkit-user-drag: none; user-select: none; pointer-events: auto; }
 .btn-outline { background: rgba(255,255,255,0.08); color: #fff; border: 1.5px solid rgba(255,255,255,0.3); backdrop-filter: blur(4px); }
 .btn-outline:hover { background: rgba(255,255,255,0.15); border-color: #fff; }
 
-[data-theme="dark"] .hero-overlay::before { background: linear-gradient(to right, rgba(7,20,34,0.94) 0%, rgba(7,20,34,0.72) 28%, rgba(7,20,34,0.32) 50%, rgba(7,20,34,0.08) 100%); }
-html[lang="en"][data-theme="dark"] .hero-overlay::before { background: linear-gradient(to left, rgba(7,20,34,0.94) 0%, rgba(7,20,34,0.72) 28%, rgba(7,20,34,0.32) 50%, rgba(7,20,34,0.08) 100%); }
-[data-theme="dark"] .hero-stats-bar { background: linear-gradient(135deg, rgba(7,20,34,0.8), rgba(10,22,40,0.9)); }
-
 /* HERO RESPONSIVE */
-@media (max-width: 1024px) {
-  .hero-col-glass { width: 45%; padding: 20px; }
-  .hero-temp-card { max-width: 100%; }
+@media (max-width: 1180px) {
+  .hero { height: min(800px, 90svh); }
+  .hero-dashboard { width: min(610px, 53vw); }
+  .hero-container { padding-inline: 28px; }
+  .hero-heading h1 { font-size: 36px; }
 }
 @media (max-width: 768px) {
-  .hero-content-grid { flex-direction: column; }
-  .hero-col-glass { width: 100%; background: rgba(4,44,83,0.8); padding: 16px; gap: 10px; }
-  .hero-col-truck { display: none; }
-  .hero-temp-card { padding: 16px; }
-  .temp-title { font-size: 16px; }
-  .flow-card { padding: 12px 14px; }
-  .flow-step-icon { width: 34px; height: 34px; font-size: 14px; }
-  .hero-stat .num { font-size: 22px; }
-  .hero-stat .label { font-size: 10px; }
-  .frost-particle { display: none; }
+  .hero { height: auto; min-height: 920px; }
+  .hero-bg-layer::after { background: linear-gradient(to bottom, rgba(1,14,29,0.3), rgba(1,14,29,0.76) 38%, rgba(1,14,29,0.97) 100%); }
+  .hero-overlay, html[lang="en"] .hero-overlay { background: linear-gradient(to bottom, rgba(2,20,42,0.2) 0%, rgba(2,20,42,0.7) 38%, rgba(2,20,42,0.96) 100%); }
+  .hero-img { object-position: 68% center; }
+  html[lang="en"] .hero-img { object-position: 32% center; }
+  .hero-content-wrap { position: relative; min-height: 920px; padding-top: 94px; }
+  .hero-container { padding: 0 18px 28px; align-items: flex-end; }
+  .hero-dashboard, html[lang="en"] .hero-dashboard { width: 100%; margin: 0; }
+  .hero-heading { padding-inline: 3px; }
+  .hero-heading h1 { font-size: 32px; }
+  .hero-heading p { font-size: 13px; }
+  .temp-card-head { display: block; }
+  .temp-range { padding-top: 3px; }
+  .hero-flows { grid-template-columns: 1fr; }
+  .flow-step-label { max-width: 90px; }
+  .hero-actions .btn { flex: 1; padding-inline: 12px; }
+}
+@media (max-width: 480px) {
+  .hero { min-height: 970px; }
+  .hero-content-wrap { min-height: 970px; }
+  .hero-heading h1 { font-size: 29px; }
+  .temp-modes { grid-template-columns: repeat(2, 1fr); padding: 8px; }
+  .temp-mode { padding: 8px; border-bottom: 1px solid rgba(255,255,255,0.12); }
+  .temp-mode:nth-child(2) { border-inline-end: 0; }
+  .temp-mode:nth-child(3), .temp-mode:nth-child(4) { border-bottom: 0; }
+  .hero-actions { flex-direction: column; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .hero-float, .hero-float2, .hero-float3, .frost-particle, .hero-mist { animation: none !important; }
-  .glass-card::after { animation: none; }
-  .gauge-thumb { transition: none; }
+  .hero-img { transition: none; }
 }
 
 /* TRUST BAR */
@@ -463,10 +482,6 @@ html[dir="ltr"] .wa-msg .wa-time { float: right; margin-left: 8px; margin-right:
 .hero-emoji:nth-child(5) { top: 50%; right: 35%; animation-delay: 3s; font-size: 36px; }
 @keyframes floatEmoji { 0%,100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-20px) rotate(10deg); } }
 
-/* HERO TYPING EFFECT */
-.hero-desc-word { display: inline-block; opacity: 0; animation: wordFadeIn 0.5s forwards; }
-@keyframes wordFadeIn { to { opacity: 1; } }
-
 /* WHY CHOOSE US */
 .why-us { padding: 48px 0; background: var(--white); }
 .why-us-grid { display: flex; justify-content: center; gap: 32px; flex-wrap: wrap; }
@@ -563,71 +578,105 @@ html[dir="ltr"] .btt { right: auto; left: 28px; }
 </nav>
 
 <!-- HERO -->
-<section class="hero" id="home">
-  <!-- Background Image Layer -->
+<section class="hero" id="home" aria-labelledby="hero-title">
   <div class="hero-bg-layer">
-    <img class="hero-img" src="assets/hero-main.jpeg" alt="شاحنة مبرّدة زاد الشرقية — نقل مبرد ومجمد | Eastern Zad refrigerated truck" loading="eager" fetchpriority="high">
+    <img
+      class="hero-img"
+      id="heroImage"
+      src="assets/hero-bg-ar-v3.webp"
+      alt="شاحنة نقل مبرّد أمام مستودع حديث لزاد الشرقية"
+      width="1915"
+      height="821"
+      loading="eager"
+      fetchpriority="high"
+      decoding="async">
   </div>
-  <!-- Gradient Overlay -->
-  <div class="hero-overlay"></div>
-  <!-- Cold Mist -->
-  <div class="hero-mist"></div>
-  <!-- Floating Orbs -->
-  <div class="hero-float"></div>
-  <div class="hero-float2"></div>
-  <div class="hero-float3"></div>
-  <!-- Frost Particles -->
-  <span class="frost-particle" style="top:20%;right:15%;--dur:14s;--dx:-40px;--dy:-80px"></span>
-  <span class="frost-particle" style="top:35%;right:25%;--dur:11s;--dx:20px;--dy:-60px"></span>
-  <span class="frost-particle" style="top:50%;right:35%;--dur:16s;--dx:-25px;--dy:-70px"></span>
-  <span class="frost-particle" style="top:60%;right:20%;--dur:13s;--dx:30px;--dy:-50px"></span>
-  <span class="frost-particle" style="top:45%;right:45%;--dur:18s;--dx:-15px;--dy:-90px"></span>
-  <span class="frost-particle" style="top:30%;right:55%;--dur:15s;--dx:10px;--dy:-65px"></span>
-
-  <!-- Content Overlay -->
+  <div class="hero-overlay" aria-hidden="true"></div>
   <div class="hero-content-wrap">
-    <div class="hero-content-grid">
-      <!-- Glass panel: LEFT in AR, RIGHT in EN -->
-      <div class="hero-col-glass">
+    <div class="container hero-container">
+      <div class="hero-dashboard">
+        <header class="hero-heading">
+          <span class="hero-kicker">
+            <i class="fas fa-snowflake" aria-hidden="true"></i>
+            <span id="hero-badge-text">شريكك الموثوق في التوزيع المبرّد</span>
+          </span>
+          <h1>
+            <span id="hero-title">زاد الشرقية</span>
+            <span id="hero-accent">للتجارة والتوزيع</span>
+          </h1>
+          <p id="hero-desc">شركة لوجستية سعودية لخدمة المنتجات الغذائية والأدوية بسلسلة تبريد موثوقة.</p>
+        </header>
+
         <div class="glass-card hero-temp-card">
-          <div class="temp-title" id="temp-title">نقل مبرد ومجمد بدرجات حرارة متعددة</div>
-          <div class="temp-range" id="temp-range">من +18°C إلى -40°C</div>
-          <div class="gauge-track"><div class="gauge-glow"></div><div class="gauge-thumb" id="gauge-thumb" style="left:85%"></div></div>
-          <div class="gauge-labels"><span>+18°C</span><span>-40°C</span></div>
-          <div class="gauge-mode" id="gauge-mode">مبرد: +18°C إلى +5°C</div>
-          <div class="gauge-note" id="gauge-note">حسب نوع المنتج والمركبة</div>
-        </div>
-        <div class="glass-card flow-card">
-          <div class="flow-card-title" id="fc1-title"><i class="fas fa-route"></i> خدمات لوجستية Mid-Mile</div>
-          <div class="flow-steps">
-            <div class="flow-step"><div class="flow-step-icon"><i class="fas fa-warehouse"></i></div><span class="flow-step-label" id="fs1-1">مستودعك</span></div>
-            <i class="fas fa-arrow-left flow-arrow"></i>
-            <div class="flow-step"><div class="flow-step-icon"><i class="fas fa-truck"></i></div><span class="flow-step-label" id="fs1-2">أسطولنا</span></div>
-            <i class="fas fa-arrow-left flow-arrow"></i>
-            <div class="flow-step"><div class="flow-step-icon"><i class="fas fa-store-alt"></i></div><span class="flow-step-label" id="fs1-3">فروعك</span></div>
+          <div class="temp-card-head">
+            <h2 class="temp-title" id="temp-title">نقل مبرد ومجمد بدرجات حرارة متعددة</h2>
+            <span class="temp-range" id="temp-range">+18°C → -40°C</span>
+          </div>
+          <div class="temp-scale">
+            <div class="temp-scale-labels">
+              <strong class="warm">+18°C</strong>
+              <span id="temp-to">إلى</span>
+              <strong class="cold">-40°C</strong>
+            </div>
+            <div class="temp-track" aria-hidden="true"></div>
+            <div class="gauge-note" id="gauge-note">حسب نوع المنتج والمركبة</div>
           </div>
         </div>
-        <div class="glass-card flow-card">
-          <div class="flow-card-title" id="fc2-title"><i class="fas fa-boxes-stacked"></i> خدمات التخزين والتوزيع</div>
-          <div class="flow-steps">
-            <div class="flow-step"><div class="flow-step-icon"><i class="fas fa-box-open"></i></div><span class="flow-step-label" id="fs2-1">منتجك</span></div>
-            <i class="fas fa-arrow-left flow-arrow"></i>
-            <div class="flow-step"><div class="flow-step-icon"><i class="fas fa-warehouse"></i></div><span class="flow-step-label" id="fs2-2">مستودعنا</span></div>
-            <i class="fas fa-arrow-left flow-arrow"></i>
-            <div class="flow-step"><div class="flow-step-icon"><i class="fas fa-truck"></i></div><span class="flow-step-label" id="fs2-3">أسطولنا</span></div>
-            <i class="fas fa-arrow-left flow-arrow"></i>
-            <div class="flow-step"><div class="flow-step-icon"><i class="fas fa-store"></i></div><span class="flow-step-label" id="fs2-4">عميلك</span></div>
+
+        <div class="glass-card temp-modes" id="tempModes" aria-label="نطاقات درجات الحرارة">
+          <div class="temp-mode">
+            <i class="fas fa-leaf" aria-hidden="true"></i>
+            <strong id="tm1-title">مبرد</strong>
+            <span>+18°C — +5°C</span>
           </div>
+          <div class="temp-mode">
+            <i class="fas fa-droplet" aria-hidden="true"></i>
+            <strong id="tm2-title">مجمّد</strong>
+            <span>+4°C — 0°C</span>
+          </div>
+          <div class="temp-mode">
+            <i class="fas fa-snowflake" aria-hidden="true"></i>
+            <strong id="tm3-title">تجميد</strong>
+            <span>-18°C</span>
+          </div>
+          <div class="temp-mode">
+            <i class="fas fa-icicles" aria-hidden="true"></i>
+            <strong id="tm4-title">تجميد عميق</strong>
+            <span>-30°C — -40°C</span>
+          </div>
+        </div>
+
+        <div class="hero-flows">
+          <div class="glass-card flow-card">
+            <div class="flow-card-title" id="fc1-title"><i class="fas fa-route" aria-hidden="true"></i> خدمات لوجستية Mid-Mile</div>
+            <div class="flow-steps">
+              <div class="flow-step"><div class="flow-step-icon"><i class="fas fa-warehouse" aria-hidden="true"></i></div><span class="flow-step-label" id="fs1-1">مستودعك</span></div>
+              <i class="fas fa-arrow-left flow-arrow" aria-hidden="true"></i>
+              <div class="flow-step"><div class="flow-step-icon"><i class="fas fa-truck" aria-hidden="true"></i></div><span class="flow-step-label" id="fs1-2">أسطولنا</span></div>
+              <i class="fas fa-arrow-left flow-arrow" aria-hidden="true"></i>
+              <div class="flow-step"><div class="flow-step-icon"><i class="fas fa-store-alt" aria-hidden="true"></i></div><span class="flow-step-label" id="fs1-3">فروعك</span></div>
+            </div>
+          </div>
+          <div class="glass-card flow-card">
+            <div class="flow-card-title" id="fc2-title"><i class="fas fa-boxes-stacked" aria-hidden="true"></i> خدمات التخزين والتوزيع</div>
+            <div class="flow-steps">
+              <div class="flow-step"><div class="flow-step-icon"><i class="fas fa-box-open" aria-hidden="true"></i></div><span class="flow-step-label" id="fs2-1">منتجك</span></div>
+              <i class="fas fa-arrow-left flow-arrow" aria-hidden="true"></i>
+              <div class="flow-step"><div class="flow-step-icon"><i class="fas fa-warehouse" aria-hidden="true"></i></div><span class="flow-step-label" id="fs2-2">مستودعنا</span></div>
+              <i class="fas fa-arrow-left flow-arrow" aria-hidden="true"></i>
+              <div class="flow-step"><div class="flow-step-icon"><i class="fas fa-truck" aria-hidden="true"></i></div><span class="flow-step-label" id="fs2-3">أسطولنا</span></div>
+              <i class="fas fa-arrow-left flow-arrow" aria-hidden="true"></i>
+              <div class="flow-step"><div class="flow-step-icon"><i class="fas fa-user" aria-hidden="true"></i></div><span class="flow-step-label" id="fs2-4">عميلك</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-actions">
+          <a href="#quote" class="btn btn-primary" id="hero-btn1"><i class="fas fa-file-signature" aria-hidden="true"></i><span>اطلب عرض سعر</span></a>
+          <a href="#services" class="btn btn-outline" id="hero-btn2"><i class="fas fa-arrow-down" aria-hidden="true"></i><span>استكشف خدماتنا</span></a>
         </div>
       </div>
-      <!-- Truck space: RIGHT in AR, LEFT in EN -->
-      <div class="hero-col-truck">
-        <div class="hero-stats-float">
-          <div class="hero-stat"><span class="num counter" data-target="5500">0</span><span class="label" id="hs1">عميل ونقطة بيع</span></div>
-          <div class="hero-stat"><span class="num counter" data-target="8">0</span><span class="label" id="hs2">مناطق مغطاة</span></div>
-          <div class="hero-stat"><span class="num counter" data-target="70">0</span><span class="label" id="hs3">شاحنة مبرّدة</span></div>
-          <div class="hero-stat"><span class="num counter" data-target="24">0</span><span class="label" id="hs4">ساعة خدمة</span></div>
-        </div>
+    </div>
   </div>
 </section>
 
@@ -1060,22 +1109,6 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.1 });
 document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 
-// Hero typing effect
-(function() {
-  var desc = document.getElementById('hero-desc');
-  if (!desc) return;
-  var text = desc.textContent;
-  var words = text.split(/\s+/);
-  desc.innerHTML = '';
-  words.forEach(function(word, i) {
-    var span = document.createElement('span');
-    span.className = 'hero-desc-word';
-    span.textContent = word + ' ';
-    span.style.animationDelay = (i * 0.08) + 's';
-    desc.appendChild(span);
-  });
-})();
-
 // Mobile menu
 function toggleMenu() {
   document.body.classList.toggle('mobile-menu-open');
@@ -1132,10 +1165,11 @@ const AR = {
   'nav-fleet': 'أسطولنا', 'nav-testimonials': 'آراء العملاء', 'nav-faq': 'الأسئلة الشائعة', 'nav-contact': 'تواصل معنا',
   'hero-badge-text': 'شريكك الموثوق في التوزيع المبرّد',
   'hero-title': 'زاد الشرقية', 'hero-accent': 'للتجارة والتوزيع',
-  'hero-desc': 'شركة لوجستية سعودية لخدمة المنتجات الغذائية والأدوية',
+  'hero-desc': 'شركة لوجستية سعودية لخدمة المنتجات الغذائية والأدوية بسلسلة تبريد موثوقة.',
   'hs1': 'عميل ونقطة بيع', 'hs2': 'مناطق مغطاة', 'hs3': 'شاحنة مبرّدة', 'hs4': 'ساعة خدمة',
   'temp-title': 'نقل مبرد ومجمد بدرجات حرارة متعددة',
-  'temp-range': 'من +18°C إلى -40°C',
+  'temp-range': '+18°C → -40°C', 'temp-to': 'إلى',
+  'tm1-title': 'مبرد', 'tm2-title': 'مجمّد', 'tm3-title': 'تجميد', 'tm4-title': 'تجميد عميق',
   'gauge-note': 'حسب نوع المنتج والمركبة',
   'fc1-title': 'خدمات لوجستية Mid-Mile',
   'fs1-1': 'مستودعك',
@@ -1195,7 +1229,8 @@ const EN = {
   'hero-desc': 'A Saudi logistics company serving food products and pharmaceuticals.',
   'hs1': 'Clients & outlets', 'hs2': 'Covered regions', 'hs3': 'Refrigerated trucks', 'hs4': 'Hours service',
   'temp-title': 'Multi-Temperature Refrigerated & Frozen Transport',
-  'temp-range': 'From +18°C up to -40°C',
+  'temp-range': '+18°C → -40°C', 'temp-to': 'to',
+  'tm1-title': 'Fresh', 'tm2-title': 'Chilled', 'tm3-title': 'Frozen', 'tm4-title': 'Deep Frozen',
   'gauge-note': 'Depending on product type and vehicle',
   'fc1-title': 'Mid-Mile Logistics Services',
   'fs1-1': 'Your Warehouse',
@@ -1247,13 +1282,51 @@ const EN = {
   'wcu1': 'Highest food safety standards', 'wcu2': 'Coverage across 8 regions', 'wcu3': '24/7 technical & customer support'
 };
 
+const HERO_ASSETS = {
+  ar: {
+    src: 'assets/hero-bg-ar-v3.webp',
+    alt: 'شاحنة نقل مبرّد أمام مستودع حديث لزاد الشرقية',
+    modesLabel: 'نطاقات درجات الحرارة'
+  },
+  en: {
+    src: 'assets/hero-bg-en-v3.webp',
+    alt: 'Refrigerated transport truck outside a modern Eastern Zad warehouse',
+    modesLabel: 'Temperature ranges'
+  }
+};
+
 let currentLang = 'ar';
-function toggleLang() {
-  currentLang = currentLang === 'ar' ? 'en' : 'ar';
+
+function updateHeroImage(lang) {
+  const heroImage = document.getElementById('heroImage');
+  const asset = HERO_ASSETS[lang];
+  if (!heroImage || !asset) return;
+  heroImage.alt = asset.alt;
+  const modes = document.getElementById('tempModes');
+  if (modes) modes.setAttribute('aria-label', asset.modesLabel);
+  if (heroImage.getAttribute('src') === asset.src) return;
+
+  heroImage.classList.add('is-changing');
+  const preload = new Image();
+  preload.onload = function() {
+    heroImage.src = asset.src;
+    requestAnimationFrame(function() {
+      heroImage.classList.remove('is-changing');
+    });
+  };
+  preload.onerror = function() {
+    heroImage.classList.remove('is-changing');
+  };
+  preload.src = asset.src;
+}
+
+function setLanguage(lang, updateUrl) {
+  currentLang = lang === 'en' ? 'en' : 'ar';
   const data = currentLang === 'ar' ? AR : EN;
   document.documentElement.lang = currentLang;
   document.documentElement.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
   document.getElementById('langBtn').textContent = currentLang === 'ar' ? 'English' : 'العربية';
+  updateHeroImage(currentLang);
 
   for (const [id, text] of Object.entries(data)) {
     const el = document.getElementById(id);
@@ -1276,11 +1349,14 @@ function toggleLang() {
   if (faqBtnEl && data['faq-btn']) faqBtnEl.innerHTML = '<i class="fas fa-arrow-left"></i> ' + data['faq-btn'];
 
   // Special elements
-  rotIdx = 0; rotateText();
-  document.querySelector('#hero-btn1 span').textContent = data['btn1-text'];
-  document.querySelector('#hero-btn2 span').textContent = data['btn2-text'];
-  document.querySelector('#nav-login span').textContent = data['login-text'];
-  document.querySelector('#q-submit').innerHTML = '<i class="fas fa-paper-plane"></i> ' + data['q-submit-text'];
+  var heroBtn1 = document.querySelector('#hero-btn1 span');
+  var heroBtn2 = document.querySelector('#hero-btn2 span');
+  var loginText = document.querySelector('#nav-login span');
+  var quoteSubmit = document.querySelector('#q-submit');
+  if (heroBtn1) heroBtn1.textContent = data['btn1-text'];
+  if (heroBtn2) heroBtn2.textContent = data['btn2-text'];
+  if (loginText) loginText.textContent = data['login-text'];
+  if (quoteSubmit) quoteSubmit.innerHTML = '<i class="fas fa-paper-plane"></i> ' + data['q-submit-text'];
 
   // CTA + WA popup
   var ctaBtn = document.querySelector('#cta-btn span');
@@ -1298,30 +1374,51 @@ function toggleLang() {
   document.getElementById('ts-next-icon').className = currentLang === 'ar' ? 'fas fa-chevron-left' : 'fas fa-chevron-right';
   tsIndex = 0; updateSlider();
 
-  // Placeholders
-  if (currentLang === 'en') {
-    document.getElementById('qf-name').placeholder = 'Full name';
-    document.getElementById('qf-company').placeholder = 'Company name';
-    document.getElementById('qf-email').placeholder = 'Email address';
-    document.getElementById('qf-phone').placeholder = 'Phone number';
-    document.getElementById('qf-details').placeholder = 'Additional details...';
-    document.getElementById('qf-opt0').textContent = 'Select service';
-    document.getElementById('qf-opt1').textContent = 'Cold distribution';
-    document.getElementById('qf-opt2').textContent = 'Cold storage';
-    document.getElementById('qf-opt3').textContent = 'Exclusive agency';
-    document.getElementById('qf-opt4').textContent = 'Other';
-  } else {
-    document.getElementById('qf-name').placeholder = 'الاسم الكامل';
-    document.getElementById('qf-company').placeholder = 'اسم الشركة';
-    document.getElementById('qf-email').placeholder = 'البريد الإلكتروني';
-    document.getElementById('qf-phone').placeholder = 'رقم الجوال';
-    document.getElementById('qf-details').placeholder = 'تفاصيل إضافية...';
-    document.getElementById('qf-opt0').textContent = 'اختر الخدمة المطلوبة';
-    document.getElementById('qf-opt1').textContent = 'توزيع مبرّد';
-    document.getElementById('qf-opt2').textContent = 'تخزين مبرّد';
-    document.getElementById('qf-opt3').textContent = 'وكالة حصرية';
-    document.getElementById('qf-opt4').textContent = 'خدمة أخرى';
+  // Optional quote-form fields may not exist on every page revision.
+  const formCopy = currentLang === 'en' ? {
+    'qf-name': ['placeholder', 'Full name'],
+    'qf-company': ['placeholder', 'Company name'],
+    'qf-email': ['placeholder', 'Email address'],
+    'qf-phone': ['placeholder', 'Phone number'],
+    'qf-details': ['placeholder', 'Additional details...'],
+    'qf-opt0': ['textContent', 'Select service'],
+    'qf-opt1': ['textContent', 'Cold distribution'],
+    'qf-opt2': ['textContent', 'Cold storage'],
+    'qf-opt3': ['textContent', 'Exclusive agency'],
+    'qf-opt4': ['textContent', 'Other']
+  } : {
+    'qf-name': ['placeholder', 'الاسم الكامل'],
+    'qf-company': ['placeholder', 'اسم الشركة'],
+    'qf-email': ['placeholder', 'البريد الإلكتروني'],
+    'qf-phone': ['placeholder', 'رقم الجوال'],
+    'qf-details': ['placeholder', 'تفاصيل إضافية...'],
+    'qf-opt0': ['textContent', 'اختر الخدمة المطلوبة'],
+    'qf-opt1': ['textContent', 'توزيع مبرّد'],
+    'qf-opt2': ['textContent', 'تخزين مبرّد'],
+    'qf-opt3': ['textContent', 'وكالة حصرية'],
+    'qf-opt4': ['textContent', 'خدمة أخرى']
+  };
+  for (const [id, setting] of Object.entries(formCopy)) {
+    const field = document.getElementById(id);
+    if (field) field[setting[0]] = setting[1];
   }
+
+  if (updateUrl !== false && window.history && window.history.replaceState) {
+    const url = new URL(window.location.href);
+    if (currentLang === 'en') url.searchParams.set('lang', 'en');
+    else url.searchParams.delete('lang');
+    window.history.replaceState(null, '', url.pathname + url.search + url.hash);
+  }
+}
+
+function toggleLang() {
+  setLanguage(currentLang === 'ar' ? 'en' : 'ar');
+}
+
+if (new URLSearchParams(window.location.search).get('lang') === 'en') {
+  setLanguage('en', false);
+} else {
+  updateHeroImage('ar');
 }
 
 // WhatsApp popup
@@ -1451,23 +1548,6 @@ setTimeout(animateCounters, 500);
   requestAnimationFrame(step);
 })();
 
-// Rotating hero text
-var rotatingAR = ['شريكك الموثوق في التوزيع المبرّد', 'وكالات حصرية وتغطية 8 مناطق', 'أسطول مبرّد حديث بمعايير عالمية', 'خدمة عملاء على مدار الساعة', 'تجميد عميق يصل إلى -40°C'];
-var rotatingEN = ['Your trusted cold chain partner', 'Exclusive agencies across 8 regions', 'Modern fleet with global standards', '24/7 customer service', 'Deep freeze up to -40°C'];
-var rotIdx = 0;
-var rotEl = document.getElementById('hero-rotating');
-function rotateText() {
-  var arr = currentLang === 'ar' ? rotatingAR : rotatingEN;
-  rotEl.style.opacity = '0';
-  setTimeout(function() {
-    rotEl.textContent = arr[rotIdx % arr.length];
-    rotEl.style.opacity = '1';
-    rotIdx++;
-  }, 400);
-}
-rotateText();
-setInterval(rotateText, 3500);
-
 // Smooth scroll for nav links
 document.querySelectorAll('a[href^="#"]').forEach(a => {
   a.addEventListener('click', (e) => {
@@ -1507,33 +1587,6 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
   });
 })();
 
-// Temperature Gauge Animation
-(function(){
-  var modes = [
-    { ar: 'مبرد: +18°C إلى +5°C', en: 'Chilled: +18°C to +5°C', pos: 85 },
-    { ar: 'مجمد: +4°C إلى 0°C', en: 'Frozen: +4°C to 0°C', pos: 65 },
-    { ar: 'تجميد: -18°C', en: 'Freezing: -18°C', pos: 35 },
-    { ar: 'تجميد عميق: -30°C إلى -40°C', en: 'Deep Frozen: -30°C to -40°C', pos: 5 }
-  ];
-  var idx = 0;
-  var thumb = document.getElementById('gauge-thumb');
-  var modeEl = document.getElementById('gauge-mode');
-  if (!thumb || !modeEl) return;
-  var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  function cycle() {
-    var m = modes[idx];
-    var isEn = document.documentElement.lang === 'en';
-    thumb.style.left = m.pos + '%';
-    modeEl.style.opacity = '0';
-    setTimeout(function() {
-      modeEl.textContent = isEn ? m.en : m.ar;
-      modeEl.style.opacity = '1';
-    }, 300);
-    idx = (idx + 1) % modes.length;
-  }
-  cycle();
-  if (!prefersReduced) setInterval(cycle, 4000);
-})();
 </script>
 </body>
 </html>
