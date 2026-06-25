@@ -117,8 +117,8 @@ a { transition: all 0.2s; }
 .hero-bg-layer { position: absolute; inset: 0; z-index: 1; }
 .hero-bg-layer img { width: 100%; height: 100%; object-fit: cover; object-position: center 15%; }
 .hero-overlay { position: absolute; inset: 0; z-index: 2; pointer-events: none; }
-.hero-overlay::before { content: ''; position: absolute; inset: 0; background: linear-gradient(to left, rgba(4,44,83,0.85) 0%, rgba(4,44,83,0.6) 30%, rgba(4,44,83,0.25) 55%, rgba(4,44,83,0.1) 100%); }
-html[lang="en"] .hero-overlay::before { background: linear-gradient(to right, rgba(4,44,83,0.85) 0%, rgba(4,44,83,0.6) 30%, rgba(4,44,83,0.25) 55%, rgba(4,44,83,0.1) 100%); }
+.hero-overlay::before { content: ''; position: absolute; inset: 0; background: linear-gradient(to right, rgba(4,44,83,0.88) 0%, rgba(4,44,83,0.65) 30%, rgba(4,44,83,0.25) 55%, rgba(4,44,83,0.08) 100%); }
+html[lang="en"] .hero-overlay::before { background: linear-gradient(to left, rgba(4,44,83,0.88) 0%, rgba(4,44,83,0.65) 30%, rgba(4,44,83,0.25) 55%, rgba(4,44,83,0.08) 100%); }
 .hero-overlay::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(4,44,83,0.6) 0%, transparent 20%, transparent 70%, rgba(4,44,83,0.95) 100%); }
 .hero-mist { position: absolute; bottom: 0; left: 0; right: 0; height: 35%; z-index: 2; pointer-events: none; opacity: 0.15; background: radial-gradient(ellipse at 60% 100%, rgba(93,202,165,0.4) 0%, transparent 50%), radial-gradient(ellipse at 30% 90%, rgba(181,212,244,0.3) 0%, transparent 45%); animation: mistPulse 8s ease-in-out infinite; }
 @keyframes mistPulse { 0%,100% { opacity: 0.12; } 50% { opacity: 0.2; } }
@@ -594,7 +594,9 @@ html[dir="ltr"] .btt { right: auto; left: 28px; }
   <div class="hero-content-wrap">
     <div class="container">
       <div class="hero-content-grid">
-        <!-- Left: Temp Gauge + Flows (AR) / Right side (EN) -->
+        <!-- Column 1: Empty space for truck (appears RIGHT in AR, LEFT in EN) -->
+        <div></div>
+        <!-- Column 2: Glass UI (appears LEFT in AR, RIGHT in EN) -->
         <div>
           <!-- Temperature Gauge -->
           <div class="glass-card hero-temp-card">
@@ -635,8 +637,6 @@ html[dir="ltr"] .btt { right: auto; left: 28px; }
             </div>
           </div>
         </div>
-        <!-- Right: Empty space for truck to show through (AR) -->
-        <div></div>
       </div>
     </div>
   </div>
@@ -864,27 +864,11 @@ html[dir="ltr"] .btt { right: auto; left: 28px; }
 
 <!-- QUOTE FORM -->
 <section class="quote" id="quote">
-  <div class="container">
-    <div class="section-header fade-up">
-      <span class="section-label" id="q-label"><i class="fas fa-file-invoice"></i> عرض سعر</span>
-      <h2 id="q-title">اطلب عرض سعر مجاني</h2>
-      <p id="q-desc">أرسل لنا تفاصيل طلبك وسنعود إليك خلال 24 ساعة</p>
-    </div>
-    <form class="quote-form fade-up" onsubmit="return handleQuote(event)">
-      <input class="quote-input" type="text" placeholder="الاسم الكامل" id="qf-name" required>
-      <input class="quote-input" type="text" placeholder="اسم الشركة" id="qf-company">
-      <input class="quote-input" type="email" placeholder="البريد الإلكتروني" id="qf-email" required>
-      <input class="quote-input" type="tel" placeholder="رقم الجوال" id="qf-phone" required>
-      <select class="quote-input full" id="qf-service">
-        <option value="" id="qf-opt0">اختر الخدمة المطلوبة</option>
-        <option value="distribution" id="qf-opt1">توزيع مبرّد</option>
-        <option value="storage" id="qf-opt2">تخزين مبرّد</option>
-        <option value="agency" id="qf-opt3">وكالة حصرية</option>
-        <option value="other" id="qf-opt4">خدمة أخرى</option>
-      </select>
-      <textarea class="quote-input full" placeholder="تفاصيل إضافية..." id="qf-details"></textarea>
-      <button type="submit" class="quote-submit" id="q-submit"><i class="fas fa-paper-plane"></i> إرسال الطلب</button>
-    </form>
+  <div class="container" style="text-align:center">
+    <span class="section-label" id="q-label"><i class="fas fa-file-invoice"></i> عرض سعر</span>
+    <h2 style="color:#fff;font-size:32px;font-weight:700;margin:16px 0" id="q-title">جاهز تبدأ شراكة ناجحة؟</h2>
+    <p style="color:rgba(255,255,255,0.7);margin-bottom:28px;font-size:16px" id="q-desc">انضم لأكثر من 5,500 عميل يثقون بزاد الشرقية — اطلب عرض سعر مجاني الآن</p>
+    <a href="https://wa.me/966540712087?text=%D8%A3%D8%B1%D8%BA%D8%A8%20%D8%A8%D8%B7%D9%84%D8%A8%20%D8%B9%D8%B1%D8%B6%20%D8%B3%D8%B9%D8%B1" target="_blank" rel="noopener noreferrer" class="btn btn-primary" id="q-btn" style="font-size:18px;padding:16px 40px"><i class="fab fa-whatsapp"></i> <span>اطلب عرض سعر عبر واتساب</span></a>
   </div>
 </section>
 
