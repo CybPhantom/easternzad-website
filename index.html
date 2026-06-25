@@ -121,8 +121,8 @@ a { transition: all 0.2s; }
 .hero-img.is-changing { opacity: 0.28; }
 .hero-overlay { position: absolute; inset: 0; z-index: -2; pointer-events: none; background: linear-gradient(90deg, rgba(2,20,42,0.96) 0%, rgba(2,20,42,0.84) 28%, rgba(2,20,42,0.38) 49%, rgba(2,20,42,0.04) 72%); }
 .hero-content-wrap { position: absolute; inset: 0; z-index: 2; padding-top: 74px; }
-.hero-container { max-width: 1480px; height: 100%; display: flex; align-items: center; justify-content: flex-start; direction: ltr; }
-.hero-dashboard { width: min(640px, 46vw); margin: 0; display: flex; flex-direction: column; gap: 12px; text-align: right; direction: rtl; }
+.hero-container { max-width: 1480px; height: 100%; display: flex; align-items: center; justify-content: flex-start; direction: ltr; padding-left: 22px; padding-right: 40px; }
+.hero-dashboard { width: min(590px, 43vw); margin: 0; display: flex; flex-direction: column; gap: 11px; text-align: right; direction: rtl; }
 html[lang="en"] .hero-dashboard { text-align: left; direction: ltr; }
 .hero-heading { padding-inline: 8px; text-shadow: 0 3px 24px rgba(0,0,0,0.55); }
 .hero-kicker { display: inline-flex; align-items: center; gap: 8px; color: #9de9d1; font-size: 13px; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 7px; }
@@ -136,9 +136,9 @@ html[lang="en"] .hero-dashboard { text-align: left; direction: ltr; }
 .hero .glass-card::after { content: ''; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(120deg, rgba(255,255,255,0.06), transparent 32%); }
 
 /* TEMPERATURE RANGE */
-.hero-temp-card { padding: 16px 18px 15px; }
+.hero-temp-card { padding: 15px 17px 14px; }
 .temp-card-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 18px; margin-bottom: 11px; position: relative; z-index: 1; }
-.temp-title { font-size: 18px; line-height: 1.45; font-weight: 800; color: #fff; }
+.temp-title { font-size: 17px; line-height: 1.45; font-weight: 800; color: #fff; }
 .temp-range { flex: 0 0 auto; direction: ltr; font-family: 'Inter', sans-serif; font-size: 13px; color: var(--accent-light); font-weight: 700; padding-top: 4px; }
 .temp-scale { position: relative; z-index: 1; }
 .temp-scale-labels { direction: ltr; display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 12px; margin-bottom: 7px; }
@@ -153,8 +153,8 @@ html[lang="en"] .hero-dashboard { text-align: left; direction: ltr; }
 .gauge-note { text-align: center; font-size: 11px; color: rgba(255,255,255,0.58); margin-top: 9px; }
 
 /* TEMPERATURE MODES */
-.temp-modes { display: grid; grid-template-columns: repeat(4, 1fr); padding: 11px 8px; position: relative; z-index: 1; }
-.temp-mode { min-width: 0; text-align: center; padding: 3px 8px; border-inline-end: 1px solid rgba(255,255,255,0.14); }
+.temp-modes { display: grid; grid-template-columns: repeat(4, 1fr); padding: 10px 7px; position: relative; z-index: 1; }
+.temp-mode { min-width: 0; text-align: center; padding: 3px 6px; border-inline-end: 1px solid rgba(255,255,255,0.14); }
 .temp-mode:last-child { border-inline-end: 0; }
 .temp-mode i { display: block; color: #d9f6ff; font-size: 19px; margin-bottom: 4px; }
 .temp-mode strong { display: block; font-size: 12px; color: #fff; line-height: 1.35; }
@@ -162,13 +162,13 @@ html[lang="en"] .hero-dashboard { text-align: left; direction: ltr; }
 
 /* SERVICE FLOW CARDS */
 .hero-flows { display: grid; grid-template-columns: 1fr 1.14fr; gap: 10px; }
-.flow-card { padding: 12px 13px; }
+.flow-card { padding: 11px 12px; }
 .flow-card-title { position: relative; z-index: 1; font-size: 12px; font-weight: 700; color: var(--accent-light); margin-bottom: 9px; display: flex; align-items: center; gap: 6px; }
 .flow-card-title i { font-size: 13px; }
 .flow-steps { position: relative; z-index: 1; display: flex; align-items: center; justify-content: space-between; gap: 5px; }
 .flow-step { min-width: 0; display: flex; flex-direction: column; align-items: center; gap: 3px; }
 .flow-step-icon { width: 34px; height: 34px; border-radius: 10px; background: rgba(93,202,165,0.12); border: 1px solid rgba(93,202,165,0.23); display: flex; align-items: center; justify-content: center; font-size: 14px; color: #e7ffff; }
-.flow-step-label { max-width: 72px; overflow: hidden; text-overflow: ellipsis; font-size: 9px; color: rgba(255,255,255,0.76); font-weight: 600; white-space: nowrap; }
+.flow-step-label { max-width: 76px; font-size: 9px; color: rgba(255,255,255,0.82); font-weight: 600; white-space: nowrap; }
 .flow-arrow { flex: 0 0 auto; color: var(--accent-light); font-size: 10px; opacity: 0.72; }
 html[lang="en"] .flow-arrow { transform: scaleX(-1); }
 .hero-actions { display: flex; gap: 10px; padding-inline: 3px; margin-top: 1px; }
@@ -186,8 +186,8 @@ img { -webkit-user-drag: none; user-select: none; pointer-events: auto; }
 /* HERO RESPONSIVE */
 @media (max-width: 1180px) {
   .hero { height: min(800px, 90svh); }
-  .hero-dashboard { width: min(610px, 53vw); }
-  .hero-container { padding-inline: 28px; }
+  .hero-dashboard { width: min(560px, 50vw); }
+  .hero-container { padding-left: 18px; padding-right: 28px; }
   .hero-heading h1 { font-size: 36px; }
 }
 @media (max-width: 768px) {
@@ -419,17 +419,26 @@ html[dir="ltr"] .wa-msg .wa-time { float: right; margin-left: 8px; margin-right:
 .process-step p { font-size: 14px; color: var(--text-light); line-height: 1.8; }
 
 /* PARTNERS */
-.partners-bar { padding: 72px 0; text-align: center; background: var(--off-white); border-bottom: 1px solid var(--gray-200); }
+.partners-bar { padding: 64px 0; text-align: center; background: var(--off-white); border-bottom: 1px solid var(--gray-200); }
 .partners-label { font-size: 22px; color: var(--text); font-weight: 700; margin-bottom: 12px; }
-.partners-sublabel { font-size: 15px; color: var(--text-light); margin-bottom: 36px; }
-.partners-logos-wrap { overflow: hidden; width: 100%; position: relative; }
-.partners-logos-wrap::before, .partners-logos-wrap::after { content: ''; position: absolute; top: 0; bottom: 0; width: 60px; z-index: 2; pointer-events: none; }
-.partners-logos-wrap::before { right: 0; background: linear-gradient(to left, var(--off-white), transparent); }
-.partners-logos-wrap::after { left: 0; background: linear-gradient(to right, var(--off-white), transparent); }
-.partners-logos { display: flex; align-items: center; gap: 48px; width: max-content; will-change: transform; }
-.partner-card { background: transparent; border: none; border-radius: 0; padding: 12px 16px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-.partner-card img { height: 90px; width: auto; max-width: 220px; object-fit: contain; }
+.partners-sublabel { font-size: 15px; color: var(--text-light); margin-bottom: 28px; }
+.partners-logos-wrap { width: 100%; position: relative; padding: 18px; border: 1px solid rgba(24,95,165,0.16); border-radius: 20px; background: rgba(255,255,255,0.68); box-shadow: 0 16px 44px rgba(4,44,83,0.08); backdrop-filter: blur(14px) saturate(125%); -webkit-backdrop-filter: blur(14px) saturate(125%); }
+[data-theme="dark"] .partners-logos-wrap { background: rgba(10,22,40,0.72); border-color: rgba(110,221,181,0.18); }
+.partners-logos { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); align-items: center; gap: 16px; width: 100%; }
+.partner-card { min-width: 0; min-height: 112px; background: rgba(255,255,255,0.56); border: 1px solid rgba(24,95,165,0.1); border-radius: 14px; padding: 14px; display: flex; align-items: center; justify-content: center; }
+[data-theme="dark"] .partner-card { background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.09); }
+.partner-card img { display: block; height: 78px; width: 100%; max-width: 170px; object-fit: contain; }
 [data-theme="dark"] .partner-card img { filter: brightness(1.15) contrast(1.1); }
+@media (max-width: 900px) {
+  .partners-logos { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media (max-width: 560px) {
+  .partners-bar { padding: 48px 0; }
+  .partners-logos-wrap { padding: 12px; }
+  .partners-logos { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+  .partner-card { min-height: 92px; padding: 10px; }
+  .partner-card img { height: 64px; }
+}
 
 /* CTA BANNER */
 .cta-banner { background: linear-gradient(135deg, var(--accent), var(--primary-light)); padding: 56px 0; text-align: center; position: relative; overflow: hidden; }
@@ -645,7 +654,7 @@ html[dir="ltr"] .btt { right: auto; left: 28px; }
 
         <div class="hero-flows">
           <div class="glass-card flow-card">
-            <div class="flow-card-title" id="fc1-title"><i class="fas fa-route" aria-hidden="true"></i> خدمات لوجستية Mid-Mile</div>
+            <div class="flow-card-title"><i class="fas fa-route" aria-hidden="true"></i><span id="fc1-title">خدمات لوجستية Mid-Mile</span></div>
             <div class="flow-steps">
               <div class="flow-step"><div class="flow-step-icon"><i class="fas fa-warehouse" aria-hidden="true"></i></div><span class="flow-step-label" id="fs1-1">مستودعك</span></div>
               <i class="fas fa-arrow-left flow-arrow" aria-hidden="true"></i>
@@ -655,7 +664,7 @@ html[dir="ltr"] .btt { right: auto; left: 28px; }
             </div>
           </div>
           <div class="glass-card flow-card">
-            <div class="flow-card-title" id="fc2-title"><i class="fas fa-boxes-stacked" aria-hidden="true"></i> خدمات التخزين والتوزيع</div>
+            <div class="flow-card-title"><i class="fas fa-boxes-stacked" aria-hidden="true"></i><span id="fc2-title">خدمات التخزين والتوزيع</span></div>
             <div class="flow-steps">
               <div class="flow-step"><div class="flow-step-icon"><i class="fas fa-box-open" aria-hidden="true"></i></div><span class="flow-step-label" id="fs2-1">منتجك</span></div>
               <i class="fas fa-arrow-left flow-arrow" aria-hidden="true"></i>
@@ -705,7 +714,7 @@ html[dir="ltr"] .btt { right: auto; left: 28px; }
 <section class="services" id="services">
   <div class="container">
     <div class="section-header fade-up">
-      <span class="section-label" id="svc-label"><i class="fas fa-cubes"></i> خدماتنا</span>
+      <span class="section-label"><i class="fas fa-cubes"></i> <span id="svc-label">خدماتنا</span></span>
       <h2 id="svc-title">حلول متكاملة للتوزيع والخدمات اللوجستية</h2>
       <p id="svc-desc">نقدّم خدمات شاملة من المستودع إلى نقطة البيع بأعلى معايير الجودة</p>
     </div>
@@ -744,7 +753,7 @@ html[dir="ltr"] .btt { right: auto; left: 28px; }
 <section id="regions">
   <div class="container">
     <div class="section-header fade-up">
-      <span class="section-label" id="reg-label"><i class="fas fa-map-marked-alt"></i> تغطيتنا</span>
+      <span class="section-label"><i class="fas fa-map-marked-alt"></i> <span id="reg-label">تغطيتنا</span></span>
       <h2 id="reg-title">نصل إليك أينما كنت</h2>
       <p id="reg-desc">شبكة توزيع تغطي 8 مناطق رئيسية في المملكة</p>
     </div>
@@ -816,7 +825,7 @@ html[dir="ltr"] .btt { right: auto; left: 28px; }
 <section class="testimonials" id="testimonials">
   <div class="container">
     <div class="section-header fade-up">
-      <span class="section-label" id="test-label"><i class="fas fa-quote-right"></i> آراء العملاء</span>
+      <span class="section-label"><i class="fas fa-quote-right"></i> <span id="test-label">آراء العملاء</span></span>
       <h2 id="test-title">ماذا يقول عملاؤنا</h2>
       <p id="test-desc">شراكات ناجحة بنيناها بالثقة والجودة</p>
     </div>
@@ -852,7 +861,7 @@ html[dir="ltr"] .btt { right: auto; left: 28px; }
 <section class="fleet" id="fleet">
   <div class="container">
     <div class="section-header fade-up">
-      <span class="section-label" id="fl-label"><i class="fas fa-truck-moving"></i> أسطولنا</span>
+      <span class="section-label"><i class="fas fa-truck-moving"></i> <span id="fl-label">أسطولنا</span></span>
       <h2 id="fl-title">أسطول حديث ومبرّد</h2>
       <p id="fl-desc">شاحنات من أفضل الماركات العالمية مجهزة بأنظمة تبريد متطورة</p>
     </div>
@@ -888,7 +897,7 @@ html[dir="ltr"] .btt { right: auto; left: 28px; }
 <!-- QUOTE FORM -->
 <section class="quote" id="quote">
   <div class="container" style="text-align:center">
-    <span class="section-label" id="q-label"><i class="fas fa-file-invoice"></i> عرض سعر</span>
+    <span class="section-label"><i class="fas fa-file-invoice"></i> <span id="q-label">عرض سعر</span></span>
     <h2 style="color:#fff;font-size:32px;font-weight:700;margin:16px 0" id="q-title">جاهز تبدأ شراكة ناجحة؟</h2>
     <p style="color:rgba(255,255,255,0.7);margin-bottom:28px;font-size:16px" id="q-desc">انضم لأكثر من 5,500 عميل يثقون بزاد الشرقية — اطلب عرض سعر مجاني الآن</p>
     <a href="https://wa.me/966540712087?text=%D8%A3%D8%B1%D8%BA%D8%A8%20%D8%A8%D8%B7%D9%84%D8%A8%20%D8%B9%D8%B1%D8%B6%20%D8%B3%D8%B9%D8%B1" target="_blank" rel="noopener noreferrer" class="btn btn-primary" id="q-btn" style="font-size:18px;padding:16px 40px"><i class="fab fa-whatsapp"></i> <span>اطلب عرض سعر عبر واتساب</span></a>
@@ -899,7 +908,7 @@ html[dir="ltr"] .btt { right: auto; left: 28px; }
 <section id="process">
   <div class="container">
     <div class="section-header fade-up">
-      <span class="section-label" id="proc-label"><i class="fas fa-route"></i> كيف نعمل</span>
+      <span class="section-label"><i class="fas fa-route"></i> <span id="proc-label">كيف نعمل</span></span>
       <h2 id="proc-title">خطوات بسيطة لبدء الشراكة</h2>
       <p id="proc-desc">من أول تواصل إلى التوصيل — نجعل العملية سلسة وواضحة</p>
     </div>
@@ -931,7 +940,7 @@ html[dir="ltr"] .btt { right: auto; left: 28px; }
 <!-- FAQ -->
 <section class="faq" id="faq" style="padding:60px 0">
   <div class="container" style="text-align:center">
-    <span class="section-label" id="faq-label"><i class="fas fa-question-circle"></i> الأسئلة الشائعة</span>
+    <span class="section-label"><i class="fas fa-question-circle"></i> <span id="faq-label">الأسئلة الشائعة</span></span>
     <h2 class="section-header-title" style="font-size:32px;font-weight:700;margin:16px 0" id="faq-title">لديك سؤال؟</h2>
     <p style="color:var(--text-light);margin-bottom:28px;font-size:16px" id="faq-subtitle">اطّلع على الأسئلة الأكثر شيوعاً حول خدماتنا</p>
     <a href="faq.html" class="btn btn-primary" id="faq-btn"><i class="fas fa-arrow-left"></i> عرض الأسئلة الشائعة</a>
@@ -951,7 +960,7 @@ html[dir="ltr"] .btt { right: auto; left: 28px; }
 <section class="contact-section" id="contact">
   <div class="container">
     <div class="section-header fade-up">
-      <span class="section-label" id="ct-label"><i class="fas fa-headset"></i> تواصل معنا</span>
+      <span class="section-label"><i class="fas fa-headset"></i> <span id="ct-label">تواصل معنا</span></span>
       <h2 id="ct-title">نسعد بخدمتك</h2>
       <p id="ct-desc">تواصل معنا للاستفسارات والطلبات</p>
     </div>
@@ -1029,15 +1038,15 @@ html[dir="ltr"] .btt { right: auto; left: 28px; }
     <div class="wa-popup-body">
       <div class="wa-msg">
         <p id="wa-msg-text">أهلاً وسهلاً بك في زاد الشرقية! 👋<br>كيف نقدر نخدمك اليوم؟</p>
-        <span class="wa-time">الآن</span>
+        <span class="wa-time" id="wa-time">الآن</span>
       </div>
     </div>
     <div class="wa-popup-footer">
       <div class="wa-quick-btns">
-        <button class="wa-quick" onclick="sendWa('أنا عميل جديد وأبي أعرف أكثر عن خدمات التوزيع المبرّد')" id="wq1">عميل جديد</button>
-        <button class="wa-quick" onclick="sendWa('أبي عرض سعر للتوزيع المبرّد')" id="wq2">عرض سعر</button>
-        <button class="wa-quick" onclick="sendWa('أبي أستفسر عن توصيل بضاعة مبرّدة')" id="wq3">استفسار عن التوصيل</button>
-        <button class="wa-quick" onclick="sendWa('أبي أعرف عن الوكالات الحصرية المتوفرة')" id="wq4">الوكالات الحصرية</button>
+        <button class="wa-quick" onclick="sendQuickWa(0)" id="wq1">عميل جديد</button>
+        <button class="wa-quick" onclick="sendQuickWa(1)" id="wq2">عرض سعر</button>
+        <button class="wa-quick" onclick="sendQuickWa(2)" id="wq3">استفسار عن التوصيل</button>
+        <button class="wa-quick" onclick="sendQuickWa(3)" id="wq4">الوكالات الحصرية</button>
       </div>
       <div class="wa-input-row">
         <input type="text" class="wa-input" id="waInput" placeholder="اكتب رسالتك..." onkeydown="if(event.key==='Enter')sendWaCustom()">
@@ -1180,14 +1189,14 @@ const AR = {
   'fs2-3': 'أسطولنا',
   'fs2-4': 'عميلك',
   'tr1': 'ISO 22000 معتمد', 'tr2': 'مرخّص من SFDA', 'tr3': 'نطاق حراري من +18°C إلى -40°C', 'tr4': 'تتبع مباشر GPS', 'tr5': 'دعم 24/7',
-  'svc-label-text': 'خدماتنا', 'svc-title': 'حلول متكاملة للتوزيع والخدمات اللوجستية', 'svc-desc': 'نقدّم خدمات شاملة من المستودع إلى نقطة البيع بأعلى معايير الجودة',
+  'svc-label': 'خدماتنا', 'svc-title': 'حلول متكاملة للتوزيع والخدمات اللوجستية', 'svc-desc': 'نقدّم خدمات شاملة من المستودع إلى نقطة البيع بأعلى معايير الجودة',
   's1-title': 'وكالات حصرية', 's1-desc': 'شراكات استراتيجية مع كبرى العلامات التجارية الغذائية لتوفير منتجات عالية الجودة في السوق السعودي.',
   's2-title': 'التوزيع والتوصيل', 's2-desc': 'أسطول حديث من الشاحنات المبرّدة يضمن وصول المنتجات طازجة إلى كل نقطة بيع في مناطق تغطيتنا.',
   's3-title': 'مستودعات مبرّدة', 's3-desc': 'مستودعات تخزين بمعايير عالمية مع أنظمة تبريد وتجميد متطورة تحافظ على جودة المنتجات.',
   's4-title': 'كتالوج المنتجات', 's4-desc': 'تشكيلة واسعة من المنتجات الغذائية المختارة بعناية تلبّي احتياجات السوق السعودي المتنوعة.',
-  'reg-label-text': 'تغطيتنا', 'reg-title': 'نصل إليك أينما كنت', 'reg-desc': 'شبكة توزيع تغطي 8 مناطق رئيسية في المملكة',
-  'test-label-text': 'آراء العملاء', 'test-title': 'ماذا يقول عملاؤنا', 'test-desc': 'شراكات ناجحة بنيناها بالثقة والجودة',
-  'fl-label-text': 'أسطولنا', 'fl-title': 'أسطول حديث ومبرّد', 'fl-desc': 'شاحنات من أفضل الماركات العالمية مجهزة بأنظمة تبريد متطورة',
+  'reg-label': 'تغطيتنا', 'reg-title': 'نصل إليك أينما كنت', 'reg-desc': 'شبكة توزيع تغطي 8 مناطق رئيسية في المملكة',
+  'test-label': 'آراء العملاء', 'test-title': 'ماذا يقول عملاؤنا', 'test-desc': 'شراكات ناجحة بنيناها بالثقة والجودة',
+  'fl-label': 'أسطولنا', 'fl-title': 'أسطول حديث ومبرّد', 'fl-desc': 'شاحنات من أفضل الماركات العالمية مجهزة بأنظمة تبريد متطورة',
   'reg-east': 'المنطقة الشرقية', 'reg-east-type': 'المقر الرئيسي',
   'reg-central': 'المنطقة الوسطى', 'reg-central-type': 'مركز توزيع',
   'reg-west': 'المنطقة الغربية', 'reg-west-type': 'مركز توزيع',
@@ -1196,26 +1205,26 @@ const AR = {
   'f1-title': 'شاحنات التجميد العميق', 'f1': 'نقل بدرجات تصل إلى -40°C للمنتجات الغذائية المجمّدة', 'f1t': 'تجميد عميق',
   'f2-title': 'أسطول التوزيع الخفيف', 'f2': 'توصيل سريع داخل المدن لنقاط البيع والمطاعم والفنادق', 'f2t': 'توزيع المدن',
   'f3-title': 'شاحنات النقل بين المناطق', 'f3': 'نقل ثقيل مبرّد بين الفروع الثمانية بمراقبة حرارة مستمرة', 'f3t': 'نقل بين المناطق',
-  'q-label-text': 'عرض سعر', 'q-title': 'اطلب عرض سعر مجاني', 'q-desc': 'أرسل لنا تفاصيل طلبك وسنعود إليك خلال 24 ساعة',
+  'q-label': 'عرض سعر', 'q-title': 'اطلب عرض سعر مجاني', 'q-desc': 'أرسل لنا تفاصيل طلبك وسنعود إليك خلال 24 ساعة', 'q-btn-text': 'اطلب عرض سعر عبر واتساب',
   'q-submit-text': 'إرسال الطلب',
-  'ct-label-text': 'تواصل معنا', 'ct-title': 'نسعد بخدمتك', 'ct-desc': 'تواصل معنا للاستفسارات والطلبات',
+  'ct-label': 'تواصل معنا', 'ct-title': 'نسعد بخدمتك', 'ct-desc': 'تواصل معنا للاستفسارات والطلبات',
   'ct-hours-label': 'ساعات العمل', 'ct-wa-label': 'خدمة العملاء', 'ct-email-label': 'البريد الإلكتروني', 'ct-loc-label': 'المقر الرئيسي',
   'ct-hours': 'الأحد — الخميس<br>8:00 ص — 5:00 م',
   'ct-address': 'الجبيل<br>المنطقة الشرقية، السعودية',
   'ft-brand': 'شركة زاد الشرقية', 'ft-desc': 'شركة لوجستية سعودية لخدمة المنتجات الغذائية والأدوية',
-  'ft-links-title': 'روابط سريعة', 'ft-l1': 'خدماتنا', 'ft-l2': 'تغطيتنا', 'ft-l3': 'أسطولنا', 'ft-l4': 'عرض سعر',
+  'ft-links-title': 'روابط سريعة', 'ft-l1': 'خدماتنا', 'ft-l2': 'تغطيتنا', 'ft-l3': 'أسطولنا', 'ft-l4': 'عرض سعر', 'ft-l5': 'الأسئلة الشائعة',
   'ft-contact-title': 'تواصل', 'ft-copy': '© 2026 شركة زاد الشرقية. جميع الحقوق محفوظة.',
   'login-text': 'دخول',
   'btn1-text': 'اطلب عرض سعر', 'btn2-text': 'اكتشف خدماتنا',
-  'proc-label-text': 'كيف نعمل', 'proc-title': 'خطوات بسيطة لبدء الشراكة', 'proc-desc': 'من أول تواصل إلى التوصيل — نجعل العملية سلسة وواضحة',
+  'proc-label': 'كيف نعمل', 'proc-title': 'خطوات بسيطة لبدء الشراكة', 'proc-desc': 'من أول تواصل إلى التوصيل — نجعل العملية سلسة وواضحة',
   'p1-title': 'تواصل معنا', 'p1-desc': 'أرسل لنا طلبك عبر الموقع أو واتساب وسنرد خلال ساعات',
   'p2-title': 'نحدد احتياجاتك', 'p2-desc': 'فريقنا يدرس متطلباتك ويقدم لك عرض سعر مفصّل ومخصص',
   'p3-title': 'نبدأ التوزيع', 'p3-desc': 'نجهّز الشحنة في مستودعاتنا المبرّدة وننطلق بالتوصيل',
   'p4-title': 'تتبّع مباشر', 'p4-desc': 'تابع شحنتك لحظة بلحظة مع تقارير درجة الحرارة والموقع',
-  'faq-label-text': 'الأسئلة الشائعة', 'faq-title': 'لديك سؤال؟', 'faq-subtitle': 'اطّلع على الأسئلة الأكثر شيوعاً حول خدماتنا', 'faq-btn': 'عرض الأسئلة الشائعة',
+  'faq-label': 'الأسئلة الشائعة', 'faq-title': 'لديك سؤال؟', 'faq-subtitle': 'اطّلع على الأسئلة الأكثر شيوعاً حول خدماتنا', 'faq-btn': 'عرض الأسئلة الشائعة',
   'partners-label': 'عملاء يثقون بنا', 'partners-sublabel': 'نفتخر بشراكتنا مع أبرز العلامات التجارية في المملكة',
   'cta-title': 'جاهز تبدأ شراكة ناجحة؟', 'cta-desc': 'انضم لأكثر من 5,500 عميل يثقون بزاد الشرقية في توزيع منتجاتهم المبرّدة', 'cta-btn-text': 'اطلب عرض سعر الآن',
-  'wa-name': 'زاد الشرقية', 'wa-status': 'متصل الآن', 'wa-msg-text': 'أهلاً وسهلاً بك في زاد الشرقية! 👋<br>كيف نقدر نخدمك اليوم؟',
+  'wa-name': 'زاد الشرقية', 'wa-status': 'متصل الآن', 'wa-time': 'الآن', 'wa-msg-text': 'أهلاً وسهلاً بك في زاد الشرقية! 👋<br>كيف نقدر نخدمك اليوم؟',
   'wq1': 'عميل جديد', 'wq2': 'عرض سعر', 'wq3': 'استفسار عن التوصيل', 'wq4': 'الوكالات الحصرية',
   'wcu1': 'أعلى معايير سلامة الغذاء', 'wcu2': 'تغطية 8 مناطق في المملكة', 'wcu3': 'دعم فني وخدمة عملاء 24/7'
 };
@@ -1241,14 +1250,14 @@ const EN = {
   'fs2-3': 'Our Fleet',
   'fs2-4': 'Your Customer',
   'tr1': 'ISO 22000 certified', 'tr2': 'SFDA licensed', 'tr3': 'Temperature range +18°C to -40°C', 'tr4': 'Live GPS tracking', 'tr5': '24/7 support',
-  'svc-label-text': 'Our services', 'svc-title': 'Complete distribution & logistics solutions', 'svc-desc': 'End-to-end services from warehouse to point of sale with the highest quality standards',
+  'svc-label': 'Our services', 'svc-title': 'Complete distribution & logistics solutions', 'svc-desc': 'End-to-end services from warehouse to point of sale with the highest quality standards',
   's1-title': 'Exclusive agencies', 's1-desc': 'Strategic partnerships with leading food brands to provide premium products in the Saudi market.',
   's2-title': 'Distribution & delivery', 's2-desc': 'A modern fleet of refrigerated trucks ensures products reach every outlet fresh across our coverage areas.',
   's3-title': 'Cold storage', 's3-desc': 'World-class warehouses with advanced cooling and freezing systems to maintain product quality.',
   's4-title': 'Product catalog', 's4-desc': 'A wide selection of carefully curated food products to meet the diverse needs of the Saudi market.',
-  'reg-label-text': 'Coverage', 'reg-title': 'We reach you anywhere', 'reg-desc': 'Distribution network covering 8 major regions in Saudi Arabia',
-  'test-label-text': 'Testimonials', 'test-title': 'What our clients say', 'test-desc': 'Successful partnerships built on trust and quality',
-  'fl-label-text': 'Our fleet', 'fl-title': 'Modern refrigerated fleet', 'fl-desc': 'Trucks from top global brands equipped with advanced cooling systems',
+  'reg-label': 'Coverage', 'reg-title': 'We reach you anywhere', 'reg-desc': 'Distribution network covering 8 major regions in Saudi Arabia',
+  'test-label': 'Testimonials', 'test-title': 'What our clients say', 'test-desc': 'Successful partnerships built on trust and quality',
+  'fl-label': 'Our fleet', 'fl-title': 'Modern refrigerated fleet', 'fl-desc': 'Trucks from top global brands equipped with advanced cooling systems',
   'reg-east': 'Eastern Region', 'reg-east-type': 'Headquarters',
   'reg-central': 'Central Region', 'reg-central-type': 'Distribution Center',
   'reg-west': 'Western Region', 'reg-west-type': 'Distribution Center',
@@ -1257,29 +1266,96 @@ const EN = {
   'f1-title': 'Deep Freeze Fleet', 'f1': 'Transport at -40°C for frozen food products', 'f1t': 'Deep freeze',
   'f2-title': 'City Distribution Fleet', 'f2': 'Fast delivery to outlets, restaurants and hotels within cities', 'f2t': 'City delivery',
   'f3-title': 'Inter-Regional Transport', 'f3': 'Heavy refrigerated transport across all 8 branches with continuous monitoring', 'f3t': 'Regional transport',
-  'q-label-text': 'Get a quote', 'q-title': 'Request a free quote', 'q-desc': 'Send us your requirements and we\'ll get back within 24 hours',
+  'q-label': 'Get a quote', 'q-title': 'Request a free quote', 'q-desc': 'Send us your requirements and we\'ll get back within 24 hours', 'q-btn-text': 'Request a quote on WhatsApp',
   'q-submit-text': 'Submit request',
-  'ct-label-text': 'Contact us', 'ct-title': 'We are happy to serve you', 'ct-desc': 'Reach out for inquiries and orders',
+  'ct-label': 'Contact us', 'ct-title': 'We are happy to serve you', 'ct-desc': 'Reach out for inquiries and orders',
   'ct-hours-label': 'Working Hours', 'ct-wa-label': 'Customer Service', 'ct-email-label': 'Email', 'ct-loc-label': 'Headquarters',
   'ct-hours': 'Sunday — Thursday<br>8:00 AM — 5:00 PM',
   'ct-address': 'Jubail<br>Eastern Province, Saudi Arabia',
   'ft-brand': 'Eastern Zad Company', 'ft-desc': 'A Saudi logistics company serving food products and pharmaceuticals.',
-  'ft-links-title': 'Quick links', 'ft-l1': 'Services', 'ft-l2': 'Coverage', 'ft-l3': 'Fleet', 'ft-l4': 'Get a quote',
+  'ft-links-title': 'Quick links', 'ft-l1': 'Services', 'ft-l2': 'Coverage', 'ft-l3': 'Fleet', 'ft-l4': 'Get a quote', 'ft-l5': 'FAQ',
   'ft-contact-title': 'Contact', 'ft-copy': '© 2026 Eastern Zad Company. All rights reserved.',
   'login-text': 'Login',
   'btn1-text': 'Get a quote', 'btn2-text': 'Our services',
-  'proc-label-text': 'How we work', 'proc-title': 'Simple steps to start a partnership', 'proc-desc': 'From first contact to delivery — we make the process smooth and clear',
+  'proc-label': 'How we work', 'proc-title': 'Simple steps to start a partnership', 'proc-desc': 'From first contact to delivery — we make the process smooth and clear',
   'p1-title': 'Contact us', 'p1-desc': 'Send your request via our website or WhatsApp and we\'ll respond within hours',
   'p2-title': 'We assess your needs', 'p2-desc': 'Our team studies your requirements and provides a detailed custom quote',
   'p3-title': 'Distribution begins', 'p3-desc': 'We prepare your shipment in our cold storage and dispatch for delivery',
   'p4-title': 'Live tracking', 'p4-desc': 'Track your shipment in real-time with temperature and location reports',
-  'faq-label-text': 'FAQ', 'faq-title': 'Have a Question?', 'faq-subtitle': 'Check our most frequently asked questions', 'faq-btn': 'View FAQ',
+  'faq-label': 'FAQ', 'faq-title': 'Have a Question?', 'faq-subtitle': 'Check our most frequently asked questions', 'faq-btn': 'View FAQ',
   'partners-label': 'Clients who trust us', 'partners-sublabel': 'Proud to partner with leading brands across Saudi Arabia',
   'cta-title': 'Ready to start a successful partnership?', 'cta-desc': 'Join 5,500+ clients who trust Eastern Zad for their cold chain distribution', 'cta-btn-text': 'Get a quote now',
-  'wa-name': 'Eastern Zad', 'wa-status': 'Online now', 'wa-msg-text': 'Welcome to Eastern Zad! 👋<br>How can we help you today?',
+  'wa-name': 'Eastern Zad', 'wa-status': 'Online now', 'wa-time': 'Now', 'wa-msg-text': 'Welcome to Eastern Zad! 👋<br>How can we help you today?',
   'wq1': 'New customer', 'wq2': 'Get a quote', 'wq3': 'Delivery inquiry', 'wq4': 'Exclusive agencies',
   'wcu1': 'Highest food safety standards', 'wcu2': 'Coverage across 8 regions', 'wcu3': '24/7 technical & customer support'
 };
+
+const AR_CITIES = Array.from(document.querySelectorAll('.city-pin')).map(function(pin) {
+  return pin.textContent.trim();
+});
+const EN_CITIES = [
+  'Jubail', 'Dammam', 'Hafar Al Batin', 'Khafji', 'Al Ahsa',
+  'Riyadh', 'Qassim', 'Madinah', 'Yanbu', 'Jazan', 'Najran',
+  'Abha', 'Khamis Mushait', 'Hail'
+];
+const AR_TESTIMONIALS = Array.from(document.querySelectorAll('.testimonial-card')).map(function(card) {
+  return {
+    text: card.querySelector('.testimonial-text').textContent,
+    name: card.querySelector('.testimonial-name').textContent,
+    role: card.querySelector('.testimonial-role').textContent,
+    avatar: card.querySelector('.testimonial-avatar').textContent
+  };
+});
+const EN_TESTIMONIALS = [
+  { text: '"Eastern Zad is a reliable supply-chain partner. Their punctuality and temperature control are excellent."', name: 'Mohammed Alomari', role: 'Purchasing Manager — Dammam', avatar: 'M.A' },
+  { text: '"We worked with several distributors, but Eastern Zad stood out for professionalism and precise refrigerated delivery."', name: 'Khalid Alshammari', role: 'Supermarket Owner — Qassim', avatar: 'K.S' },
+  { text: '"Live tracking gives us complete peace of mind. We always know our shipment location and temperature."', name: 'Faisal Alqahtani', role: 'Logistics Manager — Riyadh', avatar: 'F.Q' },
+  { text: '"One of the best refrigerated distributors we have used. Shipments consistently arrive at the correct temperature."', name: 'Abdullah Alharbi', role: 'Branch Manager — Jeddah', avatar: 'A.H' },
+  { text: '"Excellent customer service and continuous follow-up from the Eastern Zad team."', name: 'Nasser Alghamdi', role: 'Food Trader — Asir', avatar: 'N.G' },
+  { text: '"Their cold-storage facilities meet high standards, so we can store our goods with confidence."', name: 'Saud Alzahrani', role: 'Restaurant Owner — Madinah', avatar: 'S.Z' },
+  { text: '"Eastern Zad’s broad coverage reduced our need to work with multiple distributors."', name: 'Yasser Aldosari', role: 'Purchasing Manager — Hail', avatar: 'Y.D' },
+  { text: '"Inter-regional delivery is fast and dependable. Our shipment reached Hail in under 24 hours."', name: 'Turki Almutairi', role: 'Retail Distributor — Hail', avatar: 'T.M' },
+  { text: '"Temperature reports supplied with each shipment give us confidence in product safety."', name: 'Majed Alotaibi', role: 'Quality Officer — Khobar', avatar: 'M.O' },
+  { text: '"Their exclusive agencies give us access to distinctive products that are difficult to source elsewhere."', name: 'Rashed Aljuhani', role: 'Grocery Chain Owner — Yanbu', avatar: 'R.J' },
+  { text: '"The Eastern Zad team is professional, cooperative and follows up after every delivery."', name: 'Bandar Alrashed', role: 'Operations Manager — Al Ahsa', avatar: 'B.R' },
+  { text: '"Their pricing is competitive for the service quality, and consolidating distribution with them reduced our costs."', name: 'Hassan Alfaifi', role: 'Wholesale Trader — Jazan', avatar: 'H.F' },
+  { text: '"Their deep-freeze service is excellent, and frozen products arrive in ideal condition even during summer."', name: 'Waleed Alsubaie', role: 'Distribution Manager — Riyadh', avatar: 'W.S' },
+  { text: '"A trusted refrigerated logistics partner for our temperature-sensitive products."', name: 'Mansour Alkhaldi', role: 'Supply Chain Manager — Jeddah', avatar: 'M.K' }
+];
+const QUICK_WA_MESSAGES = {
+  ar: [
+    'أنا عميل جديد وأبي أعرف أكثر عن خدمات التوزيع المبرّد',
+    'أبي عرض سعر للتوزيع المبرّد',
+    'أبي أستفسر عن توصيل بضاعة مبرّدة',
+    'أبي أعرف عن الوكالات الحصرية المتوفرة'
+  ],
+  en: [
+    'I am a new customer and would like to learn more about your temperature-controlled distribution services.',
+    'I would like a quote for temperature-controlled distribution.',
+    'I have an inquiry about refrigerated delivery.',
+    'I would like to learn more about your available exclusive agencies.'
+  ]
+};
+
+function updateLocalizedCollections(lang) {
+  const cities = lang === 'en' ? EN_CITIES : AR_CITIES;
+  document.querySelectorAll('.city-pin').forEach(function(pin, index) {
+    const icon = pin.querySelector('i');
+    pin.replaceChildren();
+    if (icon) pin.appendChild(icon);
+    pin.appendChild(document.createTextNode(' ' + cities[index]));
+  });
+
+  const testimonials = lang === 'en' ? EN_TESTIMONIALS : AR_TESTIMONIALS;
+  document.querySelectorAll('.testimonial-card').forEach(function(card, index) {
+    const copy = testimonials[index];
+    if (!copy) return;
+    card.querySelector('.testimonial-text').textContent = copy.text;
+    card.querySelector('.testimonial-name').textContent = copy.name;
+    card.querySelector('.testimonial-role').textContent = copy.role;
+    card.querySelector('.testimonial-avatar').textContent = copy.avatar;
+  });
+}
 
 const HERO_ASSETS = {
   ar: {
@@ -1328,6 +1404,7 @@ function setLanguage(lang, updateUrl) {
   const data = currentLang === 'ar' ? AR : EN;
   document.documentElement.lang = currentLang;
   document.documentElement.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
+  document.title = currentLang === 'ar' ? 'شركة زاد الشرقية' : 'Eastern Zad Company';
   document.getElementById('langBtn').textContent = currentLang === 'ar' ? 'English' : 'العربية';
   updateHeroImage(currentLang);
 
@@ -1356,10 +1433,19 @@ function setLanguage(lang, updateUrl) {
   var heroBtn2 = document.querySelector('#hero-btn2 span');
   var loginText = document.querySelector('#nav-login span');
   var quoteSubmit = document.querySelector('#q-submit');
+  var quoteButton = document.querySelector('#q-btn span');
+  var quoteLink = document.getElementById('q-btn');
   if (heroBtn1) heroBtn1.textContent = data['btn1-text'];
   if (heroBtn2) heroBtn2.textContent = data['btn2-text'];
   if (loginText) loginText.textContent = data['login-text'];
   if (quoteSubmit) quoteSubmit.innerHTML = '<i class="fas fa-paper-plane"></i> ' + data['q-submit-text'];
+  if (quoteButton) quoteButton.textContent = data['q-btn-text'];
+  if (quoteLink) {
+    const waQuote = currentLang === 'ar'
+      ? 'أرغب بطلب عرض سعر'
+      : 'I would like to request a quote';
+    quoteLink.href = 'https://wa.me/966540712087?text=' + encodeURIComponent(waQuote);
+  }
 
   // CTA + WA popup
   var ctaBtn = document.querySelector('#cta-btn span');
@@ -1371,8 +1457,11 @@ function setLanguage(lang, updateUrl) {
     parts.forEach(function(p, i) { waMsgEl.appendChild(document.createTextNode(p)); if (i < parts.length - 1) waMsgEl.appendChild(document.createElement('br')); });
   }
   document.getElementById('waInput').placeholder = currentLang === 'ar' ? 'اكتب رسالتك...' : 'Type your message...';
+  updateLocalizedCollections(currentLang);
 
   // Flip slider arrows for RTL/LTR
+  document.querySelector('.ts-prev').setAttribute('aria-label', currentLang === 'ar' ? 'السابق' : 'Previous');
+  document.querySelector('.ts-next').setAttribute('aria-label', currentLang === 'ar' ? 'التالي' : 'Next');
   document.getElementById('ts-prev-icon').className = currentLang === 'ar' ? 'fas fa-chevron-right' : 'fas fa-chevron-left';
   document.getElementById('ts-next-icon').className = currentLang === 'ar' ? 'fas fa-chevron-left' : 'fas fa-chevron-right';
   tsIndex = 0; updateSlider();
@@ -1436,6 +1525,9 @@ function sendWa(msg) {
     ? 'السلام عليكم، أنا عميل جديد من موقع زاد الشرقية 🌾\n\n'
     : 'Hello, I am a new customer from the Eastern Zad website 🌾\n\n';
   window.open('https://wa.me/966540712087?text=' + encodeURIComponent(prefix + msg), '_blank');
+}
+function sendQuickWa(index) {
+  sendWa(QUICK_WA_MESSAGES[currentLang][index]);
 }
 function sendWaCustom() {
   var inp = document.getElementById('waInput');
@@ -1520,35 +1612,19 @@ setTimeout(animateCounters, 500);
     {src: 'assets/logos/Al Baik logo.png', alt: 'AlBaik'},
     {src: 'assets/logos/Ice Queen logo.png', alt: 'Ice Queen'},
     {src: 'assets/logos/Fadeco logo.png', alt: 'FADECO'},
-    {src: 'assets/logos/Jazan mango logo.jpeg', alt: 'مانجو جازان'}
+    {src: 'assets/logos/Jazan mango logo.jpeg', alt: 'Jazan Mango'}
   ];
   var track = document.getElementById('partnersTrack');
-  // Build 4 copies so there's always enough to fill the screen
-  for (var c = 0; c < 4; c++) {
-    logos.forEach(function(l) {
-      var card = document.createElement('div');
-      card.className = 'partner-card';
-      var img = document.createElement('img');
-      img.src = l.src; img.alt = l.alt; img.loading = 'lazy';
-      card.appendChild(img);
-      track.appendChild(card);
-    });
-  }
-  var speed = 0.5; // px per frame
-  var pos = 0;
-  var paused = false;
-  track.addEventListener('mouseenter', function() { paused = true; });
-  track.addEventListener('mouseleave', function() { paused = false; });
-  function step() {
-    if (!paused) {
-      pos -= speed;
-      var oneSet = track.scrollWidth / 4;
-      if (Math.abs(pos) >= oneSet) pos += oneSet;
-      track.style.transform = 'translateX(' + pos + 'px)';
-    }
-    requestAnimationFrame(step);
-  }
-  requestAnimationFrame(step);
+  logos.forEach(function(l) {
+    var card = document.createElement('div');
+    card.className = 'partner-card';
+    var img = document.createElement('img');
+    img.src = l.src;
+    img.alt = l.alt;
+    img.loading = 'lazy';
+    card.appendChild(img);
+    track.appendChild(card);
+  });
 })();
 
 // Smooth scroll for nav links
