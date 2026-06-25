@@ -3,8 +3,5 @@ Allow: /
 Allow: /llms.txt
 Allow: /ai.txt
 Allow: /sitemap.xml
-Disallow: /security-check.js
-Disallow: /_headers
-Disallow: /.htaccess
 
 Sitemap: https://easternzad.com/sitemap.xml

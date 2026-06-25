@@ -18,9 +18,7 @@
 <meta property="og:locale:alternate" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data:; connect-src 'self'; base-uri 'self'; form-action 'self' https://wa.me;">
-<meta http-equiv="X-Content-Type-Options" content="nosniff">
-<meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=()">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data:; connect-src 'self'; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self' https://wa.me; upgrade-insecure-requests;">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <link rel="canonical" href="https://easternzad.com">
 <link rel="alternate" hreflang="ar" href="https://easternzad.com">
@@ -176,7 +174,7 @@ html[lang="en"] .flow-arrow { transform: scaleX(-1); }
 .hero-actions .btn-outline { background: rgba(3,24,48,0.5); }
 
 img { -webkit-user-drag: none; user-select: none; pointer-events: auto; }
-.partner-card img, .nav-logo-img, .ceo-photo img, .footer-brand img { pointer-events: none; }
+.partner-card img, .nav-logo-img, .footer-brand img { pointer-events: none; }
 .btn { display: inline-flex; align-items: center; gap: 8px; padding: 14px 32px; border-radius: 99px; font-family: inherit; font-size: 16px; font-weight: 600; text-decoration: none; transition: all 0.3s; cursor: pointer; border: none; }
 .btn-primary { background: var(--accent-light); color: var(--primary-dark); }
 .btn-primary:hover { background: #fff; transform: translateY(-2px); box-shadow: 0 8px 32px rgba(93,202,165,0.3); }
@@ -294,15 +292,6 @@ html[lang="en"] .service-card::before { transform-origin: left; }
 @media (max-width: 1024px) { .testimonials-track .testimonial-card { width: calc((100% - 20px) / 2); min-width: calc((100% - 20px) / 2); } }
 @media (max-width: 768px) { .testimonials-track .testimonial-card { width: 100%; min-width: 100%; } .ts-arrow { width: 36px; height: 36px; font-size: 14px; } }
 
-/* CEO */
-.ceo-content { display: flex; gap: 48px; align-items: center; }
-.ceo-photo { flex-shrink: 0; width: 200px; height: 200px; border-radius: 24px; background: linear-gradient(135deg, var(--primary-dark), var(--primary-light)); display: flex; align-items: center; justify-content: center; color: var(--accent-light); font-size: 56px; font-weight: 800; border: 3px solid var(--accent-light); }
-.ceo-text { flex: 1; }
-.ceo-text blockquote { font-size: 21px; color: var(--text-light); line-height: 2.1; margin-bottom: 28px; position: relative; padding-right: 28px; border-right: 3px solid var(--accent-light); }
-.ceo-text .ceo-name { font-size: 18px; font-weight: 700; color: var(--text); }
-.ceo-text .ceo-title { font-size: 14px; color: var(--text-light); }
-html[lang="en"] .ceo-text blockquote { border-right: none; padding-right: 0; border-left: 3px solid var(--accent-light); padding-left: 24px; }
-
 /* FLEET */
 .fleet { background: var(--off-white); }
 .fleet-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
@@ -321,18 +310,6 @@ html[lang="en"] .ceo-text blockquote { border-right: none; padding-right: 0; bor
 .quote .section-header h2 { color: #fff; }
 .quote .section-header p { color: rgba(255,255,255,0.7); }
 .quote .section-label { background: rgba(255,255,255,0.1); color: var(--accent-light); }
-.quote-form { max-width: 780px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
-.quote-form .full { grid-column: 1 / -1; }
-.quote-input { width: 100%; padding: 15px 20px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); border-radius: var(--radius-sm); color: #fff; font-family: inherit; font-size: 15px; outline: none; transition: border 0.2s; -webkit-appearance: none; appearance: none; }
-.quote-input::placeholder { color: rgba(255,255,255,0.4); }
-.quote-input:focus { border-color: var(--accent-light); background: rgba(255,255,255,0.12); }
-select.quote-input { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23ffffff' stroke-width='1.5' fill='none'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: left 16px center; background-size: 12px; padding-left: 40px; cursor: pointer; }
-html[dir="ltr"] select.quote-input { background-position: right 16px center; padding-left: 20px; padding-right: 40px; }
-select.quote-input option { background: var(--primary-dark); color: #fff; padding: 10px; font-size: 14px; }
-textarea.quote-input { min-height: 120px; resize: vertical; }
-.quote-submit { grid-column: 1 / -1; padding: 16px; background: var(--accent-light); color: var(--primary-dark); border: none; border-radius: 99px; font-family: inherit; font-size: 17px; font-weight: 600; cursor: pointer; transition: all 0.3s; }
-.quote-submit:hover { background: #fff; transform: translateY(-2px); }
-
 /* CONTACT */
 .contact-section { background: var(--primary-dark); color: #fff; }
 .contact-section .section-header h2 { color: #fff; }
@@ -356,11 +333,11 @@ textarea.quote-input { min-height: 120px; resize: vertical; }
 .footer-col h5 { color: #fff; font-size: 15px; font-weight: 600; margin-bottom: 14px; }
 .footer-col a { display: block; color: var(--gray-400); text-decoration: none; font-size: 14px; margin-bottom: 8px; transition: color 0.2s; }
 .footer-col a:hover { color: var(--accent-light); }
-.footer-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+.footer-bottom { display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 8px; text-align: center; }
 .footer-copy { font-size: 13px; color: var(--gray-400); }
-.footer-social { display: flex; gap: 14px; }
-.footer-social a { color: var(--gray-400); font-size: 18px; text-decoration: none; transition: color 0.2s; }
-.footer-social a:hover { color: var(--accent-light); }
+.footer-dev-sig { font-size: 12px; color: rgba(255,255,255,0.7); letter-spacing: 0.02em; }
+.footer-dev-sig a { color: var(--accent-light); text-decoration: none; font-weight: 600; }
+.footer-dev-sig a:hover { color: #fff; }
 
 /* WHATSAPP POPUP */
 .wa-wrapper { position: fixed; bottom: 28px; left: 28px; z-index: 99; }
@@ -397,17 +374,6 @@ html[dir="ltr"] .wa-msg .wa-time { float: right; margin-left: 8px; margin-right:
 
 /* FAQ */
 .faq { background: var(--off-white); }
-.faq-list { max-width: 760px; margin: 0 auto; }
-.faq-item { background: var(--white); border: 1px solid var(--gray-200); border-radius: var(--radius); margin-bottom: 12px; overflow: hidden; transition: all var(--transition); }
-.faq-item:hover { border-color: var(--primary-light); }
-.faq-item.active { border-color: var(--accent-light); }
-.faq-q { display: flex; justify-content: space-between; align-items: center; padding: 18px 24px; cursor: pointer; gap: 16px; }
-.faq-q h4 { font-size: 17px; font-weight: 600; color: var(--text); margin: 0; flex: 1; line-height: 1.7; }
-.faq-q i { font-size: 14px; color: var(--gray-400); transition: transform 0.3s; flex-shrink: 0; }
-.faq-item.active .faq-q i { transform: rotate(180deg); color: var(--accent-light); }
-.faq-a { max-height: 0; overflow: hidden; transition: max-height 0.4s cubic-bezier(0.4,0,0.2,1), padding 0.3s; }
-.faq-item.active .faq-a { max-height: 300px; }
-.faq-a-inner { padding: 0 28px 20px; font-size: 15px; color: var(--text-light); line-height: 2; }
 
 /* PROCESS */
 .process-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; max-width: 960px; margin: 0 auto; counter-reset: step; }
@@ -460,34 +426,17 @@ html[dir="ltr"] .wa-msg .wa-time { float: right; margin-left: 8px; margin-right:
   .nav-mobile { display: block; }
   .nav-login { display: none; }
   .hero h1 { font-size: 32px; }
-  .hero-stats { gap: 20px; flex-wrap: wrap; }
-  .hero-stat .num { font-size: 28px; }
-  .ceo-content { flex-direction: column; text-align: center; }
-  .ceo-text blockquote { border-right: none; padding-right: 0; border-top: 3px solid var(--accent-light); padding-top: 20px; }
   .fleet-grid { grid-template-columns: 1fr; }
   .footer-top { grid-template-columns: 1fr; gap: 24px; }
-  .hero-float, .hero-float2, .hero-float3 { display: none; }
   .trust-items { gap: 20px; }
-  .quote-form { grid-template-columns: 1fr; }
   .mobile-menu-open .nav-links { display: flex; flex-direction: column; position: absolute; top: 60px; right: 0; left: 0; background: rgba(4,44,83,0.98); backdrop-filter: blur(16px); padding: 24px; border-radius: 0 0 16px 16px; gap: 16px; }
 }
 
 /* ANIMATIONS */
 .fade-up { opacity: 0; transform: translateY(30px); transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1); }
 .fade-up.visible { opacity: 1; transform: translateY(0); }
-.counter { display: inline-block; }
-
 /* SCROLL PROGRESS BAR */
 .scroll-progress { position: fixed; top: 0; left: 0; width: 0%; height: 3px; background: linear-gradient(90deg, var(--accent-light), var(--primary-light)); z-index: 1000; transition: width 0.1s linear; }
-
-/* HERO FROZEN EMOJIS */
-.hero-emoji { position: absolute; font-size: 32px; opacity: 0.15; z-index: 1; animation: floatEmoji 6s ease-in-out infinite; pointer-events: none; }
-.hero-emoji:nth-child(1) { top: 15%; right: 8%; animation-delay: 0s; }
-.hero-emoji:nth-child(2) { top: 60%; right: 15%; animation-delay: 2s; font-size: 24px; }
-.hero-emoji:nth-child(3) { top: 30%; right: 25%; animation-delay: 4s; font-size: 28px; }
-.hero-emoji:nth-child(4) { bottom: 20%; right: 5%; animation-delay: 1s; font-size: 20px; }
-.hero-emoji:nth-child(5) { top: 50%; right: 35%; animation-delay: 3s; font-size: 36px; }
-@keyframes floatEmoji { 0%,100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-20px) rotate(10deg); } }
 
 /* WHY CHOOSE US */
 .why-us { padding: 48px 0; background: var(--white); }
@@ -743,7 +692,7 @@ html[dir="ltr"] .btt { right: auto; left: 28px; }
   <div class="container">
     <div class="why-us-grid">
       <div class="why-us-item"><span class="check">✅</span> <span id="wcu1">أعلى معايير سلامة الغذاء</span></div>
-      <div class="why-us-item"><span class="check">✅</span> <span id="wcu2">تغطية 8 مناطق في المملكة</span></div>
+      <div class="why-us-item"><span class="check">✅</span> <span id="wcu2">تغطية 9 مناطق في المملكة</span></div>
       <div class="why-us-item"><span class="check">✅</span> <span id="wcu3">دعم فني وخدمة عملاء 24/7</span></div>
     </div>
   </div>
@@ -755,7 +704,7 @@ html[dir="ltr"] .btt { right: auto; left: 28px; }
     <div class="section-header fade-up">
       <span class="section-label"><i class="fas fa-map-marked-alt"></i> <span id="reg-label">تغطيتنا</span></span>
       <h2 id="reg-title">نصل إليك أينما كنت</h2>
-      <p id="reg-desc">شبكة توزيع تغطي 8 مناطق رئيسية في المملكة</p>
+      <p id="reg-desc">شبكة توزيع تغطي 9 مناطق رئيسية في المملكة</p>
     </div>
     <div class="regions-tree">
       <div class="region-branch fade-up">
@@ -886,7 +835,7 @@ html[dir="ltr"] .btt { right: auto; left: 28px; }
         <div class="fleet-img" style="background: linear-gradient(135deg, #042C53, #185FA5);"><i class="fas fa-truck-moving fleet-icon" style="color: #B5D4F4;"></i></div>
         <div class="fleet-info">
           <h4 id="f3-title">شاحنات النقل بين المناطق</h4>
-          <p id="f3">نقل ثقيل مبرّد بين الفروع الثمانية بمراقبة حرارة مستمرة</p>
+          <p id="f3">نقل ثقيل مبرّد بين مناطق التغطية بمراقبة حرارة مستمرة</p>
           <span class="fleet-tag" id="f3t">نقل بين المناطق</span>
         </div>
       </div>
@@ -943,7 +892,7 @@ html[dir="ltr"] .btt { right: auto; left: 28px; }
     <span class="section-label"><i class="fas fa-question-circle"></i> <span id="faq-label">الأسئلة الشائعة</span></span>
     <h2 class="section-header-title" style="font-size:32px;font-weight:700;margin:16px 0" id="faq-title">لديك سؤال؟</h2>
     <p style="color:var(--text-light);margin-bottom:28px;font-size:16px" id="faq-subtitle">اطّلع على الأسئلة الأكثر شيوعاً حول خدماتنا</p>
-    <a href="faq.html" class="btn btn-primary" id="faq-btn"><i class="fas fa-arrow-left"></i> عرض الأسئلة الشائعة</a>
+    <a href="#contact" class="btn btn-primary" id="faq-btn"><i class="fas fa-arrow-left"></i> تواصل معنا لسؤالك</a>
   </div>
 </section>
 
@@ -1013,12 +962,8 @@ html[dir="ltr"] .btt { right: auto; left: 28px; }
     </div>
     <div class="footer-bottom">
       <div class="footer-copy" id="ft-copy">© 2026 شركة زاد الشرقية. جميع الحقوق محفوظة.</div>
-      <div class="footer-dev-sig" style="opacity:0.45;font-size:10px;color:var(--gray-400)">
-        Dev: <a class="cyb-chameleon" href="https://cybphantom.github.io/business-solutions/" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:none"><span class="cyb-chameleon-text">CybPhantom</span></a>
-      </div>
-      <div class="footer-social">
-        <a href="https://wa.me/966540712087?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%A3%D9%86%D8%A7%20%D8%B9%D9%85%D9%8A%D9%84%20%D8%AC%D8%AF%D9%8A%D8%AF%20%D9%85%D9%86%20%D9%85%D9%88%D9%82%D8%B9%20%D8%B2%D8%A7%D8%AF%20%D8%A7%D9%84%D8%B4%D8%B1%D9%82%D9%8A%D8%A9%20%F0%9F%8C%BE%20%D8%A3%D8%A8%D9%8A%20%D8%A3%D8%B3%D8%AA%D9%81%D8%B3%D8%B1%20%D8%B9%D9%86%20%D8%AE%D8%AF%D9%85%D8%A7%D8%AA%D9%83%D9%85" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-        <a href="mailto:info@easternzad.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+      <div class="footer-dev-sig">
+        Dev: <a class="cyb-chameleon" href="https://cybphantom.github.io/business-solutions/" target="_blank" rel="noopener noreferrer"><span class="cyb-chameleon-text">CybPhantom</span></a>
       </div>
     </div>
   </div>
@@ -1085,31 +1030,11 @@ window.addEventListener('scroll', () => {
   });
 });
 
-// Counter animation
-function animateCounters() {
-  document.querySelectorAll('.counter').forEach(el => {
-    if (el.dataset.done) return;
-    const target = +el.dataset.target;
-    const duration = 2000;
-    const start = performance.now();
-    function update(now) {
-      const progress = Math.min((now - start) / duration, 1);
-      const eased = 1 - Math.pow(1 - progress, 3);
-      var val = Math.round(target * eased);
-      el.textContent = (val >= 1000 ? val.toLocaleString() : val) + (target >= 10 ? '+' : '');
-      if (progress < 1) requestAnimationFrame(update);
-      else el.dataset.done = '1';
-    }
-    requestAnimationFrame(update);
-  });
-}
-
 // Intersection Observer
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       entry.target.classList.add('visible');
-      if (entry.target.querySelector('.counter')) animateCounters();
     }
   });
 }, { threshold: 0.1 });
@@ -1140,32 +1065,6 @@ function toggleTheme() {
   }
 })();
 
-// Quote form
-function handleQuote(e) {
-  e.preventDefault();
-  var name = document.getElementById('qf-name').value;
-  var company = document.getElementById('qf-company').value;
-  var email = document.getElementById('qf-email').value;
-  var phone = document.getElementById('qf-phone').value;
-  var service = document.getElementById('qf-service').value;
-  var details = document.getElementById('qf-details').value;
-  var subject = encodeURIComponent('طلب عرض سعر جديد — ' + name);
-  var body = encodeURIComponent(
-    'طلب عرض سعر جديد\n' +
-    '━━━━━━━━━━━━━━━━━━\n\n' +
-    'الاسم: ' + name + '\n' +
-    'الشركة: ' + company + '\n' +
-    'البريد الإلكتروني: ' + email + '\n' +
-    'رقم الجوال: ' + phone + '\n' +
-    'الخدمة المطلوبة: ' + service + '\n\n' +
-    'التفاصيل:\n' + details + '\n\n' +
-    '━━━━━━━━━━━━━━━━━━\n' +
-    'تم الإرسال من موقع easternzad.com'
-  );
-  window.location.href = 'mailto:diaaelkordeye@easternzad.com?subject=' + subject + '&body=' + body;
-  return false;
-}
-
 // Language toggle
 const AR = {
   'nav-brand': 'شركة زاد الشرقية',
@@ -1174,7 +1073,6 @@ const AR = {
   'hero-badge-text': 'شريكك الموثوق في التوزيع المبرّد',
   'hero-title': 'شركة زاد الشرقية',
   'hero-desc': 'شركة لوجستية سعودية لخدمة المنتجات الغذائية والأدوية بسلسلة تبريد موثوقة.',
-  'hs1': 'عميل ونقطة بيع', 'hs2': 'مناطق مغطاة', 'hs3': 'شاحنة مبرّدة', 'hs4': 'ساعة خدمة',
   'temp-title': 'نقل متحكم بالحرارة ومبرّد ومجمّد',
   'temp-range': '+18°C → -40°C', 'temp-to': 'إلى',
   'tm1-title': 'متحكم بالحرارة', 'tm2-title': 'مبرد', 'tm3-title': 'مجمّد', 'tm4-title': 'تجميد عميق',
@@ -1194,7 +1092,7 @@ const AR = {
   's2-title': 'التوزيع والتوصيل', 's2-desc': 'أسطول حديث من الشاحنات المبرّدة يضمن وصول المنتجات طازجة إلى كل نقطة بيع في مناطق تغطيتنا.',
   's3-title': 'مستودعات مبرّدة', 's3-desc': 'مستودعات تخزين بمعايير عالمية مع أنظمة تبريد وتجميد متطورة تحافظ على جودة المنتجات.',
   's4-title': 'كتالوج المنتجات', 's4-desc': 'تشكيلة واسعة من المنتجات الغذائية المختارة بعناية تلبّي احتياجات السوق السعودي المتنوعة.',
-  'reg-label': 'تغطيتنا', 'reg-title': 'نصل إليك أينما كنت', 'reg-desc': 'شبكة توزيع تغطي 8 مناطق رئيسية في المملكة',
+  'reg-label': 'تغطيتنا', 'reg-title': 'نصل إليك أينما كنت', 'reg-desc': 'شبكة توزيع تغطي 9 مناطق رئيسية في المملكة',
   'test-label': 'آراء العملاء', 'test-title': 'ماذا يقول عملاؤنا', 'test-desc': 'شراكات ناجحة بنيناها بالثقة والجودة',
   'fl-label': 'أسطولنا', 'fl-title': 'أسطول حديث ومبرّد', 'fl-desc': 'شاحنات من أفضل الماركات العالمية مجهزة بأنظمة تبريد متطورة',
   'reg-east': 'المنطقة الشرقية', 'reg-east-type': 'المقر الرئيسي',
@@ -1204,9 +1102,8 @@ const AR = {
   'reg-north': 'المنطقة الشمالية', 'reg-north-type': 'مركز توزيع',
   'f1-title': 'شاحنات التجميد العميق', 'f1': 'نقل بدرجات تصل إلى -40°C للمنتجات الغذائية المجمّدة', 'f1t': 'تجميد عميق',
   'f2-title': 'أسطول التوزيع الخفيف', 'f2': 'توصيل سريع داخل المدن لنقاط البيع والمطاعم والفنادق', 'f2t': 'توزيع المدن',
-  'f3-title': 'شاحنات النقل بين المناطق', 'f3': 'نقل ثقيل مبرّد بين الفروع الثمانية بمراقبة حرارة مستمرة', 'f3t': 'نقل بين المناطق',
+  'f3-title': 'شاحنات النقل بين المناطق', 'f3': 'نقل ثقيل مبرّد بين مناطق التغطية بمراقبة حرارة مستمرة', 'f3t': 'نقل بين المناطق',
   'q-label': 'عرض سعر', 'q-title': 'اطلب عرض سعر مجاني', 'q-desc': 'أرسل لنا تفاصيل طلبك وسنعود إليك خلال 24 ساعة', 'q-btn-text': 'اطلب عرض سعر عبر واتساب',
-  'q-submit-text': 'إرسال الطلب',
   'ct-label': 'تواصل معنا', 'ct-title': 'نسعد بخدمتك', 'ct-desc': 'تواصل معنا للاستفسارات والطلبات',
   'ct-hours-label': 'ساعات العمل', 'ct-wa-label': 'خدمة العملاء', 'ct-email-label': 'البريد الإلكتروني', 'ct-loc-label': 'المقر الرئيسي',
   'ct-hours': 'الأحد — الخميس<br>8:00 ص — 5:00 م',
@@ -1221,12 +1118,12 @@ const AR = {
   'p2-title': 'نحدد احتياجاتك', 'p2-desc': 'فريقنا يدرس متطلباتك ويقدم لك عرض سعر مفصّل ومخصص',
   'p3-title': 'نبدأ التوزيع', 'p3-desc': 'نجهّز الشحنة في مستودعاتنا المبرّدة وننطلق بالتوصيل',
   'p4-title': 'تتبّع مباشر', 'p4-desc': 'تابع شحنتك لحظة بلحظة مع تقارير درجة الحرارة والموقع',
-  'faq-label': 'الأسئلة الشائعة', 'faq-title': 'لديك سؤال؟', 'faq-subtitle': 'اطّلع على الأسئلة الأكثر شيوعاً حول خدماتنا', 'faq-btn': 'عرض الأسئلة الشائعة',
+  'faq-label': 'الأسئلة الشائعة', 'faq-title': 'لديك سؤال؟', 'faq-subtitle': 'يسعدنا الإجابة عن أسئلتك حول خدماتنا', 'faq-btn': 'تواصل معنا لسؤالك',
   'partners-label': 'عملاء يثقون بنا', 'partners-sublabel': 'نفتخر بشراكتنا مع أبرز العلامات التجارية في المملكة',
   'cta-title': 'جاهز تبدأ شراكة ناجحة؟', 'cta-desc': 'انضم لأكثر من 5,500 عميل يثقون بزاد الشرقية في توزيع منتجاتهم المبرّدة', 'cta-btn-text': 'اطلب عرض سعر الآن',
   'wa-name': 'زاد الشرقية', 'wa-status': 'متصل الآن', 'wa-time': 'الآن', 'wa-msg-text': 'أهلاً وسهلاً بك في زاد الشرقية! 👋<br>كيف نقدر نخدمك اليوم؟',
   'wq1': 'عميل جديد', 'wq2': 'عرض سعر', 'wq3': 'استفسار عن التوصيل', 'wq4': 'الوكالات الحصرية',
-  'wcu1': 'أعلى معايير سلامة الغذاء', 'wcu2': 'تغطية 8 مناطق في المملكة', 'wcu3': 'دعم فني وخدمة عملاء 24/7'
+  'wcu1': 'أعلى معايير سلامة الغذاء', 'wcu2': 'تغطية 9 مناطق في المملكة', 'wcu3': 'دعم فني وخدمة عملاء 24/7'
 };
 const EN = {
   'nav-brand': 'Eastern Zad Company',
@@ -1235,7 +1132,6 @@ const EN = {
   'hero-badge-text': 'Your trusted cold chain partner',
   'hero-title': 'Eastern Zad Company',
   'hero-desc': 'A Saudi logistics company serving food products and pharmaceuticals.',
-  'hs1': 'Clients & outlets', 'hs2': 'Covered regions', 'hs3': 'Refrigerated trucks', 'hs4': 'Hours service',
   'temp-title': 'Temperature-Controlled, Chilled & Frozen Transport',
   'temp-range': '+18°C → -40°C', 'temp-to': 'to',
   'tm1-title': 'Controlled', 'tm2-title': 'Chilled', 'tm3-title': 'Frozen', 'tm4-title': 'Deep Frozen',
@@ -1255,7 +1151,7 @@ const EN = {
   's2-title': 'Distribution & delivery', 's2-desc': 'A modern fleet of refrigerated trucks ensures products reach every outlet fresh across our coverage areas.',
   's3-title': 'Cold storage', 's3-desc': 'World-class warehouses with advanced cooling and freezing systems to maintain product quality.',
   's4-title': 'Product catalog', 's4-desc': 'A wide selection of carefully curated food products to meet the diverse needs of the Saudi market.',
-  'reg-label': 'Coverage', 'reg-title': 'We reach you anywhere', 'reg-desc': 'Distribution network covering 8 major regions in Saudi Arabia',
+  'reg-label': 'Coverage', 'reg-title': 'We reach you anywhere', 'reg-desc': 'Distribution network covering 9 major regions in Saudi Arabia',
   'test-label': 'Testimonials', 'test-title': 'What our clients say', 'test-desc': 'Successful partnerships built on trust and quality',
   'fl-label': 'Our fleet', 'fl-title': 'Modern refrigerated fleet', 'fl-desc': 'Trucks from top global brands equipped with advanced cooling systems',
   'reg-east': 'Eastern Region', 'reg-east-type': 'Headquarters',
@@ -1265,9 +1161,8 @@ const EN = {
   'reg-north': 'Northern Region', 'reg-north-type': 'Distribution Center',
   'f1-title': 'Deep Freeze Fleet', 'f1': 'Transport at -40°C for frozen food products', 'f1t': 'Deep freeze',
   'f2-title': 'City Distribution Fleet', 'f2': 'Fast delivery to outlets, restaurants and hotels within cities', 'f2t': 'City delivery',
-  'f3-title': 'Inter-Regional Transport', 'f3': 'Heavy refrigerated transport across all 8 branches with continuous monitoring', 'f3t': 'Regional transport',
+  'f3-title': 'Inter-Regional Transport', 'f3': 'Heavy refrigerated transport across coverage regions with continuous monitoring', 'f3t': 'Regional transport',
   'q-label': 'Get a quote', 'q-title': 'Request a free quote', 'q-desc': 'Send us your requirements and we\'ll get back within 24 hours', 'q-btn-text': 'Request a quote on WhatsApp',
-  'q-submit-text': 'Submit request',
   'ct-label': 'Contact us', 'ct-title': 'We are happy to serve you', 'ct-desc': 'Reach out for inquiries and orders',
   'ct-hours-label': 'Working Hours', 'ct-wa-label': 'Customer Service', 'ct-email-label': 'Email', 'ct-loc-label': 'Headquarters',
   'ct-hours': 'Sunday — Thursday<br>8:00 AM — 5:00 PM',
@@ -1282,12 +1177,12 @@ const EN = {
   'p2-title': 'We assess your needs', 'p2-desc': 'Our team studies your requirements and provides a detailed custom quote',
   'p3-title': 'Distribution begins', 'p3-desc': 'We prepare your shipment in our cold storage and dispatch for delivery',
   'p4-title': 'Live tracking', 'p4-desc': 'Track your shipment in real-time with temperature and location reports',
-  'faq-label': 'FAQ', 'faq-title': 'Have a Question?', 'faq-subtitle': 'Check our most frequently asked questions', 'faq-btn': 'View FAQ',
+  'faq-label': 'FAQ', 'faq-title': 'Have a Question?', 'faq-subtitle': 'We are happy to answer questions about our services', 'faq-btn': 'Contact us with your question',
   'partners-label': 'Clients who trust us', 'partners-sublabel': 'Proud to partner with leading brands across Saudi Arabia',
   'cta-title': 'Ready to start a successful partnership?', 'cta-desc': 'Join 5,500+ clients who trust Eastern Zad for their cold chain distribution', 'cta-btn-text': 'Get a quote now',
   'wa-name': 'Eastern Zad', 'wa-status': 'Online now', 'wa-time': 'Now', 'wa-msg-text': 'Welcome to Eastern Zad! 👋<br>How can we help you today?',
   'wq1': 'New customer', 'wq2': 'Get a quote', 'wq3': 'Delivery inquiry', 'wq4': 'Exclusive agencies',
-  'wcu1': 'Highest food safety standards', 'wcu2': 'Coverage across 8 regions', 'wcu3': '24/7 technical & customer support'
+  'wcu1': 'Highest food safety standards', 'wcu2': 'Coverage across 9 regions', 'wcu3': '24/7 technical & customer support'
 };
 
 const AR_CITIES = Array.from(document.querySelectorAll('.city-pin')).map(function(pin) {
@@ -1432,13 +1327,11 @@ function setLanguage(lang, updateUrl) {
   var heroBtn1 = document.querySelector('#hero-btn1 span');
   var heroBtn2 = document.querySelector('#hero-btn2 span');
   var loginText = document.querySelector('#nav-login span');
-  var quoteSubmit = document.querySelector('#q-submit');
   var quoteButton = document.querySelector('#q-btn span');
   var quoteLink = document.getElementById('q-btn');
   if (heroBtn1) heroBtn1.textContent = data['btn1-text'];
   if (heroBtn2) heroBtn2.textContent = data['btn2-text'];
   if (loginText) loginText.textContent = data['login-text'];
-  if (quoteSubmit) quoteSubmit.innerHTML = '<i class="fas fa-paper-plane"></i> ' + data['q-submit-text'];
   if (quoteButton) quoteButton.textContent = data['q-btn-text'];
   if (quoteLink) {
     const waQuote = currentLang === 'ar'
@@ -1465,35 +1358,6 @@ function setLanguage(lang, updateUrl) {
   document.getElementById('ts-prev-icon').className = currentLang === 'ar' ? 'fas fa-chevron-right' : 'fas fa-chevron-left';
   document.getElementById('ts-next-icon').className = currentLang === 'ar' ? 'fas fa-chevron-left' : 'fas fa-chevron-right';
   tsIndex = 0; updateSlider();
-
-  // Optional quote-form fields may not exist on every page revision.
-  const formCopy = currentLang === 'en' ? {
-    'qf-name': ['placeholder', 'Full name'],
-    'qf-company': ['placeholder', 'Company name'],
-    'qf-email': ['placeholder', 'Email address'],
-    'qf-phone': ['placeholder', 'Phone number'],
-    'qf-details': ['placeholder', 'Additional details...'],
-    'qf-opt0': ['textContent', 'Select service'],
-    'qf-opt1': ['textContent', 'Cold distribution'],
-    'qf-opt2': ['textContent', 'Cold storage'],
-    'qf-opt3': ['textContent', 'Exclusive agency'],
-    'qf-opt4': ['textContent', 'Other']
-  } : {
-    'qf-name': ['placeholder', 'الاسم الكامل'],
-    'qf-company': ['placeholder', 'اسم الشركة'],
-    'qf-email': ['placeholder', 'البريد الإلكتروني'],
-    'qf-phone': ['placeholder', 'رقم الجوال'],
-    'qf-details': ['placeholder', 'تفاصيل إضافية...'],
-    'qf-opt0': ['textContent', 'اختر الخدمة المطلوبة'],
-    'qf-opt1': ['textContent', 'توزيع مبرّد'],
-    'qf-opt2': ['textContent', 'تخزين مبرّد'],
-    'qf-opt3': ['textContent', 'وكالة حصرية'],
-    'qf-opt4': ['textContent', 'خدمة أخرى']
-  };
-  for (const [id, setting] of Object.entries(formCopy)) {
-    const field = document.getElementById(id);
-    if (field) field[setting[0]] = setting[1];
-  }
 
   if (updateUrl !== false && window.history && window.history.replaceState) {
     const url = new URL(window.location.href);
@@ -1594,18 +1458,7 @@ window.addEventListener('resize', function() { tsIndex = 0; buildDots(); updateS
   });
 })();
 
-// FAQ toggle
-function toggleFaq(el) {
-  var item = el.parentElement;
-  var wasActive = item.classList.contains('active');
-  document.querySelectorAll('.faq-item.active').forEach(function(i) { i.classList.remove('active'); });
-  if (!wasActive) item.classList.add('active');
-}
-
-// Initial counter
-setTimeout(animateCounters, 500);
-
-// Infinite partners marquee (JS-driven, no disappearing)
+// Build the fixed partner logo grid.
 (function() {
   var logos = [
     {src: 'assets/logos/ninja logo.png', alt: 'Ninja'},

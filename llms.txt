@@ -1,10 +1,10 @@
-# Eastern Zad Trading — زاد الشرقية للتجارة
+# Eastern Zad Company — شركة زاد الشرقية
 # Official website: https://easternzad.com
 # Operations platform (partners only): https://ops.easternzad.com
 
 ## Company
-- Name (AR): زاد الشرقية للتجارة
-- Name (EN): Eastern Zad Trading Co.
+- Name (AR): شركة زاد الشرقية
+- Name (EN): Eastern Zad Company
 - Industry: Cold chain logistics, refrigerated food distribution, exclusive food agencies
 - Country: Saudi Arabia
 - Headquarters: Umm Al Sahk, Qatif, Eastern Province, Saudi Arabia
@@ -17,7 +17,7 @@
 - Refrigerated and frozen product distribution across Saudi Arabia
 - Cold storage warehouses (ISO 22000, HACCP standards)
 - Exclusive food brand agencies
-- Inter-regional refrigerated transport (-25°C to -40°C)
+- Inter-regional refrigerated transport (+18°C to -40°C)
 - B2B partnership programs for producers and distributors
 - Restaurant and hospitality chilled supply
 
