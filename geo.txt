@@ -1,4 +1,4 @@
-# geo.txt — Geographic coverage for Eastern Zad Trading
+# geo.txt — Geographic coverage for Eastern Zad Company
 # Machine-readable location index: https://easternzad.com/geo.json
 
 headquarters: Umm Al Sahk, Qatif, Eastern Province, Saudi Arabia
