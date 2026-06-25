@@ -13,6 +13,58 @@ function walk(dir) {
   });
 }
 
+function findElements(source, tagName) {
+  const lower = source.toLowerCase();
+  const openToken = `<${tagName}`;
+  const closeToken = `</${tagName}`;
+  const elements = [];
+  let cursor = 0;
+
+  while (cursor < source.length) {
+    let openStart = lower.indexOf(openToken, cursor);
+    while (openStart !== -1) {
+      const next = lower[openStart + openToken.length];
+      if (next === '>' || /\s/.test(next)) break;
+      openStart = lower.indexOf(openToken, openStart + openToken.length);
+    }
+    if (openStart === -1) break;
+    const openEnd = lower.indexOf('>', openStart + openToken.length);
+    if (openEnd === -1) break;
+
+    let closeStart = lower.indexOf(closeToken, openEnd + 1);
+    while (closeStart !== -1) {
+      const next = lower[closeStart + closeToken.length];
+      if (next === '>' || /\s/.test(next)) break;
+      closeStart = lower.indexOf(closeToken, closeStart + closeToken.length);
+    }
+    if (closeStart === -1) break;
+    const closeEnd = lower.indexOf('>', closeStart + closeToken.length);
+    if (closeEnd === -1) break;
+
+    elements.push({
+      openingTag: source.slice(openStart, openEnd + 1),
+      content: source.slice(openEnd + 1, closeStart),
+      start: openStart,
+      end: closeEnd + 1
+    });
+    cursor = closeEnd + 1;
+  }
+  return elements;
+}
+
+function withoutElements(source, tagNames) {
+  const ranges = tagNames
+    .flatMap((tagName) => findElements(source, tagName))
+    .sort((left, right) => left.start - right.start);
+  let output = '';
+  let cursor = 0;
+  for (const range of ranges) {
+    output += source.slice(cursor, range.start);
+    cursor = Math.max(cursor, range.end);
+  }
+  return output + source.slice(cursor);
+}
+
 const files = walk(root);
 const relative = (file) => path.relative(root, file).replaceAll('\\', '/');
 const textFiles = files.filter((file) => !/\.(?:png|jpe?g|webp|gif|ico|woff2?)$/i.test(file));
@@ -28,33 +80,35 @@ const secretPatterns = [
   [/\bgh[opusr]_[A-Za-z0-9_]{30,}\b/, 'GitHub token'],
   [/\bsk-(?:proj-)?[A-Za-z0-9_-]{20,}\b/, 'API key']
 ];
+const privateOperationsHost = ['ops', 'easternzad', 'com'].join('.');
 for (const file of textFiles) {
   const value = fs.readFileSync(file, 'utf8');
   for (const [pattern, label] of secretPatterns) {
     if (pattern.test(value)) errors.push(`${label} pattern found in ${relative(file)}`);
   }
-  if (/ops\.easternzad\.com/i.test(value)) errors.push(`Private operations hostname exposed in ${relative(file)}`);
+  if (value.toLowerCase().includes(privateOperationsHost)) {
+    errors.push(`Private operations hostname exposed in ${relative(file)}`);
+  }
 }
 
 for (const file of files.filter((name) => name.endsWith('.html'))) {
   const html = fs.readFileSync(file, 'utf8');
-  const markup = html
-    .replace(/<script\b[\s\S]*?<\/script>/gi, '')
-    .replace(/<style\b[\s\S]*?<\/style>/gi, '');
+  const scripts = findElements(html, 'script');
+  const markup = withoutElements(html, ['script', 'style']);
   const name = relative(file);
   const csp = html.match(/<meta\s+http-equiv="Content-Security-Policy"\s+content="([^"]+)"/i)?.[1] || '';
   if (!csp) errors.push(`Missing CSP: ${name}`);
   if (!/script-src-attr 'none'/.test(csp)) errors.push(`CSP does not block script attributes: ${name}`);
   const scriptSrc = csp.match(/(?:^|;\s*)script-src\s+([^;]+)/)?.[1] || '';
   if (scriptSrc.includes("'unsafe-inline'")) errors.push(`Unsafe inline scripts allowed: ${name}`);
-  for (const match of html.matchAll(/<script(?:\s[^>]*)?>([\s\S]*?)<\/script>/gi)) {
-    const normalized = match[1].replace(/\r\n?/g, '\n');
+  for (const script of scripts) {
+    const normalized = script.content.replace(/\r\n?/g, '\n');
     const hash = `'sha256-${crypto.createHash('sha256').update(normalized, 'utf8').digest('base64')}'`;
     if (!scriptSrc.includes(hash)) errors.push(`CSP hash is stale or missing in ${name}`);
   }
-  for (const match of html.matchAll(/<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/gi)) {
+  for (const script of scripts.filter((item) => item.openingTag.toLowerCase().includes('application/ld+json'))) {
     try {
-      JSON.parse(match[1]);
+      JSON.parse(script.content);
     } catch {
       errors.push(`Invalid JSON-LD in ${name}`);
     }
