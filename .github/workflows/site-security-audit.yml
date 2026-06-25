@@ -1,0 +1,22 @@
+name: Site security audit
+
+on:
+  pull_request:
+  push:
+    branches: [master]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: site-security-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  site-audit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5
+      - name: Audit static site
+        run: node .github/scripts/site-audit.cjs

@@ -14,11 +14,11 @@
 <meta property="og:url" content="https://easternzad.com">
 <meta property="og:locale" content="ar_SA">
 <meta property="og:site_name" content="شركة زاد الشرقية">
-<meta property="og:image" content="https://easternzad.com/assets/logos/easternzad-og.png">
+<meta property="og:image" content="https://easternzad.com/assets/logos/easternzad%20logo.png">
 <meta property="og:locale:alternate" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data:; connect-src 'self'; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self' https://wa.me; upgrade-insecure-requests;">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-jlVtXLKFwkbcfV84g8zFaex9PebgaTUOEHdzoauUO3g=' 'sha256-SfgH81cKd0jgTQbOgyNrSOdUPcV4bNJgS9RsTg4ZzJ0=' 'sha256-2OXeTbNZ/h+T2EuawQUIWTlgo3aTO3IlWFCeeqNZdME=' 'sha256-3ncZAqBgoaTdcZiAi12mVh/kJoYZMN7bRWbzuq5rFkg='; script-src-attr 'none'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' data: https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data:; connect-src 'self'; frame-src 'none'; media-src 'none'; worker-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self' https://wa.me; manifest-src 'self'; upgrade-insecure-requests;">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <link rel="canonical" href="https://easternzad.com">
 <link rel="alternate" hreflang="ar" href="https://easternzad.com">
@@ -107,8 +107,6 @@ a { transition: all 0.2s; }
 .nav-theme:hover { background: rgba(255,255,255,0.22); }
 .nav-lang { background: rgba(255,255,255,0.12); color: #fff; border: 1px solid rgba(255,255,255,0.2); padding: 6px 18px; border-radius: 99px; cursor: pointer; font-family: inherit; font-size: 13px; font-weight: 500; transition: all 0.2s; }
 .nav-lang:hover { background: rgba(255,255,255,0.22); }
-.nav-login { background: var(--accent-light); color: var(--primary-dark); border: none; padding: 8px 22px; border-radius: 99px; cursor: pointer; font-family: inherit; font-size: 13px; font-weight: 600; text-decoration: none; transition: all 0.2s; display: inline-flex; align-items: center; gap: 6px; }
-.nav-login:hover { background: #fff; }
 .nav-mobile { display: none; background: none; border: none; color: #fff; font-size: 24px; cursor: pointer; }
 
 /* HERO */
@@ -424,7 +422,6 @@ html[dir="ltr"] .wa-msg .wa-time { float: right; margin-left: 8px; margin-right:
 @media (max-width: 768px) {
   .nav-links { display: none; }
   .nav-mobile { display: block; }
-  .nav-login { display: none; }
   .hero h1 { font-size: 32px; }
   .fleet-grid { grid-template-columns: 1fr; }
   .footer-top { grid-template-columns: 1fr; gap: 24px; }
@@ -462,7 +459,7 @@ html[dir="ltr"] .btt { right: auto; left: 28px; }
   "name": "شركة زاد الشرقية",
   "alternateName": "Eastern Zad Company",
   "url": "https://easternzad.com",
-  "logo": "https://easternzad.com/assets/logos/easternzad-og.png",
+  "logo": "https://easternzad.com/assets/logos/easternzad%20logo.png",
   "contactPoint": {
     "@type": "ContactPoint",
     "telephone": "+966540712087",
@@ -483,7 +480,8 @@ html[dir="ltr"] .btt { right: auto; left: 28px; }
   "email": "info@easternzad.com",
   "address": {
     "@type": "PostalAddress",
-    "addressLocality": "Jubail",
+    "streetAddress": "Umm Al Sahk",
+    "addressLocality": "Qatif",
     "addressRegion": "Eastern Province",
     "addressCountry": "SA"
   },
@@ -521,15 +519,14 @@ html[dir="ltr"] .btt { right: auto; left: 28px; }
       <li><a href="#regions" id="nav-regions">تغطيتنا</a></li>
       <li><a href="#fleet" id="nav-fleet">أسطولنا</a></li>
       <li><a href="#testimonials" id="nav-testimonials">آراء العملاء</a></li>
-      <li><a href="#faq" id="nav-faq">الأسئلة الشائعة</a></li>
+      <li><a href="faq.html" id="nav-faq">الأسئلة الشائعة</a></li>
       <li><a href="#contact" id="nav-contact">تواصل معنا</a></li>
     </ul>
     <div class="nav-actions">
-      <button class="nav-theme" id="themeBtn" onclick="toggleTheme()" aria-label="Toggle theme"><i class="fas fa-moon"></i></button>
-      <button class="nav-lang" id="langBtn" onclick="toggleLang()">English</button>
-      <a href="https://ops.easternzad.com" class="nav-login" id="nav-login" target="_blank" rel="noopener noreferrer"><i class="fas fa-user"></i> <span>دخول</span></a>
+      <button class="nav-theme" id="themeBtn" aria-label="Toggle theme"><i class="fas fa-moon"></i></button>
+      <button class="nav-lang" id="langBtn">English</button>
     </div>
-    <button class="nav-mobile" id="menuBtn" onclick="toggleMenu()"><i class="fas fa-bars"></i></button>
+    <button class="nav-mobile" id="menuBtn" aria-label="فتح القائمة"><i class="fas fa-bars"></i></button>
   </div>
 </nav>
 
@@ -779,7 +776,7 @@ html[dir="ltr"] .btt { right: auto; left: 28px; }
       <p id="test-desc">شراكات ناجحة بنيناها بالثقة والجودة</p>
     </div>
     <div class="testimonials-slider-wrap fade-up">
-      <button class="ts-arrow ts-prev" onclick="slideTestimonials(-1)" aria-label="السابق"><i class="fas fa-chevron-right" id="ts-prev-icon"></i></button>
+      <button class="ts-arrow ts-prev" aria-label="السابق"><i class="fas fa-chevron-right" id="ts-prev-icon"></i></button>
       <div class="testimonials-track-container">
         <div class="testimonials-track" id="tsTrack">
           <div class="testimonial-card"><div class="testimonial-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="testimonial-text">"زاد الشرقية شريك موثوق في سلسلة الإمداد. التزامهم بالمواعيد وجودة التبريد لا تضاهى."</p><div class="testimonial-author"><div class="testimonial-avatar">م.ع</div><div><div class="testimonial-name">محمد العمري</div><div class="testimonial-role">مدير مشتريات — الدمام</div></div></div></div>
@@ -799,7 +796,7 @@ html[dir="ltr"] .btt { right: auto; left: 28px; }
           <div class="testimonial-card"><div class="testimonial-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="testimonial-text">"أفضل شريك لوجستي مبرّد في المنطقة. نثق فيهم ثقة كاملة بتوصيل منتجاتنا الحساسة."</p><div class="testimonial-author"><div class="testimonial-avatar">م.خ</div><div><div class="testimonial-name">منصور الخالدي</div><div class="testimonial-role">مدير سلسلة إمداد — جدة</div></div></div></div>
         </div>
       </div>
-      <button class="ts-arrow ts-next" onclick="slideTestimonials(1)" aria-label="التالي"><i class="fas fa-chevron-left" id="ts-next-icon"></i></button>
+      <button class="ts-arrow ts-next" aria-label="التالي"><i class="fas fa-chevron-left" id="ts-next-icon"></i></button>
     </div>
     <div class="ts-dots" id="tsDots"></div>
   </div>
@@ -848,8 +845,8 @@ html[dir="ltr"] .btt { right: auto; left: 28px; }
   <div class="container" style="text-align:center">
     <span class="section-label"><i class="fas fa-file-invoice"></i> <span id="q-label">عرض سعر</span></span>
     <h2 style="color:#fff;font-size:32px;font-weight:700;margin:16px 0" id="q-title">جاهز تبدأ شراكة ناجحة؟</h2>
-    <p style="color:rgba(255,255,255,0.7);margin-bottom:28px;font-size:16px" id="q-desc">انضم لأكثر من 5,500 عميل يثقون بزاد الشرقية — اطلب عرض سعر مجاني الآن</p>
-    <a href="https://wa.me/966540712087?text=%D8%A3%D8%B1%D8%BA%D8%A8%20%D8%A8%D8%B7%D9%84%D8%A8%20%D8%B9%D8%B1%D8%B6%20%D8%B3%D8%B9%D8%B1" target="_blank" rel="noopener noreferrer" class="btn btn-primary" id="q-btn" style="font-size:18px;padding:16px 40px"><i class="fab fa-whatsapp"></i> <span>اطلب عرض سعر عبر واتساب</span></a>
+    <p style="color:rgba(255,255,255,0.7);margin-bottom:28px;font-size:16px" id="q-desc">أرسل متطلبات المنتج والمسار ودرجة الحرارة ليتمكن فريقنا من مراجعة طلبك بدقة</p>
+    <a href="https://wa.me/966540712087" target="_blank" rel="noopener noreferrer" class="btn btn-primary" id="q-btn" style="font-size:18px;padding:16px 40px"><i class="fab fa-whatsapp"></i> <span>اطلب عرض سعر عبر واتساب</span></a>
   </div>
 </section>
 
@@ -865,7 +862,7 @@ html[dir="ltr"] .btt { right: auto; left: 28px; }
       <div class="process-step fade-up">
         <div class="process-num">1</div>
         <h4 id="p1-title">تواصل معنا</h4>
-        <p id="p1-desc">أرسل لنا طلبك عبر الموقع أو واتساب وسنرد خلال ساعات</p>
+        <p id="p1-desc">أرسل طلبك عبر الموقع أو واتساب مع بيانات المنتج والمسار ودرجة الحرارة</p>
       </div>
       <div class="process-step fade-up">
         <div class="process-num">2</div>
@@ -892,7 +889,7 @@ html[dir="ltr"] .btt { right: auto; left: 28px; }
     <span class="section-label"><i class="fas fa-question-circle"></i> <span id="faq-label">الأسئلة الشائعة</span></span>
     <h2 class="section-header-title" style="font-size:32px;font-weight:700;margin:16px 0" id="faq-title">لديك سؤال؟</h2>
     <p style="color:var(--text-light);margin-bottom:28px;font-size:16px" id="faq-subtitle">اطّلع على الأسئلة الأكثر شيوعاً حول خدماتنا</p>
-    <a href="#contact" class="btn btn-primary" id="faq-btn"><i class="fas fa-arrow-left"></i> تواصل معنا لسؤالك</a>
+    <a href="faq.html" class="btn btn-primary" id="faq-btn"><i class="fas fa-arrow-left"></i> اطّلع على الإجابات</a>
   </div>
 </section>
 
@@ -932,7 +929,7 @@ html[dir="ltr"] .btt { right: auto; left: 28px; }
       <div class="contact-card fade-up">
         <i class="fas fa-map-marker-alt"></i>
         <h4 id="ct-loc-label">المقر الرئيسي</h4>
-        <p id="ct-address">الجبيل<br>المنطقة الشرقية، السعودية</p>
+        <p id="ct-address">أم الساهك، محافظة القطيف<br>المنطقة الشرقية، السعودية</p>
       </div>
     </div>
   </div>
@@ -951,7 +948,7 @@ html[dir="ltr"] .btt { right: auto; left: 28px; }
         <a href="#services" id="ft-l1">خدماتنا</a>
         <a href="#regions" id="ft-l2">تغطيتنا</a>
         <a href="#fleet" id="ft-l3">أسطولنا</a>
-        <a href="#faq" id="ft-l5">الأسئلة الشائعة</a>
+        <a href="faq.html" id="ft-l5">الأسئلة الشائعة</a>
         <a href="#quote" id="ft-l4">عرض سعر</a>
       </div>
       <div class="footer-col">
@@ -978,7 +975,7 @@ html[dir="ltr"] .btt { right: auto; left: 28px; }
         <div class="wa-popup-name" id="wa-name">زاد الشرقية</div>
         <div class="wa-popup-status"><span class="wa-dot"></span> <span id="wa-status">متصل الآن</span></div>
       </div>
-      <button class="wa-popup-close" onclick="toggleWaPopup()" aria-label="Close"><i class="fas fa-times"></i></button>
+      <button class="wa-popup-close" id="waClose" aria-label="Close"><i class="fas fa-times"></i></button>
     </div>
     <div class="wa-popup-body">
       <div class="wa-msg">
@@ -988,25 +985,25 @@ html[dir="ltr"] .btt { right: auto; left: 28px; }
     </div>
     <div class="wa-popup-footer">
       <div class="wa-quick-btns">
-        <button class="wa-quick" onclick="sendQuickWa(0)" id="wq1">عميل جديد</button>
-        <button class="wa-quick" onclick="sendQuickWa(1)" id="wq2">عرض سعر</button>
-        <button class="wa-quick" onclick="sendQuickWa(2)" id="wq3">استفسار عن التوصيل</button>
-        <button class="wa-quick" onclick="sendQuickWa(3)" id="wq4">الوكالات الحصرية</button>
+        <button class="wa-quick" data-wa-index="0" id="wq1">عميل جديد</button>
+        <button class="wa-quick" data-wa-index="1" id="wq2">عرض سعر</button>
+        <button class="wa-quick" data-wa-index="2" id="wq3">استفسار عن التوصيل</button>
+        <button class="wa-quick" data-wa-index="3" id="wq4">الوكالات الحصرية</button>
       </div>
       <div class="wa-input-row">
-        <input type="text" class="wa-input" id="waInput" placeholder="اكتب رسالتك..." onkeydown="if(event.key==='Enter')sendWaCustom()">
-        <button class="wa-send" onclick="sendWaCustom()" aria-label="Send"><i class="fas fa-paper-plane"></i></button>
+        <input type="text" class="wa-input" id="waInput" placeholder="اكتب رسالتك..." maxlength="1000" autocomplete="off">
+        <button class="wa-send" id="waSend" aria-label="Send"><i class="fas fa-paper-plane"></i></button>
       </div>
     </div>
   </div>
-  <button class="wa-float" onclick="toggleWaPopup()" aria-label="WhatsApp">
+  <button class="wa-float" id="waFloat" aria-label="WhatsApp">
     <i class="fab fa-whatsapp" id="waIcon"></i>
     <span class="wa-badge" id="waBadge">1</span>
   </button>
 </div>
 
 <!-- BACK TO TOP -->
-<button class="btt" id="btt" onclick="window.scrollTo({top:0})" aria-label="Back to top"><i class="fas fa-chevron-up"></i></button>
+<button class="btt" id="btt" aria-label="Back to top"><i class="fas fa-chevron-up"></i></button>
 
 <script>
 // Scroll effects
@@ -1103,22 +1100,21 @@ const AR = {
   'f1-title': 'شاحنات التجميد العميق', 'f1': 'نقل بدرجات تصل إلى -40°C للمنتجات الغذائية المجمّدة', 'f1t': 'تجميد عميق',
   'f2-title': 'أسطول التوزيع الخفيف', 'f2': 'توصيل سريع داخل المدن لنقاط البيع والمطاعم والفنادق', 'f2t': 'توزيع المدن',
   'f3-title': 'شاحنات النقل بين المناطق', 'f3': 'نقل ثقيل مبرّد بين مناطق التغطية بمراقبة حرارة مستمرة', 'f3t': 'نقل بين المناطق',
-  'q-label': 'عرض سعر', 'q-title': 'اطلب عرض سعر مجاني', 'q-desc': 'أرسل لنا تفاصيل طلبك وسنعود إليك خلال 24 ساعة', 'q-btn-text': 'اطلب عرض سعر عبر واتساب',
+  'q-label': 'عرض سعر', 'q-title': 'اطلب عرض سعر مجاني', 'q-desc': 'أرسل متطلبات المنتج والمسار ودرجة الحرارة ليتمكن فريقنا من مراجعة طلبك بدقة', 'q-btn-text': 'اطلب عرض سعر عبر واتساب',
   'ct-label': 'تواصل معنا', 'ct-title': 'نسعد بخدمتك', 'ct-desc': 'تواصل معنا للاستفسارات والطلبات',
   'ct-hours-label': 'ساعات العمل', 'ct-wa-label': 'خدمة العملاء', 'ct-email-label': 'البريد الإلكتروني', 'ct-loc-label': 'المقر الرئيسي',
   'ct-hours': 'الأحد — الخميس<br>8:00 ص — 5:00 م',
-  'ct-address': 'الجبيل<br>المنطقة الشرقية، السعودية',
+  'ct-address': 'أم الساهك، محافظة القطيف<br>المنطقة الشرقية، السعودية',
   'ft-brand': 'شركة زاد الشرقية', 'ft-desc': 'شركة لوجستية سعودية لخدمة المنتجات الغذائية والأدوية',
   'ft-links-title': 'روابط سريعة', 'ft-l1': 'خدماتنا', 'ft-l2': 'تغطيتنا', 'ft-l3': 'أسطولنا', 'ft-l4': 'عرض سعر', 'ft-l5': 'الأسئلة الشائعة',
   'ft-contact-title': 'تواصل', 'ft-copy': '© 2026 شركة زاد الشرقية. جميع الحقوق محفوظة.',
-  'login-text': 'دخول',
   'btn1-text': 'اطلب عرض سعر', 'btn2-text': 'اكتشف خدماتنا',
   'proc-label': 'كيف نعمل', 'proc-title': 'خطوات بسيطة لبدء الشراكة', 'proc-desc': 'من أول تواصل إلى التوصيل — نجعل العملية سلسة وواضحة',
-  'p1-title': 'تواصل معنا', 'p1-desc': 'أرسل لنا طلبك عبر الموقع أو واتساب وسنرد خلال ساعات',
+  'p1-title': 'تواصل معنا', 'p1-desc': 'أرسل طلبك عبر الموقع أو واتساب مع بيانات المنتج والمسار ودرجة الحرارة',
   'p2-title': 'نحدد احتياجاتك', 'p2-desc': 'فريقنا يدرس متطلباتك ويقدم لك عرض سعر مفصّل ومخصص',
   'p3-title': 'نبدأ التوزيع', 'p3-desc': 'نجهّز الشحنة في مستودعاتنا المبرّدة وننطلق بالتوصيل',
   'p4-title': 'تتبّع مباشر', 'p4-desc': 'تابع شحنتك لحظة بلحظة مع تقارير درجة الحرارة والموقع',
-  'faq-label': 'الأسئلة الشائعة', 'faq-title': 'لديك سؤال؟', 'faq-subtitle': 'يسعدنا الإجابة عن أسئلتك حول خدماتنا', 'faq-btn': 'تواصل معنا لسؤالك',
+  'faq-label': 'الأسئلة الشائعة', 'faq-title': 'لديك سؤال؟', 'faq-subtitle': 'يسعدنا الإجابة عن أسئلتك حول خدماتنا', 'faq-btn': 'اطّلع على الإجابات',
   'partners-label': 'عملاء يثقون بنا', 'partners-sublabel': 'نفتخر بشراكتنا مع أبرز العلامات التجارية في المملكة',
   'cta-title': 'جاهز تبدأ شراكة ناجحة؟', 'cta-desc': 'انضم لأكثر من 5,500 عميل يثقون بزاد الشرقية في توزيع منتجاتهم المبرّدة', 'cta-btn-text': 'اطلب عرض سعر الآن',
   'wa-name': 'زاد الشرقية', 'wa-status': 'متصل الآن', 'wa-time': 'الآن', 'wa-msg-text': 'أهلاً وسهلاً بك في زاد الشرقية! 👋<br>كيف نقدر نخدمك اليوم؟',
@@ -1162,22 +1158,21 @@ const EN = {
   'f1-title': 'Deep Freeze Fleet', 'f1': 'Transport at -40°C for frozen food products', 'f1t': 'Deep freeze',
   'f2-title': 'City Distribution Fleet', 'f2': 'Fast delivery to outlets, restaurants and hotels within cities', 'f2t': 'City delivery',
   'f3-title': 'Inter-Regional Transport', 'f3': 'Heavy refrigerated transport across coverage regions with continuous monitoring', 'f3t': 'Regional transport',
-  'q-label': 'Get a quote', 'q-title': 'Request a free quote', 'q-desc': 'Send us your requirements and we\'ll get back within 24 hours', 'q-btn-text': 'Request a quote on WhatsApp',
+  'q-label': 'Get a quote', 'q-title': 'Request a free quote', 'q-desc': 'Send the product, route, and temperature requirements so our team can review your request accurately', 'q-btn-text': 'Request a quote on WhatsApp',
   'ct-label': 'Contact us', 'ct-title': 'We are happy to serve you', 'ct-desc': 'Reach out for inquiries and orders',
   'ct-hours-label': 'Working Hours', 'ct-wa-label': 'Customer Service', 'ct-email-label': 'Email', 'ct-loc-label': 'Headquarters',
   'ct-hours': 'Sunday — Thursday<br>8:00 AM — 5:00 PM',
-  'ct-address': 'Jubail<br>Eastern Province, Saudi Arabia',
+  'ct-address': 'Umm Al Sahk, Qatif<br>Eastern Province, Saudi Arabia',
   'ft-brand': 'Eastern Zad Company', 'ft-desc': 'A Saudi logistics company serving food products and pharmaceuticals.',
   'ft-links-title': 'Quick links', 'ft-l1': 'Services', 'ft-l2': 'Coverage', 'ft-l3': 'Fleet', 'ft-l4': 'Get a quote', 'ft-l5': 'FAQ',
   'ft-contact-title': 'Contact', 'ft-copy': '© 2026 Eastern Zad Company. All rights reserved.',
-  'login-text': 'Login',
   'btn1-text': 'Get a quote', 'btn2-text': 'Our services',
   'proc-label': 'How we work', 'proc-title': 'Simple steps to start a partnership', 'proc-desc': 'From first contact to delivery — we make the process smooth and clear',
-  'p1-title': 'Contact us', 'p1-desc': 'Send your request via our website or WhatsApp and we\'ll respond within hours',
+  'p1-title': 'Contact us', 'p1-desc': 'Send your product, route, and temperature details through the website or WhatsApp',
   'p2-title': 'We assess your needs', 'p2-desc': 'Our team studies your requirements and provides a detailed custom quote',
   'p3-title': 'Distribution begins', 'p3-desc': 'We prepare your shipment in our cold storage and dispatch for delivery',
   'p4-title': 'Live tracking', 'p4-desc': 'Track your shipment in real-time with temperature and location reports',
-  'faq-label': 'FAQ', 'faq-title': 'Have a Question?', 'faq-subtitle': 'We are happy to answer questions about our services', 'faq-btn': 'Contact us with your question',
+  'faq-label': 'FAQ', 'faq-title': 'Have a Question?', 'faq-subtitle': 'We are happy to answer questions about our services', 'faq-btn': 'Read the answers',
   'partners-label': 'Clients who trust us', 'partners-sublabel': 'Proud to partner with leading brands across Saudi Arabia',
   'cta-title': 'Ready to start a successful partnership?', 'cta-desc': 'Join 5,500+ clients who trust Eastern Zad for their cold chain distribution', 'cta-btn-text': 'Get a quote now',
   'wa-name': 'Eastern Zad', 'wa-status': 'Online now', 'wa-time': 'Now', 'wa-msg-text': 'Welcome to Eastern Zad! 👋<br>How can we help you today?',
@@ -1220,13 +1215,13 @@ const EN_TESTIMONIALS = [
 const QUICK_WA_MESSAGES = {
   ar: [
     'أنا عميل جديد وأبي أعرف أكثر عن خدمات التوزيع المبرّد',
-    'أبي عرض سعر للتوزيع المبرّد',
+    'أرغب بطلب عرض سعر.\n\nاسم المنشأة:\nنوع المنتجات:\nالخدمة المطلوبة: نقل متحكم بالحرارة / تخزين / توزيع\nدرجة الحرارة المطلوبة:\nمدينة الاستلام:\nمدينة التسليم:\nعدد الشحنات أو التكرار:\nملاحظات:',
     'أبي أستفسر عن توصيل بضاعة مبرّدة',
     'أبي أعرف عن الوكالات الحصرية المتوفرة'
   ],
   en: [
     'I am a new customer and would like to learn more about your temperature-controlled distribution services.',
-    'I would like a quote for temperature-controlled distribution.',
+    'I would like to request a quote.\n\nCompany name:\nProduct type:\nRequired service: temperature-controlled transport / storage / distribution\nRequired temperature:\nPickup city:\nDelivery city:\nShipment count or frequency:\nNotes:',
     'I have an inquiry about refrigerated delivery.',
     'I would like to learn more about your available exclusive agencies.'
   ]
@@ -1326,19 +1321,20 @@ function setLanguage(lang, updateUrl) {
   // Special elements
   var heroBtn1 = document.querySelector('#hero-btn1 span');
   var heroBtn2 = document.querySelector('#hero-btn2 span');
-  var loginText = document.querySelector('#nav-login span');
   var quoteButton = document.querySelector('#q-btn span');
   var quoteLink = document.getElementById('q-btn');
   if (heroBtn1) heroBtn1.textContent = data['btn1-text'];
   if (heroBtn2) heroBtn2.textContent = data['btn2-text'];
-  if (loginText) loginText.textContent = data['login-text'];
   if (quoteButton) quoteButton.textContent = data['q-btn-text'];
   if (quoteLink) {
     const waQuote = currentLang === 'ar'
-      ? 'أرغب بطلب عرض سعر'
-      : 'I would like to request a quote';
+      ? 'السلام عليكم، أرغب بطلب عرض سعر من شركة زاد الشرقية.\n\nاسم المنشأة:\nنوع المنتجات:\nالخدمة المطلوبة: نقل متحكم بالحرارة / تخزين / توزيع\nدرجة الحرارة المطلوبة:\nمدينة الاستلام:\nمدينة التسليم:\nعدد الشحنات أو التكرار:\nملاحظات:'
+      : 'Hello, I would like to request a quote from Eastern Zad Company.\n\nCompany name:\nProduct type:\nRequired service: temperature-controlled transport / storage / distribution\nRequired temperature:\nPickup city:\nDelivery city:\nShipment count or frequency:\nNotes:';
     quoteLink.href = 'https://wa.me/966540712087?text=' + encodeURIComponent(waQuote);
   }
+  document.getElementById('nav-faq').href = currentLang === 'ar' ? 'faq.html' : 'faq-en.html';
+  document.getElementById('faq-btn').href = currentLang === 'ar' ? 'faq.html' : 'faq-en.html';
+  document.getElementById('ft-l5').href = currentLang === 'ar' ? 'faq.html' : 'faq-en.html';
 
   // CTA + WA popup
   var ctaBtn = document.querySelector('#cta-btn span');
@@ -1436,7 +1432,7 @@ function buildDots() {
     var d = document.createElement('button');
     d.className = 'ts-dot' + (i === 0 ? ' active' : '');
     d.setAttribute('aria-label', 'Page ' + (i + 1));
-    d.onclick = (function(idx) { return function() { tsIndex = idx; updateSlider(); }; })(i);
+    d.addEventListener('click', (function(idx) { return function() { tsIndex = idx; updateSlider(); }; })(i));
     cont.appendChild(d);
   }
 }
@@ -1487,37 +1483,27 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
   });
 });
 
-/* ===== Security Layer ===== */
-(function(){
-  var _k = {};
-  document.addEventListener('keydown', function(e){
-    _k[e.key] = true;
-    if (
-      e.key === 'F12' ||
-      ((_k['Control'] || _k['Meta']) && _k['Shift'] && (_k['I'] || _k['J'] || _k['C'])) ||
-      ((_k['Control'] || _k['Meta']) && _k['U']) ||
-      ((_k['Control'] || _k['Meta']) && _k['S'])
-    ) { e.preventDefault(); e.stopPropagation(); return false; }
+document.getElementById('themeBtn').addEventListener('click', toggleTheme);
+document.getElementById('langBtn').addEventListener('click', toggleLang);
+document.getElementById('menuBtn').addEventListener('click', toggleMenu);
+document.querySelector('.ts-prev').addEventListener('click', function() { slideTestimonials(-1); });
+document.querySelector('.ts-next').addEventListener('click', function() { slideTestimonials(1); });
+document.getElementById('waClose').addEventListener('click', toggleWaPopup);
+document.getElementById('waFloat').addEventListener('click', toggleWaPopup);
+document.getElementById('waSend').addEventListener('click', sendWaCustom);
+document.getElementById('waInput').addEventListener('keydown', function(event) {
+  if (event.key === 'Enter') sendWaCustom();
+});
+document.querySelectorAll('.wa-quick').forEach(function(button) {
+  button.addEventListener('click', function() {
+    sendQuickWa(Number(button.dataset.waIndex));
   });
-  document.addEventListener('keyup', function(e){ delete _k[e.key]; });
-  document.addEventListener('contextmenu', function(e){ e.preventDefault(); });
-  document.addEventListener('dragstart', function(e){ e.preventDefault(); });
-  document.addEventListener('selectstart', function(e){ if(e.target.tagName!=='INPUT'&&e.target.tagName!=='TEXTAREA') e.preventDefault(); });
+});
+document.getElementById('btt').addEventListener('click', function() {
+  window.scrollTo({top: 0, behavior: 'smooth'});
+});
 
-  document.querySelectorAll('form').forEach(function(f){
-    f.addEventListener('submit', function(){
-      f.querySelectorAll('input, textarea, select').forEach(function(el){
-        if (el.value) {
-          el.value = el.value.replace(/[<>"'`]/g, '').replace(/javascript:/gi, '').replace(/on\w+=/gi, '');
-        }
-      });
-    });
-  });
-
-  document.querySelectorAll('a[target="_blank"]').forEach(function(a){
-    a.setAttribute('rel', 'noopener noreferrer');
-  });
-})();
+if (currentLang === 'ar') setLanguage('ar', false);
 
 </script>
 </body>

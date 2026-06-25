@@ -1,7 +1,0 @@
-Contact: mailto:info@easternzad.com
-Contact: https://easternzad.com/#contact
-Expires: 2027-06-24T00:00:00.000Z
-Preferred-Languages: ar, en
-Canonical: https://easternzad.com/.well-known/security.txt
-Policy: https://easternzad.com/
-Acknowledgments: https://easternzad.com/humans.txt
