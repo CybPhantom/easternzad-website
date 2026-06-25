@@ -113,18 +113,16 @@ a { transition: all 0.2s; }
 .nav-mobile { display: none; background: none; border: none; color: #fff; font-size: 24px; cursor: pointer; }
 
 /* HERO */
-.hero { position: relative; overflow: hidden; background: var(--primary-dark); display: flex; flex-direction: column; }
+.hero { position: relative; overflow: hidden; background: var(--primary-dark); height: 92vh; min-height: 600px; max-height: 900px; }
 .hero-bg-layer { position: absolute; inset: 0; z-index: 1; }
-.hero-bg-layer img { width: 100%; height: 100%; object-fit: cover; object-position: center center; }
-.hero-overlay { position: absolute; inset: 0; z-index: 2; pointer-events: none; }
-.hero-overlay::before { content: ''; position: absolute; inset: 0; background: linear-gradient(to right, rgba(4,44,83,0.92) 0%, rgba(4,44,83,0.7) 28%, rgba(4,44,83,0.3) 50%, rgba(4,44,83,0.05) 100%); }
-html[lang="en"] .hero-overlay::before { background: linear-gradient(to left, rgba(4,44,83,0.92) 0%, rgba(4,44,83,0.7) 28%, rgba(4,44,83,0.3) 50%, rgba(4,44,83,0.05) 100%); }
-.hero-overlay::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(4,44,83,0.5) 0%, transparent 15%, transparent 75%, rgba(4,44,83,0.9) 100%); }
-.hero-mist { position: absolute; bottom: 0; left: 0; right: 0; height: 30%; z-index: 2; pointer-events: none; opacity: 0.12; background: radial-gradient(ellipse at 60% 100%, rgba(93,202,165,0.3) 0%, transparent 50%); animation: mistPulse 8s ease-in-out infinite; }
-@keyframes mistPulse { 0%,100% { opacity: 0.1; } 50% { opacity: 0.18; } }
-.hero-content-wrap { position: relative; z-index: 5; flex: 1; display: flex; align-items: center; padding: 100px 0 80px; }
-.hero-content-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: start; width: 100%; }
-html[lang="en"] .hero-content-grid { direction: ltr; }
+.hero-bg-layer img { width: 100%; height: 100%; object-fit: cover; object-position: 65% center; }
+.hero-overlay { position: absolute; inset: 0; z-index: 2; pointer-events: none; background: linear-gradient(to bottom, rgba(4,44,83,0.4) 0%, transparent 12%, transparent 82%, rgba(4,44,83,0.9) 100%); }
+.hero-content-wrap { position: absolute; inset: 0; z-index: 5; display: flex; padding-top: 70px; }
+.hero-content-grid { display: flex; width: 100%; height: 100%; }
+.hero-col-glass { width: 36%; background: linear-gradient(180deg, rgba(4,44,83,0.92) 0%, rgba(4,44,83,0.82) 50%, rgba(4,44,83,0.7) 100%); display: flex; flex-direction: column; justify-content: center; padding: 24px; gap: 12px; }
+html[lang="en"] .hero-col-glass { order: 2; }
+.hero-col-truck { flex: 1; position: relative; }
+html[lang="en"] .hero-col-truck { order: 1; }
 
 /* GLASS CARD BASE */
 .glass-card { background: linear-gradient(135deg, rgba(8,35,65,0.58), rgba(6,82,92,0.28)); border: 1px solid rgba(105,220,210,0.28); box-shadow: 0 18px 60px rgba(0,0,0,0.28), inset 0 1px 0 rgba(255,255,255,0.12); backdrop-filter: blur(14px) saturate(130%); -webkit-backdrop-filter: blur(14px) saturate(130%); border-radius: 24px; position: relative; overflow: hidden; }
@@ -154,12 +152,12 @@ html[lang="en"] .hero-content-grid { direction: ltr; }
 .flow-arrow { color: var(--accent-light); font-size: 14px; opacity: 0.6; }
 html[lang="en"] .flow-arrow { transform: scaleX(-1); }
 
-/* HERO STATS */
-.hero-stats-bar { position: relative; z-index: 5; backdrop-filter: blur(16px) saturate(120%); -webkit-backdrop-filter: blur(16px) saturate(120%); background: linear-gradient(135deg, rgba(8,35,65,0.7), rgba(4,44,83,0.85)); border-top: 1px solid rgba(93,202,165,0.2); }
-.hero-stats { display: flex; justify-content: center; gap: 48px; padding: 22px 0; }
-.hero-stat { text-align: center; }
-.hero-stat .num { font-size: 36px; font-weight: 800; color: var(--accent-light); display: block; font-family: 'Inter', sans-serif; }
-.hero-stat .label { font-size: 13px; color: rgba(255,255,255,0.65); }
+/* HERO STATS FLOATING */
+.hero-stats-float { position: absolute; bottom: 20px; right: 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; z-index: 6; }
+html[lang="en"] .hero-stats-float { right: auto; left: 20px; }
+.hero-stats-float .hero-stat { background: rgba(4,44,83,0.7); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid rgba(93,202,165,0.2); border-radius: 14px; padding: 14px 18px; text-align: center; }
+.hero-stat .num { font-size: 28px; font-weight: 800; color: var(--accent-light); display: block; font-family: 'Inter', sans-serif; }
+.hero-stat .label { font-size: 11px; color: rgba(255,255,255,0.65); }
 
 /* FROST PARTICLES */
 .frost-particle { position: absolute; width: 3px; height: 3px; background: rgba(200,230,255,0.5); border-radius: 50%; z-index: 3; pointer-events: none; animation: frostDrift var(--dur, 12s) linear infinite; opacity: 0; }
@@ -186,23 +184,19 @@ html[lang="en"][data-theme="dark"] .hero-overlay::before { background: linear-gr
 
 /* HERO RESPONSIVE */
 @media (max-width: 1024px) {
-  .hero-content-grid { grid-template-columns: 1fr; }
-  .hero-flows { flex-direction: row; flex-wrap: wrap; }
-  .flow-card { flex: 1; min-width: 240px; }
+  .hero-col-glass { width: 45%; padding: 20px; }
   .hero-temp-card { max-width: 100%; }
 }
 @media (max-width: 768px) {
-  .hero { min-height: auto; }
-  .hero-content-wrap { padding: 90px 0 30px; }
-  .hero-overlay::before { background: rgba(4,44,83,0.65) !important; }
-  .hero-temp-card { padding: 20px; }
-  .temp-title { font-size: 17px; }
-  .hero-flows { flex-direction: column; }
-  .flow-card { padding: 14px 16px; }
+  .hero-content-grid { flex-direction: column; }
+  .hero-col-glass { width: 100%; background: rgba(4,44,83,0.8); padding: 16px; gap: 10px; }
+  .hero-col-truck { display: none; }
+  .hero-temp-card { padding: 16px; }
+  .temp-title { font-size: 16px; }
+  .flow-card { padding: 12px 14px; }
   .flow-step-icon { width: 34px; height: 34px; font-size: 14px; }
-  .hero-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 12px 24px; padding: 16px 20px; }
-  .hero-stat .num { font-size: 26px; }
-  .hero-stat .label { font-size: 11px; }
+  .hero-stat .num { font-size: 22px; }
+  .hero-stat .label { font-size: 10px; }
   .frost-particle { display: none; }
 }
 @media (prefers-reduced-motion: reduce) {
@@ -590,67 +584,50 @@ html[dir="ltr"] .btt { right: auto; left: 28px; }
   <span class="frost-particle" style="top:45%;right:45%;--dur:18s;--dx:-15px;--dy:-90px"></span>
   <span class="frost-particle" style="top:30%;right:55%;--dur:15s;--dx:10px;--dy:-65px"></span>
 
-  <!-- Content -->
+  <!-- Content Overlay -->
   <div class="hero-content-wrap">
-    <div class="container">
-      <div class="hero-content-grid">
-        <!-- Column 1: Empty space for truck (appears RIGHT in AR, LEFT in EN) -->
-        <div></div>
-        <!-- Column 2: Glass UI (appears LEFT in AR, RIGHT in EN) -->
-        <div>
-          <!-- Temperature Gauge -->
-          <div class="glass-card hero-temp-card">
-            <div class="temp-title" id="temp-title">نقل مبرد ومجمد بدرجات حرارة متعددة</div>
-            <div class="temp-range" id="temp-range">من +18°C إلى -40°C</div>
-            <div class="gauge-track">
-              <div class="gauge-glow"></div>
-              <div class="gauge-thumb" id="gauge-thumb" style="left:85%"></div>
-            </div>
-            <div class="gauge-labels"><span>+18°C</span><span>-40°C</span></div>
-            <div class="gauge-mode" id="gauge-mode">مبرد: +18°C إلى +5°C</div>
-            <div class="gauge-note" id="gauge-note">حسب نوع المنتج والمركبة</div>
+    <div class="hero-content-grid">
+      <!-- Glass panel: LEFT in AR, RIGHT in EN -->
+      <div class="hero-col-glass">
+        <div class="glass-card hero-temp-card">
+          <div class="temp-title" id="temp-title">نقل مبرد ومجمد بدرجات حرارة متعددة</div>
+          <div class="temp-range" id="temp-range">من +18°C إلى -40°C</div>
+          <div class="gauge-track"><div class="gauge-glow"></div><div class="gauge-thumb" id="gauge-thumb" style="left:85%"></div></div>
+          <div class="gauge-labels"><span>+18°C</span><span>-40°C</span></div>
+          <div class="gauge-mode" id="gauge-mode">مبرد: +18°C إلى +5°C</div>
+          <div class="gauge-note" id="gauge-note">حسب نوع المنتج والمركبة</div>
+        </div>
+        <div class="glass-card flow-card">
+          <div class="flow-card-title" id="fc1-title"><i class="fas fa-route"></i> خدمات لوجستية Mid-Mile</div>
+          <div class="flow-steps">
+            <div class="flow-step"><div class="flow-step-icon"><i class="fas fa-warehouse"></i></div><span class="flow-step-label" id="fs1-1">مستودعك</span></div>
+            <i class="fas fa-arrow-left flow-arrow"></i>
+            <div class="flow-step"><div class="flow-step-icon"><i class="fas fa-truck"></i></div><span class="flow-step-label" id="fs1-2">أسطولنا</span></div>
+            <i class="fas fa-arrow-left flow-arrow"></i>
+            <div class="flow-step"><div class="flow-step-icon"><i class="fas fa-store-alt"></i></div><span class="flow-step-label" id="fs1-3">فروعك</span></div>
           </div>
-
-          <!-- Service Flows -->
-          <div class="hero-flows" style="margin-top:16px">
-            <div class="glass-card flow-card">
-              <div class="flow-card-title" id="fc1-title"><i class="fas fa-route"></i> خدمات لوجستية Mid-Mile</div>
-              <div class="flow-steps">
-                <div class="flow-step"><div class="flow-step-icon"><i class="fas fa-warehouse"></i></div><span class="flow-step-label" id="fs1-1">مستودعك</span></div>
-                <i class="fas fa-arrow-left flow-arrow"></i>
-                <div class="flow-step"><div class="flow-step-icon"><i class="fas fa-truck"></i></div><span class="flow-step-label" id="fs1-2">أسطولنا</span></div>
-                <i class="fas fa-arrow-left flow-arrow"></i>
-                <div class="flow-step"><div class="flow-step-icon"><i class="fas fa-store-alt"></i></div><span class="flow-step-label" id="fs1-3">فروعك</span></div>
-              </div>
-            </div>
-            <div class="glass-card flow-card">
-              <div class="flow-card-title" id="fc2-title"><i class="fas fa-boxes-stacked"></i> خدمات التخزين والتوزيع</div>
-              <div class="flow-steps">
-                <div class="flow-step"><div class="flow-step-icon"><i class="fas fa-box-open"></i></div><span class="flow-step-label" id="fs2-1">منتجك</span></div>
-                <i class="fas fa-arrow-left flow-arrow"></i>
-                <div class="flow-step"><div class="flow-step-icon"><i class="fas fa-warehouse"></i></div><span class="flow-step-label" id="fs2-2">مستودعنا</span></div>
-                <i class="fas fa-arrow-left flow-arrow"></i>
-                <div class="flow-step"><div class="flow-step-icon"><i class="fas fa-truck"></i></div><span class="flow-step-label" id="fs2-3">أسطولنا</span></div>
-                <i class="fas fa-arrow-left flow-arrow"></i>
-                <div class="flow-step"><div class="flow-step-icon"><i class="fas fa-store"></i></div><span class="flow-step-label" id="fs2-4">عميلك</span></div>
-              </div>
-            </div>
+        </div>
+        <div class="glass-card flow-card">
+          <div class="flow-card-title" id="fc2-title"><i class="fas fa-boxes-stacked"></i> خدمات التخزين والتوزيع</div>
+          <div class="flow-steps">
+            <div class="flow-step"><div class="flow-step-icon"><i class="fas fa-box-open"></i></div><span class="flow-step-label" id="fs2-1">منتجك</span></div>
+            <i class="fas fa-arrow-left flow-arrow"></i>
+            <div class="flow-step"><div class="flow-step-icon"><i class="fas fa-warehouse"></i></div><span class="flow-step-label" id="fs2-2">مستودعنا</span></div>
+            <i class="fas fa-arrow-left flow-arrow"></i>
+            <div class="flow-step"><div class="flow-step-icon"><i class="fas fa-truck"></i></div><span class="flow-step-label" id="fs2-3">أسطولنا</span></div>
+            <i class="fas fa-arrow-left flow-arrow"></i>
+            <div class="flow-step"><div class="flow-step-icon"><i class="fas fa-store"></i></div><span class="flow-step-label" id="fs2-4">عميلك</span></div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
-
-  <!-- Stats Bar -->
-  <div class="hero-stats-bar">
-    <div class="container">
-      <div class="hero-stats">
-        <div class="hero-stat"><span class="num counter" data-target="5500">0</span><span class="label" id="hs1">عميل ونقطة بيع</span></div>
-        <div class="hero-stat"><span class="num counter" data-target="8">0</span><span class="label" id="hs2">مناطق مغطاة</span></div>
-        <div class="hero-stat"><span class="num counter" data-target="70">0</span><span class="label" id="hs3">شاحنة مبرّدة</span></div>
-        <div class="hero-stat"><span class="num counter" data-target="24">0</span><span class="label" id="hs4">ساعة خدمة</span></div>
-      </div>
-    </div>
+      <!-- Truck space: RIGHT in AR, LEFT in EN -->
+      <div class="hero-col-truck">
+        <div class="hero-stats-float">
+          <div class="hero-stat"><span class="num counter" data-target="5500">0</span><span class="label" id="hs1">عميل ونقطة بيع</span></div>
+          <div class="hero-stat"><span class="num counter" data-target="8">0</span><span class="label" id="hs2">مناطق مغطاة</span></div>
+          <div class="hero-stat"><span class="num counter" data-target="70">0</span><span class="label" id="hs3">شاحنة مبرّدة</span></div>
+          <div class="hero-stat"><span class="num counter" data-target="24">0</span><span class="label" id="hs4">ساعة خدمة</span></div>
+        </div>
   </div>
 </section>
 
