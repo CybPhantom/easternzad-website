@@ -26,7 +26,7 @@
 <link rel="alternate" hreflang="ar" href="https://easternzad.com">
 <link rel="alternate" hreflang="en" href="https://easternzad.com?lang=en">
 <link rel="alternate" hreflang="x-default" href="https://easternzad.com">
-<link rel="preload" as="image" href="assets/hero-bg-ar-v3.webp" type="image/webp" fetchpriority="high">
+<link rel="preload" as="image" href="assets/hero-bg-ar-light-v4.webp" type="image/webp" fetchpriority="high">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌾</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -96,7 +96,7 @@ a { transition: all 0.2s; }
 [data-theme="dark"] .nav.scrolled { background: rgba(11,25,41,0.95); }
 .nav .container { display: flex; align-items: center; justify-content: space-between; }
 .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
-.nav-logo span { color: var(--white); font-size: 22px; font-weight: 700; }
+.nav-logo span { color: #fff; font-size: 22px; font-weight: 700; }
 .nav.scrolled .nav-logo span { color: #fff; }
 .nav-logo-img { height: 40px; width: auto; object-fit: contain; border-radius: 6px; }
 .nav-links { display: flex; gap: 28px; list-style: none; }
@@ -583,8 +583,8 @@ html[dir="ltr"] .btt { right: auto; left: 28px; }
     <img
       class="hero-img"
       id="heroImage"
-      src="assets/hero-bg-ar-v3.webp"
-      alt="شاحنة نقل مبرّد أمام مستودع حديث لزاد الشرقية"
+      src="assets/hero-bg-ar-light-v4.webp"
+      alt="شاحنة زاد الشرقية بشعار الشركة أمام مستودع يحمل شعارًا بارزًا"
       width="1915"
       height="821"
       loading="eager"
@@ -1120,9 +1120,11 @@ function toggleMenu() {
 // Theme toggle
 function toggleTheme() {
   const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-  document.documentElement.setAttribute('data-theme', isDark ? '' : 'dark');
+  const nextTheme = isDark ? 'light' : 'dark';
+  document.documentElement.setAttribute('data-theme', nextTheme === 'dark' ? 'dark' : '');
   document.getElementById('themeBtn').innerHTML = isDark ? '<i class="fas fa-moon"></i>' : '<i class="fas fa-sun"></i>';
-  localStorage.setItem('ez-theme', isDark ? 'light' : 'dark');
+  localStorage.setItem('ez-theme', nextTheme);
+  updateHeroImage(currentLang, nextTheme);
 }
 (function() {
   const saved = localStorage.getItem('ez-theme');
@@ -1284,32 +1286,36 @@ const EN = {
 
 const HERO_ASSETS = {
   ar: {
-    src: 'assets/hero-bg-ar-v3.webp',
-    alt: 'شاحنة نقل مبرّد أمام مستودع حديث لزاد الشرقية',
+    light: 'assets/hero-bg-ar-light-v4.webp',
+    dark: 'assets/hero-bg-ar-dark-v4.webp',
+    alt: 'شاحنة زاد الشرقية بشعار الشركة أمام مستودع يحمل شعارًا بارزًا',
     modesLabel: 'نطاقات درجات الحرارة'
   },
   en: {
-    src: 'assets/hero-bg-en-v3.webp',
-    alt: 'Refrigerated transport truck outside a modern Eastern Zad warehouse',
+    light: 'assets/hero-bg-en-light-v4.webp',
+    dark: 'assets/hero-bg-en-dark-v4.webp',
+    alt: 'Branded Eastern Zad refrigerated truck outside its signed warehouse',
     modesLabel: 'Temperature ranges'
   }
 };
 
 let currentLang = 'ar';
 
-function updateHeroImage(lang) {
+function updateHeroImage(lang, requestedTheme) {
   const heroImage = document.getElementById('heroImage');
   const asset = HERO_ASSETS[lang];
   if (!heroImage || !asset) return;
+  const theme = requestedTheme || (document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light');
+  const nextSrc = asset[theme];
   heroImage.alt = asset.alt;
   const modes = document.getElementById('tempModes');
   if (modes) modes.setAttribute('aria-label', asset.modesLabel);
-  if (heroImage.getAttribute('src') === asset.src) return;
+  if (heroImage.getAttribute('src') === nextSrc) return;
 
   heroImage.classList.add('is-changing');
   const preload = new Image();
   preload.onload = function() {
-    heroImage.src = asset.src;
+    heroImage.src = nextSrc;
     requestAnimationFrame(function() {
       heroImage.classList.remove('is-changing');
     });
@@ -1317,7 +1323,7 @@ function updateHeroImage(lang) {
   preload.onerror = function() {
     heroImage.classList.remove('is-changing');
   };
-  preload.src = asset.src;
+  preload.src = nextSrc;
 }
 
 function setLanguage(lang, updateUrl) {
