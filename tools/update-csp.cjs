@@ -12,23 +12,63 @@ function walk(dir) {
   });
 }
 
+function findElements(source, tagName) {
+  const lower = source.toLowerCase();
+  const openToken = `<${tagName}`;
+  const closeToken = `</${tagName}`;
+  const elements = [];
+  let cursor = 0;
+
+  while (cursor < source.length) {
+    let openStart = lower.indexOf(openToken, cursor);
+    while (openStart !== -1) {
+      const next = lower[openStart + openToken.length];
+      if (next === '>' || /\s/.test(next)) break;
+      openStart = lower.indexOf(openToken, openStart + openToken.length);
+    }
+    if (openStart === -1) break;
+    const openEnd = lower.indexOf('>', openStart + openToken.length);
+    if (openEnd === -1) break;
+
+    let closeStart = lower.indexOf(closeToken, openEnd + 1);
+    while (closeStart !== -1) {
+      const next = lower[closeStart + closeToken.length];
+      if (next === '>' || /\s/.test(next)) break;
+      closeStart = lower.indexOf(closeToken, closeStart + closeToken.length);
+    }
+    if (closeStart === -1) break;
+    const closeEnd = lower.indexOf('>', closeStart + closeToken.length);
+    if (closeEnd === -1) break;
+
+    elements.push({
+      openingTag: source.slice(openStart, openEnd + 1),
+      content: source.slice(openEnd + 1, closeStart),
+      start: openStart,
+      contentEnd: closeStart,
+      end: closeEnd + 1
+    });
+    cursor = closeEnd + 1;
+  }
+  return elements;
+}
+
 for (const file of walk(root).filter((name) => name.endsWith('.html'))) {
   let html = fs.readFileSync(file, 'utf8');
 
   if (html.includes('id="langBtn"') && html.includes('onclick="toggleLang()"')) {
     html = html.replace(/\s+onclick="toggleLang\(\)"/g, '');
-    const scripts = [...html.matchAll(/<script(?![^>]*type="application\/ld\+json")[^>]*>[\s\S]*?<\/script>/gi)];
+    const scripts = findElements(html, 'script')
+      .filter((script) => !script.openingTag.toLowerCase().includes('application/ld+json'));
     const last = scripts.at(-1);
     if (last) {
-      const closing = last.index + last[0].lastIndexOf('</script>');
-      html = html.slice(0, closing)
+      html = html.slice(0, last.contentEnd)
         + "\ndocument.getElementById('langBtn').addEventListener('click', toggleLang);\n"
-        + html.slice(closing);
+        + html.slice(last.contentEnd);
     }
   }
 
-  const hashes = [...html.matchAll(/<script(?:\s[^>]*)?>([\s\S]*?)<\/script>/gi)]
-    .map((match) => match[1].replace(/\r\n?/g, '\n'))
+  const hashes = findElements(html, 'script')
+    .map((script) => script.content.replace(/\r\n?/g, '\n'))
     .map((script) => `'sha256-${crypto.createHash('sha256').update(script, 'utf8').digest('base64')}'`);
   const hasFrame = /<iframe\b/i.test(html);
   const scriptPolicy = hashes.length ? `script-src 'self' ${hashes.join(' ')}` : "script-src 'none'";
