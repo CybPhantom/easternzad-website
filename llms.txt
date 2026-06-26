@@ -6,8 +6,8 @@
 - Name (EN): Eastern Zad Company
 - Industry: Cold chain logistics, refrigerated food distribution, exclusive food agencies
 - Country: Saudi Arabia
-- Headquarters: Umm Al Sahk, Qatif, Eastern Province, Saudi Arabia
-- Coordinates: 26.5644, 49.9983
+- Headquarters: Jubail Industrial City, Eastern Province, Saudi Arabia
+- Coordinates: 26.959771, 49.568742
 - Email: info@easternzad.com
 - WhatsApp: +966 54 071 2087
 - Phone: tel:+966540712087
@@ -21,7 +21,7 @@
 - Restaurant and hospitality chilled supply
 
 ## Coverage (9 regions)
-Eastern Province HQ (Dammam, Khobar, Qatif), Riyadh, Jeddah, Madinah, Yanbu, Hail, Qassim, Jazan, Asir
+Eastern Province HQ (Jubail Industrial City, Dammam, Khobar), Riyadh, Jeddah, Madinah, Yanbu, Hail, Qassim, Jazan, Asir
 
 ## Scale
 - 5,500+ client outlets
@@ -48,7 +48,7 @@ Arabic (primary), English — toggle on website or ?lang=en
 - geo.txt: https://easternzad.com/geo.txt
 
 ## GEO pages (local search — one per region)
-- Eastern Province / Dammam / Qatif: https://easternzad.com/geo/eastern-province.html
+- Eastern Province / Jubail Industrial City / Dammam: https://easternzad.com/geo/eastern-province.html
 - Riyadh: https://easternzad.com/geo/riyadh.html
 - Jeddah: https://easternzad.com/geo/jeddah.html
 - Madinah: https://easternzad.com/geo/madinah.html
@@ -60,7 +60,7 @@ Arabic (primary), English — toggle on website or ?lang=en
 - Sitemap: https://easternzad.com/sitemap.xml
 
 ## Keywords (search)
-توزيع مبرّد، نقل مجمد، سلسلة التبريد، مستودعات مبردة، توزيع غذائي السعودية، شركة توزيع القطيف، cold chain Saudi Arabia, refrigerated distribution KSA
+توزيع مبرّد، نقل مجمد، سلسلة التبريد، مستودعات مبردة، توزيع غذائي السعودية، شركة توزيع الجبيل، cold chain Saudi Arabia, refrigerated distribution KSA
 
 ## Contact for quotes
 Website quote form, WhatsApp +966540712087, or email info@easternzad.com

@@ -1,8 +1,8 @@
 # geo.txt — Geographic coverage for Eastern Zad Company
 # Machine-readable location index: https://easternzad.com/geo.json
 
-headquarters: Umm Al Sahk, Qatif, Eastern Province, Saudi Arabia
-coordinates: 26.5644, 49.9983
+headquarters: Jubail Industrial City, Eastern Province, Saudi Arabia
+coordinates: 26.959771, 49.568742
 country: SA
 phone: +966540712087
 email: info@easternzad.com
@@ -19,4 +19,4 @@ email: info@easternzad.com
 - Asir: https://easternzad.com/geo/asir.html
 
 ## Local search keywords (AR)
-توزيع مبرّد الدمام | نقل مجمد الرياض | توزيع غذائي جدة | سلسلة تبريد القطيف | شركة توزيع الخبر
+توزيع مبرّد الدمام | نقل مجمد الرياض | توزيع غذائي جدة | سلسلة تبريد الجبيل | شركة توزيع الخبر

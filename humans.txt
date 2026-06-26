@@ -2,7 +2,7 @@
 Company: Eastern Zad Trading Co. / زاد الشرقية للتجارة
 Site: https://easternzad.com
 Contact: info@easternzad.com
-Location: Umm Al Sahk, Qatif, Eastern Province, Saudi Arabia
+Location: Jubail Industrial City, Eastern Province, Saudi Arabia
 
 /* DEVELOPER & DESIGNER */
 Developer: CybPhantom Digital Solutions
