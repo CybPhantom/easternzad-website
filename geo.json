@@ -1,9 +1,9 @@
 {
   "organization": "Eastern Zad Company",
   "headquarters": {
-    "name": "Umm Al Sahk, Qatif",
-    "lat": 26.5644,
-    "lng": 49.9983,
+    "name": "Jubail Industrial City",
+    "lat": 26.959771,
+    "lng": 49.568742,
     "country": "SA"
   },
   "regions": [
@@ -11,8 +11,8 @@
       "slug": "eastern-province",
       "name_ar": "المنطقة الشرقية",
       "name_en": "Eastern Province",
-      "lat": 26.5644,
-      "lng": 49.9983,
+      "lat": 26.959771,
+      "lng": 49.568742,
       "hq": true,
       "url": "https://easternzad.com/geo/eastern-province.html"
     },
